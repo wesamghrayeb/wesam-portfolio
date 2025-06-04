@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wesam Ghrayeb | Software Engineer Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f8f9fb;
+      color: #222;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      padding: 80px 20px 60px;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid white;
+      object-fit: cover;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+
+    .hero h1 {
+      font-size: 32px;
+      margin: 20px 0 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin: auto;
+      color: #ccc;
+    }
+
+    .cta-buttons {
+      margin-top: 20px;
+    }
+
+    .cta-buttons a {
+      background: #00ccff;
+      color: #fff;
+      padding: 10px 25px;
+      margin: 8px;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .cta-buttons a:hover {
+      background: #009ecb;
+    }
+
+    .section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 26px;
+      color: #1c1c1c;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .skill-item {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      width: 140px;
+      transition: transform 0.3s ease;
+    }
+
+    .skill-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .skill-item i {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #1c4bb6;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    }
+
+    .experience-item {
+      margin-bottom: 30px;
+    }
+
+    .experience-item h4 {
+      margin-bottom: 5px;
+      font-size: 18px;
+      color: #1c4bb6;
+    }
+
+    .experience-item p {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button {
+      background: #1c4bb6;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #14388c;
+    }
+
+    #form-success {
+      display: none;
+      color: green;
+      text-align: center;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #00ccff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <img src="logo.jpg" alt="Wesam Ghrayeb">
+  <h1>Wesam Ghrayeb</h1>
+  <p>Full-Stack Software Engineer | MERN | Android | ERP | Cloud | UI/UX</p>
+  <div class="cta-buttons">
+    <a href="CV_Wesam_25.pdf" download><i class="fa-solid fa-download"></i> Download CV</a>
+    <a href="mailto:wesamghrayeeb1@gmail.com"><i class="fa-solid fa-envelope"></i> Hire Me</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <h2>About Me</h2>
+  <p style="max-width:700px; margin:auto; text-align:center;">
+    I’m a software engineer with a B.Sc in Software Engineering from Ort Braude College (3 Dean’s Honors).
+    I build scalable web and mobile apps using Java, React, Node.js, MongoDB, Android, and more.
+    I love problem-solving, clean design, and turning ideas into beautiful code.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <h2>Tech Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-item"><i class="fab fa-react"></i><span> React JS</span></div>
+    <div class="skill-item"><i class="fab fa-node-js"></i><span> Node JS</span></div>
+    <div class="skill-item"><i class="fab fa-java"></i><span> Java</span></div>
+    <div class="skill-item"><i class="fas fa-database"></i><span> MongoDB / MySQL</span></div>
+    <div class="skill-item"><i class="fab fa-android"></i><span> Android Studio</span></div>
+    <div class="skill-item"><i class="fas fa-cloud"></i><span> AWS Cloud</span></div>
+    <div class="skill-item"><i class="fas fa-code"></i><span> OOP & Algorithms</span></div>
+    <div class="skill-item"><i class="fab fa-git-alt"></i><span> Git / GitHub</span></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <h2>Experience</h2>
+
+  <div class="experience-item">
+    <h4>💻 Web Developer | WJS Digital Innovations Ltd <span style="font-weight:400;">(2024–Present)</span></h4>
+    <p>
+      Developed full-stack platforms using MERN and Priority ERP. Built e-commerce store for 30K+ products. Integrated APIs, SEO, and automation.
+    </p>
+    <p><strong>Tech:</strong> React.js, Node.js, MongoDB, Wix Velo, Priority ERP</p>
+  </div>
+
+  <div class="experience-item">
+    <h4>🎓 Instructor | Teaching <span style="font-weight:400;">(2021–Present)</span></h4>
+    <p>
+      Taught C, Java, Python, and math to academic and high school students. Focused on real-world logic & problem-solving.
+    </p>
+  </div>
+
+  <div class="experience-item">
+    <h4>☁️ AWS re/Start Program <span style="font-weight:400;">(2024)</span></h4>
+    <p>
+      Hands-on cloud training with EC2, S3, IAM, and CI/CD pipelines for deployment.
+    </p>
+  </div>
+
+  <div class="experience-item">
+    <h4>🛠 Freelance Developer <span style="font-weight:400;">(2022–2023)</span></h4>
+    <p>
+      Built trading bots, Android apps, dashboards for clients. Delivered full projects from wireframe to production.
+    </p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <h2>Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card"><h4>🚀 Flying Packages</h4><p>MERN delivery app with live updates and dashboards.</p></div>
+    <div class="project-card"><h4>🍔 Bite Me</h4><p>Food ordering system using Java & MySQL.</p></div>
+    <div class="project-card"><h4>📱 Android Apps</h4><p>Car Finder, Property Finder, Reminder App, Books Library</p></div>
+    <div class="project-card"><h4>📈 Trading Bots</h4><p>Auto-trading bots using Python & MetaTrader APIs.</p></div>
+    <div class="project-card"><h4>🕹 Gaming Coins Store</h4><p>E-commerce MERN site + admin panel + Stripe.</p></div>
+    <div class="project-card"><h4>🛒 Wix Auto Parts</h4><p>Store for 30K+ parts with custom Wix code.</p></div>
+    <div class="project-card"><h4>☁️ AWS Deployment</h4><p>CI/CD project using EC2, S3, GitHub Actions.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <h2>Contact Me</h2>
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contact-form">
+    <input type="hidden" name="form-name" value="contact" />
+    <p style="display:none">
+      <label>Don’t fill this out: <input name="bot-field" /></label>
+    </p>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+  <p id="form-success">✅ Message sent successfully. Thank you!</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Built by Wesam Ghrayeb © 2025 | <a href="mailto:wesamghrayeeb1@gmail.com">Contact Me</a>
+</footer>
+
+<!-- CONTACT JS -->
+<script>
+  const form = document.getElementById('contact-form');
+  const successMessage = document.getElementById('form-success');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    })
+    .then(() => {
+      form.reset();
+      successMessage.style.display = 'block';
+    })
+    .catch((error) => {
+      alert("Something went wrong. Please try again.");
+      console.error(error);
+    });
+  });
+</script>
+
+</body>
+</html>
