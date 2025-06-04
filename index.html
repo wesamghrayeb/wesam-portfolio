@@ -292,16 +292,13 @@
 <!-- CONTACT -->
 <section class="section" id="contact">
   <h2>Contact Me</h2>
-  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-    <input type="hidden" name="form-name" value="contact" />
-    <p style="display:none">
-      <label>Don’t fill this out: <input name="bot-field" /></label>
-    </p>
-    <input type="text" name="name" placeholder="Your Name" required />
-    <input type="email" name="email" placeholder="Your Email" required />
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
-  </form>
+ <form name="contact" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="contact">
+  <input type="text" name="name" required />
+  <input type="email" name="email" required />
+  <textarea name="message" required></textarea>
+  <button type="submit">Send</button>
+</form>
 
   <!-- Optional: Success page -->
 </section>
