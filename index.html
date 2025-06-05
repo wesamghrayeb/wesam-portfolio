@@ -1,12 +1,16 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wesam Ghrayeb | Full-Stack Software Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      scroll-behavior: smooth;
+    }
     body {
       margin: 0;
       font-family: 'Roboto', sans-serif;
@@ -14,10 +18,60 @@
       color: #222;
       transition: background 0.3s, color 0.3s;
     }
-    .dark-mode {
-      background: #1e1e1e;
-      color: #ddd;
-    }
+.dark-mode {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+/* Main containers (sections and headers) */
+.dark-mode .hero,
+.dark-mode .section,
+.dark-mode footer,
+.dark-mode .footer-social {
+  background: #1e1e1e;
+  color: #ddd;
+}
+
+/* Cards and grid items */
+.dark-mode .skill-item,
+.dark-mode .project-card,
+.dark-mode .experience-card,
+.dark-mode .about-card {
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Highlights */
+.dark-mode .skill-item i,
+.dark-mode .experience-card h4,
+.dark-mode .project-card h4,
+.dark-mode .about-card i {
+  color: #00ccff;
+}
+
+/* Inputs & Textareas in contact form */
+.dark-mode input,
+.dark-mode textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+/* Submit Button */
+.dark-mode button {
+  background: #00ccff;
+  color: #111;
+}
+.dark-mode button:hover {
+  background: #00aacc;
+}
+
+/* Social Icons */
+.dark-mode .social-icons-circle a {
+  background-color: #333;
+  color: #fff;
+}
     .theme-toggle {
       position: fixed;
       top: 20px;
@@ -31,91 +85,88 @@
       padding: 10px;
       border-radius: 50%;
       cursor: pointer;
+      box-shadow: 0 0 8px rgba(0,0,0,0.3);
     }
     .hero {
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: radial-gradient(ellipse at top, #203a43, #0f2027);
       color: white;
-      padding: 80px 20px 60px;
+      padding: 100px 20px 60px;
       text-align: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 42px;
+      margin-top: 20px;
     }
     .hero img {
-      width: 130px;
-      height: 130px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
       border: 4px solid white;
       object-fit: cover;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
     .cta-buttons {
-      margin-top: 20px;
+      margin-top: 25px;
     }
     .cta-buttons .btn {
-      background: #00ccff;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
       color: #fff;
-      padding: 10px 25px;
-      margin: 8px;
-      border-radius: 25px;
+      padding: 12px 28px;
+      margin: 10px;
+      border-radius: 30px;
       text-decoration: none;
-      transition: 0.3s;
-      display: inline-block;
+      font-weight: bold;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .cta-buttons .btn:hover {
-      background: #009ecb;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     }
     .section {
-      padding: 60px 20px;
-      max-width: 1000px;
+      padding: 80px 20px;
+      max-width: 1100px;
       margin: auto;
       text-align: center;
     }
     .section h2 {
+      font-size: 32px;
       margin-bottom: 30px;
-      font-size: 26px;
+      position: relative;
+      display: inline-block;
     }
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
-    .skill-item {
-      background: white;
-      padding: 15px 20px;
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: #00ccff;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      font-weight: bold;
-      transition: transform 0.3s ease;
     }
-    .skill-item:hover {
-      transform: translateY(-6px);
-    }
-    .experience-item {
-      margin-bottom: 30px;
-      text-align: left;
-    }
-    .experience-item h3 {
-      color: #1c4bb6;
-      margin-bottom: 5px;
-    }
-    .experience-item p {
-      margin: 0 0 10px;
-      line-height: 1.6;
-    }
-    .projects-grid {
+    .skills-grid, .experience-grid, .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 25px;
+      margin-top: 40px;
     }
-    .project-card {
-      background: white;
+    .skill-item, .experience-card, .project-card {
+      background: #fff;
       padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: 0.3s ease;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .project-card:hover {
+    .skill-item:hover, .experience-card:hover, .project-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .experience-card h4, .project-card h4 {
+      color: #1c4bb6;
     }
     form {
       max-width: 500px;
@@ -146,7 +197,7 @@
     }
     .footer-social {
       background-color: #222;
-      padding: 40px 0 20px;
+      padding: 50px 20px;
       text-align: center;
       color: #fff;
     }
@@ -169,10 +220,9 @@
       text-decoration: none;
       transition: all 0.3s ease;
     }
-    .social-icons-circle a.github:hover { background-color: #333; color: #fff; }
-    .social-icons-circle a.linkedin:hover { background-color: #0077b5; color: #fff; }
-    .social-icons-circle a.email:hover { background-color: #d44638; color: #fff; }
-    .social-icons-circle a.phone:hover { background-color: #34a853; color: #fff; }
+    .social-icons-circle a:hover {
+      transform: scale(1.1);
+    }
     .footer-note-line {
       font-size: 0.95rem;
       color: #ccc;
@@ -200,108 +250,76 @@
     </div>
   </header>
 
-<section class="section animate" id="about">
-  <h2>About Me</h2>
-  <div class="about-wrapper">
-    <div class="about-text">
-      <p class="about-intro">
-        👋 Hi, I'm <strong>Wesam Ghrayeb</strong> — a passionate Software Engineer with a B.Sc from Ort Braude College,
-        honored 3 times on the Dean’s List.
-      </p>
+  <section class="section animate" id="about">
+    <h2>About Me</h2>
+    <p>👋 Hi, I'm Wesam – Software Engineer with B.Sc from Ort Braude (Dean’s List x3), passionate about clean code, UI/UX and building products that scale.</p>
+  </section>
 
-      <div class="about-cards">
-        <div class="about-card">
-          <i class="fas fa-laptop-code"></i>
-          <p>I specialize in building <strong>scalable web & mobile apps</strong> using React, Node.js, Java, and Android.</p>
-        </div>
-        <div class="about-card">
-          <i class="fas fa-brain"></i>
-          <p>I’m focused on <strong>clean architecture</strong>, <strong>user-centered design</strong>, and <strong>solid backend logic</strong>.</p>
-        </div>
-        <div class="about-card">
-          <i class="fas fa-rocket"></i>
-          <p>I thrive on turning ideas into <strong>functional, beautiful, and efficient digital products</strong>.</p>
-        </div>
-      </div>
-
-      <p class="about-closing">
-        Whether you need a full-stack system, a modern UI, or a powerful API — I’m here to help build it with you.
-      </p>
-    </div>
+<section class="section animate" id="skills">
+  <h2>Tech Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-item"><i class="fab fa-react"></i> React</div>
+    <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
+    <div class="skill-item"><i class="fab fa-java"></i> Java</div>
+    <div class="skill-item"><i class="fas fa-database"></i> MongoDB / MySQL</div>
+    <div class="skill-item"><i class="fab fa-android"></i> Android</div>
+    <div class="skill-item"><i class="fas fa-cloud"></i> AWS</div>
+    <div class="skill-item"><i class="fas fa-code"></i> Algorithms</div>
+    <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+    <div class="skill-item"><i class="fas fa-project-diagram"></i> Data Structures</div>
+    <div class="skill-item"><i class="fas fa-microchip"></i> Operating Systems</div>
+    <div class="skill-item"><i class="fas fa-server"></i> Servers</div>
   </div>
 </section>
 
-  <section class="section animate" id="skills">
-    <h2>Tech Stack</h2>
-    <div class="skills-grid">
-      <div class="skill-item"><i class="fab fa-react"></i> React</div>
-      <div class="skill-item"><i class="fab fa-node-js"></i> Node.js</div>
-      <div class="skill-item"><i class="fab fa-java"></i> Java</div>
-      <div class="skill-item"><i class="fas fa-database"></i> MongoDB / MySQL</div>
-      <div class="skill-item"><i class="fab fa-android"></i> Android Studio</div>
-      <div class="skill-item"><i class="fas fa-cloud"></i> AWS</div>
-      <div class="skill-item"><i class="fas fa-code"></i> Algorithms</div>
-      <div class="skill-item"><i class="fab fa-git-alt"></i> Git</div>
+  <section class="section animate" id="experience">
+    <h2>Experience</h2>
+    <div class="experience-grid">
+      <div class="experience-card">
+        <h4>💻 Web Developer</h4>
+        <p><em>WJS Digital (2024–Present)</em></p>
+        <p>Built scalable e-commerce platforms (30K+ products), integrated Priority ERP, automated workflows.</p>
+      </div>
+      <div class="experience-card">
+        <h4>🎓 Instructor</h4>
+        <p><em>Freelance / Academic</em></p>
+        <p>Taught C, Python, Java, algorithms, and math. Real-world examples and exam prep focused.</p>
+      </div>
+      <div class="experience-card">
+        <h4>☁️ AWS re/Start</h4>
+        <p><em>2024 Cohort</em></p>
+        <p>Hands-on AWS projects with EC2, S3, IAM, Linux. CI/CD and GitHub Actions deployed.</p>
+      </div>
+      <div class="experience-card">
+        <h4>🛠 Freelance Developer</h4>
+        <p><em>Remote Projects</em></p>
+        <p>Delivered full-stack apps, Android tools, trading bots, Firebase dashboards and more.</p>
+      </div>
     </div>
   </section>
-<section class="section animate" id="experience">
-  <h2>Experience</h2>
-  <div class="experience-grid">
 
-    <div class="experience-card">
-      <h4>💻 <strong>Web Developer</strong></h4>
-      <p><em>WJS Digital Innovations Ltd (2024–Present)</em></p>
-      <p>Built e-commerce systems with MERN, integrated Priority ERP, and optimized SEO for product catalogues.</p>
+  <section class="section animate" id="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card"><h4>🚀 Flying Packages</h4><p>MERN delivery app with real-time tracking.</p></div>
+      <div class="project-card"><h4>📈 Trading Bots</h4><p>Python bots with MetaTrader automation.</p></div>
+      <div class="project-card"><h4>📱 Android Projects</h4><p>Car Finder, Real Estate, Books, Training Reminder.</p></div>
+      <div class="project-card"><h4>🛍 Gaming Store</h4><p>E-commerce site for digital coins.</p></div>
+      <div class="project-card"><h4>🛒 Wix Auto Parts</h4><p>ERP-connected site with 30K+ parts.</p></div>
+      <div class="project-card"><h4>☁️ AWS Deployment</h4><p>CI/CD with EC2, S3, and GitHub Actions.</p></div>
     </div>
+  </section>
 
-    <div class="experience-card">
-      <h4>🎓 <strong>Instructor</strong></h4>
-      <p><em>Freelance / Academic (2021–Present)</em></p>
-      <p>Taught C, Java, Python, and math. Focused on OOP, problem-solving, and exam preparation.</p>
-    </div>
-
-    <div class="experience-card">
-      <h4>☁️ <strong>AWS re/Start</strong></h4>
-      <p><em>Cloud Engineering Program (2024)</em></p>
-      <p>Hands-on training on EC2, S3, IAM, Linux, and CI/CD. Deployed full-stack apps using GitHub Actions.</p>
-    </div>
-
-    <div class="experience-card">
-      <h4>🛠 <strong>Freelance Developer</strong></h4>
-      <p><em>Remote Projects (2022–Present)</em></p>
-      <p>Developed Android apps, trading bots, dashboards, and APIs using Firebase, Python, and JavaScript.</p>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section" id="projects">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="project-card"><h4>🚀 Flying Packages</h4><p>MERN delivery app with live updates and dashboards.</p></div>
-    <div class="project-card"><h4>🍔 Bite Me</h4><p>Food ordering system using Java & MySQL.</p></div>
-    <div class="project-card"><h4>📱 Android Apps</h4><p>Car Finder, Property Finder, Reminder App, Books Library</p></div>
-    <div class="project-card"><h4>📈 Trading Bots</h4><p>Auto-trading bots using Python & MetaTrader APIs.</p></div>
-    <div class="project-card"><h4>🕹 Gaming Coins Store</h4><p>E-commerce MERN site + admin panel + Stripe.</p></div>
-    <div class="project-card"><h4>🛒 Wix Auto Parts</h4><p>Store for 30K+ parts with custom Wix code.</p></div>
-    <div class="project-card"><h4>☁️ AWS Deployment</h4><p>CI/CD project using EC2, S3, GitHub Actions.</p></div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <h2>Contact Me</h2>
- <form name="contact" method="POST" data-netlify="true">
-  <input type="hidden" name="form-name" value="contact">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit">Send</button>
-</form>
-
-  <!-- Optional: Success page -->
-</section>
+  <section class="section animate" id="contact">
+    <h2>Contact Me</h2>
+    <form name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
 
   <footer class="footer-social">
     <div class="social-icons-circle">
@@ -312,12 +330,11 @@
     </div>
     <div class="footer-note-line">Developed by Wesam Ghrayeb © 2025</div>
   </footer>
+
   <script>
-    // Dark Mode Toggle
     document.getElementById('themeToggle').addEventListener('click', () => {
       document.body.classList.toggle('dark-mode');
     });
-    // Scroll Reveal Animation
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
