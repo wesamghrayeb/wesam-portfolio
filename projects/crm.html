@@ -122,7 +122,11 @@
 .close:hover {
   color: #ff6666;
 }
-    
+    .modal-content {
+  width: auto;
+  max-width: 95vw;
+  max-height: 85vh;
+}
 
     @media (max-width: 768px) {
       h1 {
@@ -176,12 +180,12 @@
     <h2>Live Demo</h2>
     <p><a href="../index.html#contact">(Private Demo – Access on request)</a></p>
   </div>
-    <script>
+<script>
   function openModal(img) {
     const modal = document.getElementById('lightboxModal');
     const modalImg = document.getElementById('modalImage');
     modal.style.display = "block";
-    modalImg.src = img.src;
+    modalImg.src = img.getAttribute('data-full');
   }
 
   function closeModal() {
