@@ -393,7 +393,14 @@
     html {
   scroll-behavior: smooth;
 }
-  .navbar {
+
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+    .navbar {
     position: absolute;
     top: 100%;
     left: 0;
@@ -417,12 +424,6 @@
 
   .navbar__link {
     font-size: 1.2rem;
-  }
-
-@media (max-width: 768px) {
-  .header-nav {
-    flex-direction: column;
-    gap: 10px;
   }
 }
 
