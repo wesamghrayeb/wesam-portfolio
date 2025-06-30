@@ -79,18 +79,29 @@
   50% { transform: translateY(-6px); }
 }
 .header__logo img {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
-  border: 3px solid #2ea043;
-  box-shadow: 0 0 12px rgba(46, 160, 67, 0.6);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid #2ea043;
+  box-shadow: 0 0 10px rgba(46, 160, 67, 0.6);
+  transition: transform 0.3s ease;
+}
+    /* Hamburger */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  color: white;
   cursor: pointer;
 }
+    /* Responsive header layout */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    z-index: 999;
+  }
 
 .header__logo img:hover {
   transform: scale(1.1) rotate(3deg);
-  box-shadow: 0 0 20px rgba(46, 160, 67, 0.8);
 }
     header img {
       width: 160px;
@@ -382,7 +393,31 @@
     html {
   scroll-behavior: smooth;
 }
+  .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #0d1117;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+  }
 
+  .navbar.open {
+    display: flex;
+  }
+
+  .navbar__menu {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .navbar__link {
+    font-size: 1.2rem;
+  }
 
 @media (max-width: 768px) {
   .header-nav {
@@ -403,28 +438,17 @@
 </head>
 <body>
  <div class="header">
-<div class="header__logo">
-  <a href="#">
-    <img src="logo.jpg" alt="Wesam Logo" style="height: 50px; width: auto;">
-  </a>
-</div>
-  <nav class="navbar">
+  <div class="header__logo">
+    <a href="#"><img src="logo.jpg" alt="Wesam Logo" /></a>
+  </div>
+  <div class="hamburger" id="hamburger">&#9776;</div>
+  <nav class="navbar" id="navbar">
     <ul class="navbar__menu">
-      <li class="navbar__item">
-        <a href="#about" class="navbar__link"><i data-feather="user"></i><span>About</span></a>
-      </li>
-      <li class="navbar__item">
-        <a href="#skills" class="navbar__link"><i data-feather="layers"></i><span>Skills</span></a>
-      </li>
-      <li class="navbar__item">
-        <a href="#experience" class="navbar__link"><i data-feather="briefcase"></i><span>Experience</span></a>
-      </li>
-      <li class="navbar__item">
-        <a href="#projects" class="navbar__link"><i data-feather="folder"></i><span>Projects</span></a>
-      </li>
-      <li class="navbar__item">
-        <a href="#contact" class="navbar__link"><i data-feather="mail"></i><span>Contact</span></a>
-      </li>
+      <li class="navbar__item"><a href="#about" class="navbar__link"><i data-feather="user"></i><span>About</span></a></li>
+      <li class="navbar__item"><a href="#skills" class="navbar__link"><i data-feather="layers"></i><span>Skills</span></a></li>
+      <li class="navbar__item"><a href="#experience" class="navbar__link"><i data-feather="briefcase"></i><span>Experience</span></a></li>
+      <li class="navbar__item"><a href="#projects" class="navbar__link"><i data-feather="folder"></i><span>Projects</span></a></li>
+      <li class="navbar__item"><a href="#contact" class="navbar__link"><i data-feather="mail"></i><span>Contact</span></a></li>
     </ul>
   </nav>
 </div>
@@ -681,6 +705,24 @@ function type() {
   }
 }
 type();
+</script>
+  <script>
+  const hamburger = document.getElementById('hamburger');
+  const navbar = document.getElementById('navbar');
+  const links = document.querySelectorAll('.navbar__link');
+
+  hamburger.addEventListener('click', () => {
+    navbar.classList.toggle('open');
+  });
+
+  // Close menu after clicking a section
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('open');
+    });
+  });
+
+  feather.replace();
 </script>
   <!-- Accessibility Code for "wesamghrayeb.netlify.app" -->
 <script>
