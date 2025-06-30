@@ -64,7 +64,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background: #2ea043;
+  background: rgba(13, 17, 23, 0.95);;
   color: #fff;
   padding: 0 2rem;
   height: 6rem;
@@ -77,6 +77,20 @@
     @keyframes floatUpDown {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
+}
+.header__logo img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  border: 3px solid #2ea043;
+  box-shadow: 0 0 12px rgba(46, 160, 67, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.header__logo img:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 0 20px rgba(46, 160, 67, 0.8);
 }
     header img {
       width: 160px;
@@ -347,7 +361,7 @@
 }
 
 .navbar__link:hover {
-  color: #C4151C;
+  color: #2ea043;
 }
 
 .navbar__link i {
@@ -356,7 +370,7 @@
 }
 
 .navbar__link:hover i {
-  stroke: #C4151C;
+  stroke: #2ea043;
 }
 
 .navbar__link span {
