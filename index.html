@@ -59,18 +59,21 @@
       text-decoration: none;
       color: inherit;
     }
-    header {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      background: linear-gradient(to bottom, #0d1117, #161b22);
-      padding: 60px 20px;
-      animation: floatUpDown 8s ease-in-out infinite;
-
-    }
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(13, 17, 23, 0.95);
+  color: #fff;
+  padding: 0 2rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
     @keyframes floatUpDown {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-6px); }
@@ -320,7 +323,45 @@
   font-weight: 600;
   transition: color 0.3s ease;
 }
+.header__logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #C4151C;
+}
 
+.navbar__menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: 0.3s ease all;
+  font-size: 0.8rem;
+}
+
+.navbar__link:hover {
+  color: #C4151C;
+}
+
+.navbar__link i {
+  stroke: white;
+  transition: 0.3s ease;
+}
+
+.navbar__link:hover i {
+  stroke: #C4151C;
+}
+
+.navbar__link span {
+  margin-top: 4px;
+}
 .header-nav .menu a:hover {
   color: #2ea043;
 }
@@ -347,14 +388,28 @@
   </style>
 </head>
 <body>
-  <div class="header-nav">
-  <div class="logo">WESAM</div>
-  <nav class="menu">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
+ <div class="header">
+  <div class="header__logo">
+    <strong>WESAM</strong>
+  </div>
+  <nav class="navbar">
+    <ul class="navbar__menu">
+      <li class="navbar__item">
+        <a href="#about" class="navbar__link"><i data-feather="user"></i><span>About</span></a>
+      </li>
+      <li class="navbar__item">
+        <a href="#skills" class="navbar__link"><i data-feather="layers"></i><span>Skills</span></a>
+      </li>
+      <li class="navbar__item">
+        <a href="#experience" class="navbar__link"><i data-feather="briefcase"></i><span>Experience</span></a>
+      </li>
+      <li class="navbar__item">
+        <a href="#projects" class="navbar__link"><i data-feather="folder"></i><span>Projects</span></a>
+      </li>
+      <li class="navbar__item">
+        <a href="#contact" class="navbar__link"><i data-feather="mail"></i><span>Contact</span></a>
+      </li>
+    </ul>
   </nav>
 </div>
 <header class="animate glow-particles" style="position: relative; z-index: 1; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); padding: 60px 20px;">
