@@ -290,6 +290,52 @@
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+    .header-nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(13, 17, 23, 0.95);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header-nav .logo {
+  font-size: 1.5rem;
+  color: #2ea043;
+  font-weight: bold;
+}
+
+.header-nav .menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.header-nav .menu a {
+  color: #e6edf3;
+  text-transform: uppercase;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.header-nav .menu a:hover {
+  color: #2ea043;
+}
+    html {
+  scroll-behavior: smooth;
+}
+
+
+@media (max-width: 768px) {
+  .header-nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 
 /* Entrance animation */
 @keyframes fadeInUp {
@@ -301,6 +347,16 @@
   </style>
 </head>
 <body>
+  <div class="header-nav">
+  <div class="logo">WESAM</div>
+  <nav class="menu">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
 <header class="animate glow-particles" style="position: relative; z-index: 1; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(180deg, #0d1117 0%, #161b22 100%); padding: 60px 20px;">
   <div style="position: relative; animation: floatUpDown 6s ease-in-out infinite;">
     <img src="logo.jpg" alt="Wesam Ghrayeb" style="width: 170px; height: 170px; border-radius: 50%; border: 4px solid #5291e4; box-shadow: 0 0 30px rgba(230, 0, 115, 0.4); transition: transform 0.3s;">
@@ -495,7 +551,8 @@
     </div>
     <p>&copy; 2025 Wesam Ghrayeb. All Rights Reserved.</p>
   </footer>
-
+<script src="https://unpkg.com/feather-icons"></script>
+<script>feather.replace();</script>
 <script>
   // Scroll animation for all .animate elements
   const scrollElements = document.querySelectorAll('.animate');
@@ -553,6 +610,53 @@ function type() {
   }
 }
 type();
+</script>
+  <!-- Accessibility Code for "wesamghrayeb.netlify.app" -->
+<script>
+/*
+
+Want to customize your button? visit our documentation page:
+
+https://login.equalweb.com/custom-button.taf
+
+*/
+window.interdeal = {
+    "sitekey": "83b2262c637c26c3b3535f1019cc4b2f",
+    "Position": "Left",
+    "domains": {
+        "js": "https://cdn.equalweb.com/",
+        "acc": "https://access.equalweb.com/"
+    },
+    "Menulang": "HE",
+    "btnStyle": {
+        "vPosition": [
+            "80%",
+            "80%"
+        ],
+        "scale": [
+            "0.6",
+            "0.5"
+        ],
+        "color": {
+            "main": "#6e7577",
+            "second": "#ffffff"
+        },
+        "icon": {
+            "outline": false,
+            "type": 10,
+            "shape": "semicircle"
+        }
+    }
+};
+(function(doc, head, body){
+    var coreCall             = doc.createElement('script');
+    coreCall.src             = interdeal.domains.js + 'core/5.1.13/accessibility.js';
+    coreCall.defer           = true;
+    coreCall.integrity       = 'sha512-70/AbMe6C9H3r5hjsQleJEY4y5l9ykt4WYSgyZj/WjpY/ord/26LWfva163b9W+GwWkfwbP0iLT+h6KRl+LoXA==';
+    coreCall.crossOrigin     = 'anonymous';
+    coreCall.setAttribute('data-cfasync', true );
+    body? body.appendChild(coreCall) : head.appendChild(coreCall);
+})(document, document.head, document.body);
 </script>
 </body>
 </html>
