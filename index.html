@@ -647,43 +647,50 @@ type();
 
   feather.replace();
 </script>
-  <!-- Accessibility Code for "wesamghrayeb.netlify.app" -->
+<!-- Accessibility Code for "wesamghrayeb.com" -->
 <script>
 /*
-
 Want to customize your button? visit our documentation page:
-
-https://login.equalweb.com/custom-button.taf
-
+https://login.equalweb.com/custom-button
 */
 window.interdeal = {
-    "sitekey": "83b2262c637c26c3b3535f1019cc4b2f",
-    "Position": "Left",
-    "domains": {
-        "js": "https://cdn.equalweb.com/",
-        "acc": "https://access.equalweb.com/"
+    get sitekey (){ return "018b6fb5624648ac5d7a986babde9297"} ,
+    get domains(){
+        return {
+            "js": "https://cdn.equalweb.com/",
+            "acc": "https://access.equalweb.com/"
+        }
     },
-    "Menulang": "HE",
+    "Position": "left",
+    "Menulang": "AUTO",
+    "draggable": true,
     "btnStyle": {
         "vPosition": [
             "80%",
             "80%"
+        ],
+        "margin": [
+            "0",
+            "0"
         ],
         "scale": [
             "0.6",
             "0.5"
         ],
         "color": {
-            "main": "#6e7577",
+            "main": "#1c4bb6",
             "second": "#ffffff"
         },
         "icon": {
             "outline": false,
-            "type": 10,
+            "outlineColor": "#ffffff",
+            "type":  1 ,
             "shape": "semicircle"
         }
-    }
+    },
+                              
 };
+
 (function(doc, head, body){
     var coreCall             = doc.createElement('script');
     coreCall.src             = interdeal.domains.js + 'core/5.1.13/accessibility.js';
