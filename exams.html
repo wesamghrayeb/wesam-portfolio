@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Exam Success | دروس خصوصية رياضيات فيزياء وعلوم الحاسوب</title>
+  <meta name="description" content="دروس خصوصية لكل المستويات في الرياضيات والفيزياء وعلوم الحاسوب بإشراف مهندس برمجيات. نتائج أعلى بثقة — Exam Success." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg:#f7faf9; --ink:#0f172a; --muted:#576074;
+      --pri:#10b981; --pri-600:#059669; --pri-50:#ecfdf5;
+      --card:#ffffffcc; --ring:#a7f3d0; --border:#e2e8f0;
+      --shadow:0 10px 25px rgba(16,185,129,.15);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:"Cairo","Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans Arabic",sans-serif;
+      color:var(--ink); background:linear-gradient(180deg,#fbfefd 0%, var(--bg) 100%);
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:1200px; margin:0 auto; padding:0 16px}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.2rem; border-radius:14px; border:1px solid transparent; font-weight:700; transition:.2s ease; cursor:pointer}
+    .btn-primary{background:var(--pri); color:#fff; box-shadow:var(--shadow)}
+    .btn-primary:hover{background:var(--pri-600)}
+    .btn-outline{background:transparent; border-color:var(--border); color:var(--ink)}
+    .btn-outline:hover{border-color:var(--pri); color:var(--pri)}
+    .stack{display:flex; gap:10px; flex-wrap:wrap}
+    .badge{display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .75rem; border:1px solid #d1fae5; background:#f0fdf4; color:#047857; border-radius:999px; font-size:.8rem; font-weight:700}
+
+    /* Navbar */
+    header.nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(12px); background:#ffffffcc; border-bottom:1px solid var(--border)}
+    .nav-inner{height:72px; display:flex; align-items:center; justify-content:space-between}
+    .brand{display:flex; align-items:center; gap:.75rem; font-weight:900; font-size:1.3rem}
+    .brand img{height:60px; width:60px; object-fit:contain; border:1px solid var(--border); border-radius:14px} /* bigger logo */
+    .nav-links{display:none; gap:1rem}
+    .nav-actions{display:flex; gap:.5rem}
+
+    /* Hero */
+    .hero{padding:56px 0 36px; position:relative}
+    .blob,.blob2{position:absolute; pointer-events:none; filter:blur(60px); opacity:.6}
+    .blob{inset:auto auto -120px -120px; width:420px; height:420px; background:radial-gradient(closest-side, rgba(16,185,129,.35), transparent 70%)}
+    .blob2{inset:-120px -120px auto auto; width:380px; height:380px; background:radial-gradient(closest-side, rgba(132,204,22,.35), transparent 70%)}
+    .hero-grid{display:grid; gap:24px}
+    .h1{font-size:clamp(26px, 5.5vw, 48px); line-height:1.15; font-weight:900}
+    .lead{color:var(--muted); font-size:1.05rem; margin-top:10px}
+    .hero-card{background:var(--card); border:1px solid var(--ring); border-radius:24px; padding:18px; box-shadow:var(--shadow)}
+    .hero-card img{height:96px} /* slightly bigger logo in hero */
+
+    /* Sections */
+    section{padding:44px 0}
+    h2.section-title{font-size:clamp(20px,4.5vw,34px); margin:0 0 16px; font-weight:800}
+    .grid{display:grid; gap:14px}
+    .card{background:#fff; border:1px solid var(--border); border-radius:18px; padding:16px; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .card:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,0,0,.06)}
+    .card .title{display:flex; align-items:center; gap:.6rem; font-weight:800; margin-bottom:8px}
+    .muted{color:var(--muted)}
+    .list{margin:0; padding:0; list-style:none}
+    .list li{display:flex; gap:.6rem; margin:10px 0; color:#0f5132}
+    .list i{color:var(--pri)}
+
+    /* Pricing */
+    .plan{position:relative}
+    .price{font-size:1.8rem; font-weight:900; color:var(--pri); margin-bottom:8px}
+    .plan .badge-sm{position:absolute; left:16px; top:16px; font-size:.72rem; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:.2rem .6rem; border-radius:999px}
+    .plan ul{padding-inline-start:0}
+    .plan li{display:flex; gap:.5rem; margin:8px 0}
+
+    /* FAQ */
+    details{border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff}
+    details+details{margin-top:10px}
+    summary{cursor:pointer; font-weight:700}
+    details[open]{border-color:var(--ring)}
+
+    /* Contact */
+    .input, textarea{width:100%; border:1px solid var(--border); border-radius:14px; padding:12px 14px; font-family:inherit}
+    textarea{resize:vertical}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border); padding:24px 0; font-size:.95rem; color:var(--muted)}
+
+    /* Responsive tweaks */
+    @media (min-width:700px){
+      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    }
+    @media (min-width:900px){
+      .hero-grid{grid-template-columns:1.1fr .9fr; align-items:center}
+      .nav-links{display:flex}
+    }
+    @media (max-width:520px){
+      .container{padding:0 12px}
+      .stack > .btn{flex:1 1 100%; justify-content:center} /* full-width CTA buttons on phones */
+      .nav-actions .btn{padding:.65rem .9rem}
+      .brand img{height:56px; width:56px}
+      .hero{padding:44px 0 24px}
+      .card{padding:14px}
+    }
+
+    /* WhatsApp Floating */
+    .wa{position:fixed; bottom:18px; left:18px; background:#25D366; color:#fff; border-radius:999px; padding:14px 18px; display:flex; align-items:center; gap:.6rem; box-shadow:0 10px 22px rgba(37,211,102,.3); z-index:60}
+    .wa:hover{transform:translateY(-2px)}
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <img src="logoExams.jpeg" alt="Exam Success" />
+        <span>Exam Success</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#subjects">المواد</a>
+        <a href="#why">لماذا نحن</a>
+        <a href="#pricing">الأسعار</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
+        <a class="btn btn-outline" href="#contact"><i class="fa-solid fa-phone"></i> اتصال</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="blob"></div><div class="blob2"></div>
+    <div class="container hero-grid">
+      <div>
+        <span class="badge"><i class="fa-solid fa-star"></i> نتائج أعلى بثقة — من أول حصة</span>
+        <h1 class="h1">دروس خصوصية في <span style="color:var(--pri)">الرياضيات</span>، <span style="color:var(--pri)">الفيزياء</span> و <span style="color:var(--pri)">علوم الحاسوب</span></h1>
+        <p class="lead">بإشراف <b>مهندس برمجيات</b> — أسلوب حديث، أمثلة واقعية، وخطة ذكية تحقق لك <em>Exam Success</em>.</p>
+        <div class="stack" style="margin-top:12px">
+          <a class="btn btn-primary" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> احجز حصتك الآن</a>
+          <a class="btn btn-outline" href="#pricing">اطّلع على الأسعار</a>
+        </div>
+        <div style="margin-top:10px; color:var(--muted); display:flex; gap:16px; flex-wrap:wrap">
+          <span><i class="fa-solid fa-award"></i> منهجية مجرّبة</span>
+          <span><i class="fa-solid fa-shield"></i> متابعة شخصية</span>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <h3 style="margin:0 0 8px; font-weight:800">امتحانك القادم يبدأ من هنا</h3>
+          <ul class="list">
+            <li><i class="fa-solid fa-circle-check"></i> نحدّد نقاط القوة والضعف</li>
+            <li><i class="fa-solid fa-circle-check"></i> نصمّم خطة قصيرة المدى</li>
+            <li><i class="fa-solid fa-circle-check"></i> تدريب على أسئلة تشبه الامتحان</li>
+          </ul>
+          <img src="logoExams.jpeg" alt="Exam Success Logo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBJECTS (expanded) -->
+  <section id="subjects">
+    <div class="container">
+      <h2 class="section-title">المواد التي نغطيها</h2>
+      <div class="grid cols-3">
+        <!-- Math -->
+        <div class="card">
+          <div class="title"><i class="fa-solid fa-calculator" style="color:var(--pri)"></i> رياضيات</div>
+          <p class="muted">من الأساسيات حتى المعادلات المتقدمة، نغطي كل ما تحتاجه لتفهم الرياضيات بعمق—not بالحفظ فقط:</p>
+          <ul class="list" style="color:var(--ink); margin-top:8px">
+            <li><i class="fa-solid fa-check"></i> الأعداد، النسب، الدوال والمعادلات</li>
+            <li><i class="fa-solid fa-check"></i> الجبر، والهندسة المستوية والمجسمة</li>
+            <li><i class="fa-solid fa-check"></i> التفاضل والتكامل، والإحصاء والاحتمالات</li>
+            <li><i class="fa-solid fa-check"></i> تدريب على أسئلة البجروت والجامعة</li>
+          </ul>
+          <p class="muted" style="margin-top:6px">نربط بين الأرقام والحياة اليومية لتصبح الحسابات منطقية وممتعة وسهلة التذكر.</p>
+        </div>
+        <!-- Physics -->
+        <div class="card">
+          <div class="title"><i class="fa-solid fa-atom" style="color:var(--pri)"></i> فيزياء</div>
+          <p class="muted">الفيزياء عندنا ليست معادلات فقط—هي فهم للطبيعة بطريقة ذكية وممتعة:</p>
+          <ul class="list" style="color:var(--ink); margin-top:8px">
+            <li><i class="fa-solid fa-check"></i> قوانين الحركة، السرعة، والعجلة</li>
+            <li><i class="fa-solid fa-check"></i> الكهرباء والمغناطيسية والدوائر العملية</li>
+            <li><i class="fa-solid fa-check"></i> الموجات، الصوت، الضوء والبصريات</li>
+            <li><i class="fa-solid fa-check"></i> الطاقة، القوى، والزخم بتجارب ذهنية ورسومات</li>
+          </ul>
+          <p class="muted" style="margin-top:6px">الهدف أن تفهم القوانين وتشعر بها—not أن تحفظها—لتجاوب بثقة في الامتحانات.</p>
+        </div>
+        <!-- CS -->
+        <div class="card">
+          <div class="title"><i class="fa-solid fa-laptop-code" style="color:var(--pri)"></i> علوم الحاسوب</div>
+          <p class="muted">تعلم كيف يفكر المبرمجون وكيف تبنى الأنظمة الحديثة من الصفر بخطوات واضحة:</p>
+          <ul class="list" style="color:var(--ink); margin-top:8px">
+            <li><i class="fa-solid fa-check"></i> مبادئ البرمجة بلغة Python و JavaScript</li>
+            <li><i class="fa-solid fa-check"></i> هياكل البيانات والخوارزميات خطوة بخطوة</li>
+            <li><i class="fa-solid fa-check"></i> تطوير صفحات ويب ومشاريع بسيطة تفاعلية</li>
+            <li><i class="fa-solid fa-check"></i> فهم كيف يعمل الكمبيوتر والمنطق البرمجي</li>
+          </ul>
+          <p class="muted" style="margin-top:6px">بإشراف مهندس برمجيات، ستكتسب مهارات حقيقية تفيدك في الدراسة والحياة العملية.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="why">
+    <div class="container">
+      <h2 class="section-title">لماذا Exam Success؟</h2>
+      <div class="grid cols-3">
+        <div class="card"><div class="title"><i class="fa-solid fa-brain" style="color:var(--pri)"></i> شرح مبسّط ومباشر</div><p class="muted">تبسيط المفاهيم المعقّدة بخطوات واضحة وأمثلة عملية.</p></div>
+        <div class="card"><div class="title"><i class="fa-solid fa-square-root-variable" style="color:var(--pri)"></i> رياضيات لكل المستويات</div><p class="muted">من الابتدائي حتى الجامعة: أسس قوية ثم تدرّج ذكي.</p></div>
+        <div class="card"><div class="title"><i class="fa-solid fa-atom" style="color:var(--pri)"></i> فيزياء ممتعة</div><p class="muted">تجارب ذهنية ورسوم لفهم القوانين وليس حفظها فقط.</p></div>
+        <div class="card"><div class="title"><i class="fa-solid fa-laptop-code" style="color:var(--pri)"></i> علوم الحاسوب</div><p class="muted">برمجة وخوارزميات بإشراف مهندس برمجيات.</p></div>
+        <div class="card"><div class="title"><i class="fa-solid fa-shield-halved" style="color:var(--pri)"></i> خطة شخصية آمنة</div><p class="muted">برنامج تعلم مخصص لأهدافك، مع متابعة وتغذية راجعة.</p></div>
+        <div class="card"><div class="title"><i class="fa-solid fa-clock" style="color:var(--pri)"></i> مواعيد مرنة</div><p class="muted">حضوري أو أونلاين — أوقات تناسب جدولك.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <h2 class="section-title">خطط مرنة وواضحة</h2>
+      <div class="grid cols-3">
+        <div class="card plan">
+          <span class="badge-sm">ابدأ الآن</span>
+          <h3 class="title">حصة تجريبية</h3>
+          <div class="price">مجانية</div>
+          <ul class="list">
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> تقييم المستوى</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> خطة تعلم مبدئية</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> استشارة 15 دقيقة</li>
+          </ul>
+          <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">ابدأ الآن</a>
+        </div>
+        <div class="card plan" style="box-shadow:var(--shadow); transform:scale(1.02); border-color:var(--ring)">
+          <span class="badge-sm">الأكثر طلبًا</span>
+          <h3 class="title">باقة أساسية</h3>
+          <div class="price">₪149/حصة</div>
+          <ul class="list">
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> 60 دقيقة مباشرة</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> واجبات قصيرة</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> ملخص PDF لكل درس</li>
+          </ul>
+          <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">احجز الآن</a>
+        </div>
+        <div class="card plan">
+          <h3 class="title">باقة متقدمة</h3>
+          <div class="price">₪129/حصة</div>
+          <ul class="list">
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> حجز 8 حصص مسبقًا</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> متابعة على واتساب</li>
+            <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> اختبارات قصيرة وتقرير تقدم</li>
+          </ul>
+          <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">اطلب الباقة</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">ماذا قال طلابنا؟</h2>
+      <div class="grid cols-3">
+        <div class="card"><p class="muted">ارتفع معدّلي في الرياضيات من 72 إلى 90 في أقل من شهر!</p><div class="stars"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></div></div>
+        <div class="card"><p class="muted">أسلوب الشرح مختلف—أفهم الفكرة بسرعة وأعرف كيف أطبّقها في الامتحان.</p><div class="stars"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></div></div>
+        <div class="card"><p class="muted">مشروعي الأول في البرمجة خلّاني أحب التخصص أكثر.</p><div class="stars"><i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TUTOR BIO -->
+  <section>
+    <div class="container">
+      <div class="card" style="background:linear-gradient(135deg,#fff,#f0fdf4)">
+        <h2 class="section-title" style="margin-bottom:6px">عن المدرّس</h2>
+        <p class="muted">أنا <b>مهندس برمجيات</b> بخبرة في تعليم الرياضيات، الفيزياء، وعلوم الحاسوب. أحب تحويل الأفكار المعقّدة إلى مفاهيم بسيطة قابلة للتطبيق. نهجي يعتمد على الفهم العميق، التدريب الذكي، والاهتمام بكل طالب على حدة.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <div class="container" style="max-width:900px">
+      <h2 class="section-title" style="text-align:center">الأسئلة الشائعة</h2>
+      <details><summary>هل الدروس مناسبة لكل الأعمار؟</summary><p class="muted">نعم—نغطي جميع المستويات من المرحلة الابتدائية حتى الجامعة، مع تخصيص الأسلوب لكل طالب.</p></details>
+      <details><summary>كيف تتم الدروس الأونلاين؟</summary><p class="muted">نعتمد منصات اتصال عالية الجودة مع سبورة تفاعلية ومشاركة شاشة وملفات PDF.</p></details>
+      <details><summary>هل يوجد واجبات ومتابعة؟</summary><p class="muted">نقدّم واجبات قصيرة بعد كل درس مع ملاحظات سريعة وعينات أسئلة امتحانات.</p></details>
+      <details><summary>طرق الدفع؟</summary><p class="muted">تحويل بنكي/بطاقة/بيتبال. يمكن الدفع لكل حصة أو باقات.</p></details>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container" style="max-width:1000px">
+      <div class="grid cols-2">
+        <div class="card">
+          <h2 class="section-title">تواصل معنا</h2>
+          <form onsubmit="event.preventDefault(); alert('تم إرسال رسالتك! سنعاود الاتصال بك قريبًا.');">
+            <div class="stack" style="flex-direction:column">
+              <input class="input" type="text" placeholder="الاسم الكامل" required>
+              <input class="input" type="email" placeholder="البريد الإلكتروني" required>
+              <input class="input" type="tel" placeholder="رقم الهاتف">
+              <textarea class="input" style="height:120px" placeholder="أخبرنا عن هدفك الدراسي"></textarea>
+              <div class="stack">
+                <button class="btn btn-primary" type="submit">أرسل الرسالة</button>
+                <a class="btn btn-outline" href="https://wa.me/972585291291" target="_blank"><i class="fa-brands fa-whatsapp"></i> واتساب مباشر</a>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card" style="background:linear-gradient(135deg,#f0fdf4,#fff)">
+          <h3 style="margin-top:0; font-weight:800">معلومات سريعة</h3>
+          <ul class="list" style="color:var(--ink)">
+            <li><i class="fa-solid fa-phone"></i> 0585-291-291</li>
+            <li><i class="fa-solid fa-location-dot"></i> حصص حضورية وأونلاين</li>
+            <li><i class="fa-solid fa-trophy"></i> نتائج مضمونة مع متابعة</li>
+          </ul>
+          <img src="logoExams.jpeg" alt="Exam Success" style="height:64px; width:auto; opacity:.85; margin-top:10px">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
+      <div class="brand"><img src="logoExams.jpeg" alt="Exam Success" /><span>Exam Success</span></div>
+      <div>
+        © <span id="year"></span> Exam Success — كل الحقوق محفوظة. |
+        صُمّم بواسطة
+        <a href="https://wesamghrayeb.com" target="_blank" style="color:var(--pri); font-weight:700">Wesam Software Solutions</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a class="wa" href="https://wa.me/972585291291" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i> تواصل الآن</a>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
