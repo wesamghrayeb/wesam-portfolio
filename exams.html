@@ -401,6 +401,34 @@
                 padding: 14px
             }
         }
+        /* --- pretty logo badge in the contact card --- */
+.brand-stamp{
+  display:flex; justify-content:flex-end; /* RTL: keeps it at the right side */
+  margin-top:12px;
+}
+@media (max-width:700px){
+  .brand-stamp{ justify-content:center; } /* center on phones */
+}
+.stamp{
+  width: clamp(90px, 18vw, 160px);
+  height: clamp(90px, 18vw, 160px);
+  padding: 10px;
+  border-radius: 20px;
+  background:
+    radial-gradient(120px 120px at 70% 20%, #ecfdf5 20%, transparent 60%),
+    linear-gradient(135deg,#ffffff, #f0fdf4);
+  border: 1px solid var(--ring);
+  box-shadow: 0 10px 25px rgba(16,185,129,.18);
+  display:flex; align-items:center; justify-content:center;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.stamp:hover{ transform: rotate(-1.5deg) scale(1.03); box-shadow: 0 14px 30px rgba(16,185,129,.22); }
+.stamp img{
+  width:100%; height:100%; object-fit:contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,.12)); /* crisp */
+  border-radius: 12px;
+}
+
 
         /* WhatsApp Floating */
         .wa {
@@ -702,8 +730,11 @@
                         <li><i class="fa-solid fa-location-dot"></i> حصص حضورية وأونلاين</li>
                         <li><i class="fa-solid fa-trophy"></i> نتائج مضمونة مع متابعة</li>
                     </ul>
-                    <img src="logoExams.jpeg" alt="Exam Success"
-                        style="height:64px; width:auto; opacity:.85; margin-top:10px">
+                    <div class="brand-stamp">
+  <div class="stamp">
+    <img src="logoExams.jpeg" alt="Exam Success">
+  </div>
+</div>
                 </div>
             </div>
         </div>
