@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#10b981" />
   <title>Exam Success | دروس خصوصية رياضيات فيزياء وعلوم الحاسوب</title>
   <meta name="description" content="دروس خصوصية لكل المستويات في الرياضيات والفيزياء وعلوم الحاسوب بإشراف مهندس برمجيات. نتائج أعلى بثقة — Exam Success." />
@@ -146,6 +146,51 @@
     }
     .sticky-cta a{flex:1 1 0}
     @media (max-width:700px){ .sticky-cta{display:flex} }
+    /* --- Mobile safe-areas + comfy edges --- */
+:root{
+  --header-h: 72px;        /* your sticky header height */
+  --cta-h: 56px;           /* approx. sticky bottom CTA height */
+}
+
+/* Use small-viewport units so toolbars don’t squash the page */
+html, body { height: 100%; }
+body{
+  min-height: 100svh;
+  /* space from notch & home indicator (even when toolbars collapse) */
+  padding-top: calc(8px + env(safe-area-inset-top));
+  padding-bottom: calc(12px + env(safe-area-inset-bottom) + var(--cta-h));
+}
+
+/* Header gets extra top padding inside the safe area */
+header.nav{
+  padding-top: max(10px, env(safe-area-inset-top));
+  padding-left: max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+  z-index: 100;
+}
+
+/* First section (hero) — ensure breathing room under sticky header */
+.hero{ 
+  padding-top: clamp(32px, 6svh, 56px);
+}
+
+/* Anchor jumps won’t hide behind the sticky header */
+section { 
+  scroll-margin-top: calc(var(--header-h) + env(safe-area-inset-top) + 12px);
+}
+
+/* Sticky bottom CTA — lift off the home indicator & add side insets */
+.sticky-cta{
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  padding-left:  max(12px, env(safe-area-inset-left));
+  padding-right: max(12px, env(safe-area-inset-right));
+  z-index: 120;
+}
+
+/* Give footer some breathing room above the sticky CTA on phones */
+@media (max-width:700px){
+  footer{ padding-bottom: calc(24px + var(--cta-h) + env(safe-area-inset-bottom)); }
+}
   </style>
 </head>
 <body>
