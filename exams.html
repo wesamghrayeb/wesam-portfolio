@@ -16,13 +16,15 @@
       --pri:#10b981; --pri-600:#059669; --pri-50:#ecfdf5;
       --card:#ffffffcc; --ring:#a7f3d0; --border:#e2e8f0;
       --shadow:0 10px 25px rgba(16,185,129,.15);
-      --header-h: 72px;   /* visual height (without safe area) */
-      --cta-h: 56px;      /* sticky CTA height on phones */
+      --header-h: 72px;
+      --cta-h: 56px;
     }
 
-    /* Base */
+    /* Base / reset */
     *{box-sizing:border-box}
+    *::before,*::after{box-sizing:border-box}
     html,body{height:100%}
+    html, body { width:100%; overflow-x:hidden; }        /* 🔒 no horizontal scroll */
     body{
       margin:0;
       font-family:"Cairo","Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans Arabic",sans-serif;
@@ -30,18 +32,26 @@
       background:linear-gradient(180deg,#fbfefd 0%, var(--bg) 100%);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      -webkit-text-size-adjust:100%;
     }
     a{color:inherit; text-decoration:none}
     img{max-width:100%; height:auto; display:block}
 
-    /* Page wrapper → gives bottom space so the sticky CTA never covers content */
+    /* Page wrapper */
     .page{
       min-height:100svh;
       display:flex; flex-direction:column;
       padding-bottom:calc(16px + var(--cta-h) + env(safe-area-inset-bottom));
+      overflow-x:clip;                                   /* extra safety */
     }
 
-    .container{max-width:1200px; margin:0 auto; padding:0 16px}
+    /* Container always centered, never wider than screen */
+    .container{
+      width:100%;
+      max-width:1200px;
+      margin-inline:auto;                                /* centered */
+      padding-inline:16px;
+    }
 
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
@@ -53,7 +63,7 @@
     .btn-primary:hover{background:var(--pri-600)}
     .btn-outline{background:transparent; border-color:var(--border); color:var(--ink)}
     .btn-outline:hover{border-color:var(--pri); color:var(--pri)}
-    .stack{display:flex; gap:10px; flex-wrap:wrap}
+    .stack{display:flex; gap:10px; flex-wrap:wrap; min-width:0}
 
     .badge{
       display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .75rem;
@@ -68,15 +78,16 @@
       padding-top:calc(8px + env(safe-area-inset-top));
       padding-left:max(12px, env(safe-area-inset-left));
       padding-right:max(12px, env(safe-area-inset-right));
+      overflow-x:clip;                                   /* avoid tiny overflows */
     }
-    .nav-inner{height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:8px}
-    .brand{display:flex; align-items:center; gap:.75rem; font-weight:900; font-size:1.3rem}
+    .nav-inner{height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:8px; min-width:0}
+    .brand{display:flex; align-items:center; gap:.75rem; font-weight:900; font-size:1.3rem; min-width:0}
     .brand img{height:60px; width:60px; object-fit:contain; border:1px solid var(--border); border-radius:14px}
-    .nav-links{display:none; gap:1rem}
+    .nav-links{display:none; gap:1rem; flex-wrap:wrap}
     .nav-actions{display:flex; gap:.5rem; flex-shrink:0}
 
-    /* Hero (add top space so it never sticks to header) */
-    .hero{padding:clamp(22px, 5svh, 40px) 0 28px; position:relative}
+    /* Hero */
+    .hero{padding:clamp(22px, 5svh, 40px) 0 28px; position:relative; overflow:hidden;} /* 🧹 clip blobs */
     .blob,.blob2{position:absolute; pointer-events:none; filter:blur(60px); opacity:.6}
     .blob{inset:auto auto -120px -120px; width:420px; height:420px; background:radial-gradient(closest-side, rgba(16,185,129,.35), transparent 70%)}
     .blob2{inset:-120px -120px auto auto; width:380px; height:380px; background:radial-gradient(closest-side, rgba(132,204,22,.35), transparent 70%)}
@@ -87,21 +98,23 @@
     .hero-card img{height:100px}
 
     /* Sections */
-    section{padding:36px 0; scroll-margin-top:calc(var(--header-h) + env(safe-area-inset-top) + 14px)}
+    section{padding:36px 0; scroll-margin-top:calc(var(--header-h) + env(safe-area-inset-top) + 14px); overflow-x:clip}
     h2.section-title{font-size:clamp(20px, 4.4vw, 32px); margin:0 0 14px; font-weight:800}
-    .grid{display:grid; gap:12px}
-    .card{background:#fff; border:1px solid var(--border); border-radius:18px; padding:14px; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .grid{display:grid; gap:12px; min-width:0}
+    .card{background:#fff; border:1px solid var(--border); border-radius:18px; padding:14px; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.04); min-width:0}
     .card:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,0,0,.06)}
     .card .title{display:flex; align-items:center; gap:.6rem; font-weight:800; margin-bottom:8px}
     .muted{color:var(--muted)}
     .list{margin:0; padding:0; list-style:none}
-    .list li{display:flex; gap:.6rem; margin:10px 0; color:#0f5132}
+    .list li{display:flex; gap:.6rem; margin:10px 0; color:#0f5132; min-width:0}
     .list i{color:var(--pri)}
 
     /* Pricing */
-    .plan{position:relative}
+    .plan{position:relative; min-width:0}
     .price{font-size:1.6rem; font-weight:900; color:var(--pri); margin-bottom:8px}
     .plan .badge-sm{position:absolute; left:16px; top:16px; font-size:.72rem; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:.2rem .6rem; border-radius:999px}
+    .plan.featured{box-shadow:var(--shadow); border-color:var(--ring)}
+    @media (min-width:701px){ .plan.featured{transform:scale(1.02)} } /* no scale on phones to avoid overflow */
 
     /* FAQ */
     details{border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff}
@@ -118,6 +131,7 @@
       border-top:1px solid var(--border); padding:22px 0; font-size:.95rem; color:var(--muted);
       padding-left:max(0px, env(safe-area-inset-left));
       padding-right:max(0px, env(safe-area-inset-right));
+      overflow-x:clip;
     }
 
     /* Floating WhatsApp (desktop/tablet) */
@@ -152,7 +166,7 @@
 
     /* Phone polish */
     @media (max-width:520px){
-      .container{padding:0 12px}
+      .container{padding-inline:12px}
       .stack>.btn{flex:1 1 100%; justify-content:center}
       .nav-actions .btn{padding:.7rem .9rem}
       .brand img{height:56px; width:56px}
@@ -303,7 +317,8 @@
               </ul>
               <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">ابدأ الآن</a>
             </div>
-            <div class="card plan" style="box-shadow:var(--shadow); transform:scale(1.02); border-color:var(--ring)">
+            <!-- changed: make it a 'featured' class instead of inline transform -->
+            <div class="card plan featured">
               <span class="badge-sm">الأكثر طلبًا</span>
               <h3 class="title">باقة أساسية</h3>
               <div class="price">₪149/حصة</div>
@@ -403,7 +418,6 @@
 
   <!-- Floating WhatsApp (desktop/tablet) -->
   <a class="wa" href="https://wa.me/972585291291" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i> تواصل الآن</a>
-
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
