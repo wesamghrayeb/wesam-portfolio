@@ -1,482 +1,405 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" data-theme="light">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#10b981" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Exam Success | دروس خصوصية رياضيات فيزياء وعلوم الحاسوب</title>
-  <meta name="description" content="دروس خصوصية لكل المستويات في الرياضيات والفيزياء وعلوم الحاسوب بإشراف مهندس برمجيات. نتائج أعلى بثقة — Exam Success." />
+  <meta name="description" content="دروس خصوصية لكل المستويات في الرياضيات والفيزياء وعلوم الحاسوب بإشراف مهندس برمجيات. نتائج أعلى بثقة — Exam Success.">
+  <link rel="canonical" href="https://wesamghrayeb.com/exams.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Exam Success">
+  <meta property="og:title" content="Exam Success | دروس خصوصية رياضيات فيزياء وعلوم الحاسوب">
+  <meta property="og:description" content="دروس خصوصية لكل المستويات في الرياضيات والفيزياء وعلوم الحاسوب بإشراف مهندس برمجيات.">
+  <meta property="og:url" content="https://wesamghrayeb.com/exams.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/logoExams.jpeg">
+  <meta property="og:locale" content="ar_AR">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon" href="assets/img/exams-logo.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="logoExams.jpeg">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    :root{
-      --bg:#f7faf9; --ink:#0f172a; --muted:#576074;
-      --pri:#10b981; --pri-600:#059669; --pri-50:#ecfdf5;
-      --card:#ffffffcc; --ring:#a7f3d0; --border:#e2e8f0;
-      --shadow:0 10px 25px rgba(16,185,129,.15);
-      --header-h: 72px;
-      --cta-h: 56px;
-    }
-
-    /* Base / reset */
-    *{box-sizing:border-box}
-    *::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    html, body { width:100%; overflow-x:hidden; }        /* 🔒 no horizontal scroll */
-    body{
-      margin:0;
-      font-family:"Cairo","Tajawal",system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans Arabic",sans-serif;
-      color:var(--ink);
-      background:linear-gradient(180deg,#fbfefd 0%, var(--bg) 100%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      -webkit-text-size-adjust:100%;
-    }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; height:auto; display:block}
-
-    /* Page wrapper */
-    .page{
-      min-height:100svh;
-      display:flex; flex-direction:column;
-      padding-bottom:calc(16px + var(--cta-h) + env(safe-area-inset-bottom));
-      overflow-x:clip;                                   /* extra safety */
-    }
-
-    /* Container always centered, never wider than screen */
-    .container{
-      width:100%;
-      max-width:1200px;
-      margin-inline:auto;                                /* centered */
-      padding-inline:16px;
-    }
-
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:.6rem;
-      padding:.9rem 1.1rem; min-height:48px; min-width:48px;
-      border-radius:14px; border:1px solid transparent; font-weight:700; transition:.2s ease; cursor:pointer;
-      text-align:center;
-    }
-    .btn-primary{background:var(--pri); color:#fff; box-shadow:var(--shadow)}
-    .btn-primary:hover{background:var(--pri-600)}
-    .btn-outline{background:transparent; border-color:var(--border); color:var(--ink)}
-    .btn-outline:hover{border-color:var(--pri); color:var(--pri)}
-    .stack{display:flex; gap:10px; flex-wrap:wrap; min-width:0}
-
-    .badge{
-      display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .75rem;
-      border:1px solid #d1fae5; background:#f0fdf4; color:#047857; border-radius:999px; font-size:.8rem; font-weight:700
-    }
-
-    /* Navbar (safe-area aware) */
-    header.nav{
-      position:sticky; top:0; z-index:100;
-      backdrop-filter:saturate(180%) blur(12px);
-      background:#ffffffcc; border-bottom:1px solid var(--border);
-      padding-top:calc(8px + env(safe-area-inset-top));
-      padding-left:max(12px, env(safe-area-inset-left));
-      padding-right:max(12px, env(safe-area-inset-right));
-      overflow-x:clip;                                   /* avoid tiny overflows */
-    }
-    .nav-inner{height:var(--header-h); display:flex; align-items:center; justify-content:space-between; gap:8px; min-width:0}
-    .brand{display:flex; align-items:center; gap:.75rem; font-weight:900; font-size:1.3rem; min-width:0}
-    .brand img{height:60px; width:60px; object-fit:contain; border:1px solid var(--border); border-radius:14px}
-    .nav-links{display:none; gap:1rem; flex-wrap:wrap}
-    .nav-actions{display:flex; gap:.5rem; flex-shrink:0}
-
-    /* Hero */
-    .hero{padding:clamp(22px, 5svh, 40px) 0 28px; position:relative; overflow:hidden;} /* 🧹 clip blobs */
-    .blob,.blob2{position:absolute; pointer-events:none; filter:blur(60px); opacity:.6}
-    .blob{inset:auto auto -120px -120px; width:420px; height:420px; background:radial-gradient(closest-side, rgba(16,185,129,.35), transparent 70%)}
-    .blob2{inset:-120px -120px auto auto; width:380px; height:380px; background:radial-gradient(closest-side, rgba(132,204,22,.35), transparent 70%)}
-    .hero-grid{display:grid; gap:22px}
-    .h1{font-size:clamp(26px, 5.4vw, 46px); line-height:1.15; font-weight:900; margin:0}
-    .lead{color:var(--muted); font-size:clamp(15px, 3.8vw, 18px); margin:10px 0 0}
-    .hero-card{background:var(--card); border:1px solid var(--ring); border-radius:24px; padding:16px; box-shadow:var(--shadow)}
-    .hero-card img{height:100px}
-
-    /* Sections */
-    section{padding:36px 0; scroll-margin-top:calc(var(--header-h) + env(safe-area-inset-top) + 14px); overflow-x:clip}
-    h2.section-title{font-size:clamp(20px, 4.4vw, 32px); margin:0 0 14px; font-weight:800}
-    .grid{display:grid; gap:12px; min-width:0}
-    .card{background:#fff; border:1px solid var(--border); border-radius:18px; padding:14px; transition:.2s; box-shadow:0 6px 18px rgba(0,0,0,.04); min-width:0}
-    .card:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(0,0,0,.06)}
-    .card .title{display:flex; align-items:center; gap:.6rem; font-weight:800; margin-bottom:8px}
-    .muted{color:var(--muted)}
-    .list{margin:0; padding:0; list-style:none}
-    .list li{display:flex; gap:.6rem; margin:10px 0; color:#0f5132; min-width:0}
-    .list i{color:var(--pri)}
-
-    /* Pricing */
-    .plan{position:relative; min-width:0}
-    .price{font-size:1.6rem; font-weight:900; color:var(--pri); margin-bottom:8px}
-    .plan .badge-sm{position:absolute; left:16px; top:16px; font-size:.72rem; background:#ecfdf5; color:#065f46; border:1px solid #a7f3d0; padding:.2rem .6rem; border-radius:999px}
-    .plan.featured{box-shadow:var(--shadow); border-color:var(--ring)}
-    @media (min-width:701px){ .plan.featured{transform:scale(1.02)} } /* no scale on phones to avoid overflow */
-
-    /* FAQ */
-    details{border:1px solid var(--border); border-radius:14px; padding:12px 14px; background:#fff}
-    details+details{margin-top:10px}
-    summary{cursor:pointer; font-weight:700}
-    details[open]{border-color:var(--ring)}
-
-    /* Contact */
-    .input, textarea{width:100%; border:1px solid var(--border); border-radius:14px; padding:12px 14px; font-family:inherit}
-    textarea{resize:vertical}
-
-    /* Footer */
-    footer{
-      border-top:1px solid var(--border); padding:22px 0; font-size:.95rem; color:var(--muted);
-      padding-left:max(0px, env(safe-area-inset-left));
-      padding-right:max(0px, env(safe-area-inset-right));
-      overflow-x:clip;
-    }
-
-    /* Floating WhatsApp (desktop/tablet) */
-    .wa{position:fixed; bottom:18px; left:18px; background:#25D366; color:#fff; border-radius:999px; padding:14px 18px; display:flex; align-items:center; gap:.6rem; box-shadow:0 10px 22px rgba(37,211,102,.3); z-index:90}
-    .wa:hover{transform:translateY(-2px)}
-    @media (max-width:700px){ .wa{display:none} }
-
-    /* Sticky bottom CTA (phones only) */
-    .sticky-cta{
-      position:fixed; right:0; left:0; bottom:0;
-      display:none; gap:8px;
-      background:#ffffffee; backdrop-filter:blur(8px); border-top:1px solid var(--border); z-index:120;
-      padding:10px 12px;
-      padding-bottom:calc(12px + env(safe-area-inset-bottom));
-      padding-left:max(12px, env(safe-area-inset-left));
-      padding-right:max(12px, env(safe-area-inset-right));
-    }
-    .sticky-cta a{flex:1 1 0}
-    @media (max-width:700px){ .sticky-cta{display:flex} }
-
-    /* Responsive columns */
-    @media (min-width:700px){
-      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
-      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-      section{padding:44px 0}
-    }
-    @media (min-width:900px){
-      .hero-grid{grid-template-columns:1.1fr .9fr; align-items:center}
-      .nav-links{display:flex}
-      .hero{padding:56px 0 36px}
-    }
-
-    /* Phone polish */
-    @media (max-width:520px){
-      .container{padding-inline:12px}
-      .stack>.btn{flex:1 1 100%; justify-content:center}
-      .nav-actions .btn{padding:.7rem .9rem}
-      .brand img{height:56px; width:56px}
-      .card{padding:12px}
-    }
-
-    /* Pretty logo badge in contact card */
-    .brand-stamp{display:flex; justify-content:flex-end; margin-top:12px}
-    @media (max-width:700px){ .brand-stamp{justify-content:center} }
-    .stamp{
-      width:clamp(100px, 22vw, 180px); height:clamp(100px, 22vw, 180px);
-      padding:12px; border-radius:20px;
-      background: radial-gradient(120px 120px at 70% 20%, #ecfdf5 20%, transparent 60%), linear-gradient(135deg,#ffffff,#f0fdf4);
-      border:1px solid var(--ring); box-shadow:0 10px 25px rgba(16,185,129,.18);
-      display:flex; align-items:center; justify-content:center; transition:transform .25s ease, box-shadow .25s ease;
-    }
-    .stamp:hover{transform:rotate(-1.5deg) scale(1.03); box-shadow:0 14px 30px rgba(16,185,129,.22)}
-    .stamp img{width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 4px 8px rgba(0,0,0,.12)); border-radius:12px}
-  </style>
-</head>
-<body>
-
-  <div class="page">
-    <!-- NAVBAR -->
-    <header class="nav">
-      <div class="container nav-inner">
-        <div class="brand">
-          <img src="logoExams.jpeg" alt="Exam Success" loading="lazy" />
-          <span>Exam Success</span>
-        </div>
-        <nav class="nav-links">
-          <a href="#subjects">المواد</a>
-          <a href="#why">لماذا نحن</a>
-          <a href="#pricing">الأسعار</a>
-          <a href="#contact">تواصل</a>
-        </nav>
-        <div class="nav-actions">
-          <a class="btn btn-primary" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> واتساب</a>
-          <a class="btn btn-outline" href="#contact"></i> اتصال</a>
-        </div>
-      </div>
-    </header>
-
-    <!-- HERO -->
-    <main>
-      <section class="hero">
-        <div class="blob"></div><div class="blob2"></div>
-        <div class="container hero-grid">
-          <div>
-            <span class="badge"><i class="fa-solid fa-star"></i> نتائج أعلى بثقة — من أول حصة</span>
-            <h1 class="h1">دروس خصوصية في <span style="color:var(--pri)">الرياضيات</span>، <span style="color:var(--pri)">الفيزياء</span> و <span style="color:var(--pri)">علوم الحاسوب</span></h1>
-            <p class="lead">بإشراف <b>مهندس برمجيات</b> — أسلوب حديث، أمثلة واقعية، وخطة ذكية تحقق لك <em>Exam Success</em>.</p>
-            <div class="stack" style="margin-top:12px">
-              <a class="btn btn-primary" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noreferrer"><i class="fa-brands fa-whatsapp"></i> احجز حصتك الآن</a>
-              <a class="btn btn-outline" href="#pricing">اطّلع على الأسعار</a>
-            </div>
-            <div style="margin-top:10px; color:var(--muted); display:flex; gap:16px; flex-wrap:wrap">
-              <span><i class="fa-solid fa-award"></i> منهجية مجرّبة</span>
-              <span><i class="fa-solid fa-shield"></i> متابعة شخصية</span>
-            </div>
-          </div>
-          <div>
-            <div class="hero-card">
-              <h3 style="margin:0 0 8px; font-weight:800">امتحانك القادم يبدأ من هنا</h3>
-              <ul class="list">
-                <li><i class="fa-solid fa-circle-check"></i> نحدّد نقاط القوة والضعف</li>
-                <li><i class="fa-solid fa-circle-check"></i> نصمّم خطة قصيرة المدى</li>
-                <li><i class="fa-solid fa-circle-check"></i> تدريب على أسئلة تشبه الامتحان</li>
-              </ul>
-              <img src="logoExams.jpeg" alt="Exam Success Logo" loading="lazy">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SUBJECTS -->
-      <section id="subjects">
-        <div class="container">
-          <h2 class="section-title">المواد التي نغطيها</h2>
-          <div class="grid cols-3">
-            <!-- Math -->
-            <div class="card">
-              <div class="title"><i class="fa-solid fa-calculator" style="color:var(--pri)"></i> رياضيات</div>
-              <p class="muted">من الأساسيات حتى المعادلات المتقدمة، نغطي كل ما تحتاجه لتفهم الرياضيات بعمق وليس بالحفظ فقط:</p>
-              <ul class="list" style="color:var(--ink); margin-top:8px">
-                <li><i class="fa-solid fa-check"></i> الأعداد، النسب، الدوال والمعادلات</li>
-                <li><i class="fa-solid fa-check"></i> الجبر، والهندسة المستوية والمجسمة</li>
-                <li><i class="fa-solid fa-check"></i> التفاضل والتكامل، والإحصاء والاحتمالات</li>
-                <li><i class="fa-solid fa-check"></i> تدريب على أسئلة البجروت والجامعة</li>
-              </ul>
-              <p class="muted" style="margin-top:6px">نربط بين الأرقام والحياة اليومية لتصبح الحسابات منطقية وممتعة وسهلة التذكر.</p>
-            </div>
-            <!-- Physics -->
-            <div class="card">
-              <div class="title"><i class="fa-solid fa-atom" style="color:var(--pri)"></i> فيزياء</div>
-              <p class="muted">الفيزياء عندنا ليست معادلات فقط—هي فهم للطبيعة بطريقة ذكية وممتعة:</p>
-              <ul class="list" style="color:var(--ink); margin-top:8px">
-                <li><i class="fa-solid fa-check"></i> قوانين الحركة، السرعة، والعجلة</li>
-                <li><i class="fa-solid fa-check"></i> الكهرباء والمغناطيسية والدوائر العملية</li>
-                <li><i class="fa-solid fa-check"></i> الموجات، الصوت، الضوء والبصريات</li>
-                <li><i class="fa-solid fa-check"></i> الطاقة، القوى، والزخم بتجارب ذهنية ورسومات</li>
-              </ul>
-            </div>
-            <!-- CS -->
-            <div class="card">
-              <div class="title"><i class="fa-solid fa-laptop-code" style="color:var(--pri)"></i> علوم الحاسوب</div>
-              <p class="muted">تعلم كيف يفكر المبرمجون وكيف تبنى الأنظمة الحديثة من الصفر بخطوات واضحة:</p>
-              <ul class="list" style="color:var(--ink); margin-top:8px">
-                <li><i class="fa-solid fa-check"></i> مبادئ البرمجة بلغة السي شارب والجافا</li>
-                <li><i class="fa-solid fa-check"></i> هياكل البيانات والخوارزميات خطوة بخطوة</li>
-                <li><i class="fa-solid fa-check"></i> تطوير صفحات ويب ومشاريع بسيطة تفاعلية</li>
-                <li><i class="fa-solid fa-check"></i> فهم كيف يعمل الكمبيوتر والمنطق البرمجي</li>
-              </ul>
-              <p class="muted" style="margin-top:6px">بإشراف مهندس برمجيات، ستكتسب مهارات حقيقية تفيدك في الدراسة والحياة العملية.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- WHY US -->
-      <section id="why">
-        <div class="container">
-          <h2 class="section-title">لماذا Exam Success؟</h2>
-          <div class="grid cols-3">
-            <div class="card"><div class="title"><i class="fa-solid fa-brain" style="color:var(--pri)"></i> شرح مبسّط ومباشر</div><p class="muted">تبسيط المفاهيم المعقّدة بخطوات واضحة وأمثلة عملية.</p></div>
-            <div class="card"><div class="title"><i class="fa-solid fa-square-root-variable" style="color:var(--pri)"></i> رياضيات لكل المستويات</div><p class="muted">من الابتدائي حتى الجامعة: أسس قوية ثم تدرّج ذكي.</p></div>
-            <div class="card"><div class="title"><i class="fa-solid fa-atom" style="color:var(--pri)"></i> فيزياء ممتعة</div><p class="muted">تجارب ذهنية ورسوم لفهم القوانين وليس حفظها فقط.</p></div>
-            <div class="card"><div class="title"><i class="fa-solid fa-laptop-code" style="color:var(--pri)"></i> علوم الحاسوب</div><p class="muted">برمجة وخوارزميات بإشراف مهندس برمجيات.</p></div>
-            <div class="card"><div class="title"><i class="fa-solid fa-shield-halved" style="color:var(--pri)"></i> خطة شخصية آمنة</div><p class="muted">برنامج تعلم مخصص لأهدافك، مع متابعة وتغذية راجعة.</p></div>
-            <div class="card"><div class="title"><i class="fa-solid fa-clock" style="color:var(--pri)"></i> مواعيد مرنة</div><p class="muted">حضوري أو أونلاين — أوقات تناسب جدولك.</p></div>
-          </div>
-        </div>
-      </section>
-
-   <!-- PRICING -->
-<section id="pricing">
-  <div class="container">
-    <h2 class="section-title">خطط مرنة وواضحة</h2>
-    <div class="grid cols-3">
-      <!-- Plan 1 -->
-      <div class="card plan">
-        <h3 class="title">حصة مفردة</h3>
-        <div class="price">₪130/حصة</div>
-        <ul class="list">
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> 60 دقيقة مباشرة</li>
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> واجبات قصيرة مركّزة</li>
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> متابعة واتساب 24 ساعة بعد الدرس</li>
-        </ul>
-        <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">احجز الآن</a>
-      </div>
-
-      <!-- Plan 2 (Featured) -->
-      <div class="card plan featured">
-        <span class="badge-sm">الأكثر طلبًا</span>
-        <h3 class="title">باقة شهرية (4 حصص)</h3>
-        <div class="price">₪400/شهر <small class="muted">(₪100/حصة)</small></div>
-        <ul class="list">
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> 60 دقيقة × 4 حصص</li>
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> خطة تعلم أسبوعية</li>
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> بنك أسئلة تدريبي مختصر</li>
-        </ul>
-        <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">احجز الباقة</a>
-      </div>
-
-      <!-- Plan 3 -->
-      <div class="card plan">
-        <h3 class="title">باقة مكثّفة (8 حصص)</h3>
-        <div class="price">₪640/شهر <small class="muted">(₪80/حصة)</small></div>
-        <ul class="list">
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> 60 دقيقة × 8 حصص</li>
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> متابعة واتساب طوال الشهر</li>
-          <li><i class="fa-solid fa-circle-check" style="color:var(--pri)"></i> اختبارات قصيرة + تقرير تقدّم مختصر</li>
-        </ul>
-        <a class="btn btn-primary" style="width:100%; margin-top:10px" href="https://wa.me/972585291291" target="_blank">ابدأ الآن</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section>
-  <div class="container">
-    <h2 class="section-title">ماذا قال طلابنا؟</h2>
-    <div class="grid cols-3">
-      <div class="card">
-        <p class="muted"><b>عمر .</b> — رياضيات، مدرسة <b>المطران</b>: “ارتفع معدّلي من 72 إلى 90 خلال شهرين بفضل التركيز على مهارات الحل.”</p>
-        <div class="stars" style="color:#10b981">
-          <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="card">
-        <p class="muted"><b>لانا .</b> — فيزياء، مدرسة <b>الفرنسيسكان</b>: “الشرح منظّم وبسيط—صرّت أعرف أهاجم أسئلة الحركة والطاقة بثقة.”</p>
-        <div class="stars" style="color:#10b981">
-          <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="card">
-        <p class="muted"><b>يوسف .</b> — علوم الحاسوب، مدرسة <b>المخلّص</b>: “برمجة أول مشروع C# خلّتني أفهم الخوارزميات بطريقة عملية.”</p>
-        <div class="stars" style="color:#10b981">
-          <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
-      <div class="card">
-        <p class="muted"><b>ميرا .</b> — رياضيات، مدرسة <b>المار يوسف</b>: “خطّة مراجعة قبل البجروت ساعدتني أرفع مستواي في التفاضل والتكامل.”</p>
-        <div class="stars" style="color:#10b981">
-          <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TUTOR BIO (كما هو، أبقيته دون PDF) -->
-<section>
-  <div class="container">
-    <div class="card" style="background:linear-gradient(135deg,#fff,#f0fdf4)">
-      <h2 class="section-title" style="margin-bottom:6px">عن المدرّس</h2>
-<p class="muted">
-  أنا <b>مهندس برمجيات</b> بخبرة تزيد عن
-  <b><span id="exp-dyn">6 سنوات</span></b>
-  في تعليم الرياضيات، الفيزياء، وعلوم الحاسوب.
-  أحب تحويل الأفكار المعقّدة إلى مفاهيم بسيطة قابلة للتطبيق.
-  نهجي يعتمد على الفهم العميق، التدريب الذكي، والاهتمام بكل طالب على حدة.
-</p>
-
-<script>
-  (function () {
-    var start = 2019;
-    var years = Math.max(0, new Date().getFullYear() - start);
-
-    function arabicYears(n) {
-      if (n === 0) return "0 سنة";
-      if (n === 1) return "سنة واحدة";
-      if (n === 2) return "سنتين";
-      if (n >= 3 && n <= 10) return n + " سنوات";
-      return n + " سنة";
-    }
-
-    var el = document.getElementById("exp-dyn");
-    if (el) el.textContent = arabicYears(years);
-  })();
-</script>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section>
-  <div class="container" style="max-width:900px">
-    <h2 class="section-title" style="text-align:center">الأسئلة الشائعة</h2>
-    <details>
-      <summary>هل الدروس مناسبة لكل الأعمار؟</summary>
-      <p class="muted">نعم—نغطي جميع المستويات من المرحلة الابتدائية حتى الجامعة، مع تخصيص الأسلوب لكل طالب.</p>
-    </details>
-    <details>
-      <summary>كيف تتم الدروس الأونلاين؟</summary>
-      <p class="muted">نعتمد منصات اتصال عالية الجودة مع سبورة تفاعلية ومشاركة شاشة ومواد تدريبية رقمية.</p>
-    </details>
-    <details>
-      <summary>هل يوجد واجبات ومتابعة؟</summary>
-      <p class="muted">نقدّم واجبات قصيرة بعد كل درس مع ملاحظات سريعة ومراجعات مبنية على نقاط الضعف.</p>
-    </details>
-  </div>
-</section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <div class="container" style="max-width:1000px">
-          <div class="grid cols-2">
-            <div class="card">
-              <h2 class="section-title">تواصل معنا</h2>
-              <!-- Formspree -->
-              <form action="https://formspree.io/f/xblzajpo" method="POST">
-                <input class="input" name="name"  type="text"  placeholder="الاسم الكامل" required>
-                <input class="input" name="email" type="email" placeholder="البريد الإلكتروني" required>
-                <input class="input" name="phone" type="tel"   placeholder="رقم الهاتف">
-                <textarea class="input" name="message" style="height:120px" placeholder="أخبرنا عن هدفك الدراسي" required></textarea>
-                <div class="stack"><button class="btn btn-primary" type="submit">أرسل الرسالة</button></div>
-              </form>
-            </div>
-            <div class="card" style="background:linear-gradient(135deg,#f0fdf4,#fff)">
-              <h3 style="margin-top:0; font-weight:800">معلومات سريعة</h3>
-              <ul class="list" style="color:var(--ink)">
-                <li><i class="fa-solid fa-phone"></i> <a href="tel:+972585291291">0585-291-291</a></li>
-                <li><i class="fa-solid fa-location-dot"></i> حصص حضورية وأونلاين</li>
-                <li><i class="fa-solid fa-trophy"></i> نتائج مضمونة مع متابعة</li>
-              </ul>
-              <div class="brand-stamp">
-                <div class="stamp"><img src="logoExams.jpeg" alt="Exam Success" loading="lazy"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <!-- FOOTER -->
-    <footer>
-      <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap">
-        <div class="brand"><img src="logoExams.jpeg" alt="Exam Success" loading="lazy" /><span>Exam Success</span></div>
-        <div>© <span id="year"></span> Exam Success — كل الحقوق محفوظة. | صُمّم بواسطة <a href="https://wesamghrayeb.com" target="_blank" style="color:var(--pri); font-weight:700">Wesam Software Solutions</a></div>
-      </div>
-    </footer>
-  </div>
-
-  <!-- Floating WhatsApp (desktop/tablet) -->
-  <a class="wa" href="https://wa.me/972585291291" target="_blank" aria-label="whatsapp"><i class="fa-brands fa-whatsapp"></i> تواصل الآن</a>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&family=Geist:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&family=Geist:wght@400..600&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/exams.css">
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Exam Success",
+    "url": "https://wesamghrayeb.com/exams.html",
+    "logo": "https://wesamghrayeb.com/logoExams.jpeg",
+    "telephone": "+972585291291",
+    "description": "دروس خصوصية لكل المستويات في الرياضيات والفيزياء وعلوم الحاسوب بإشراف مهندس برمجيات.",
+    "areaServed": "IL",
+    "knowsAbout": ["Mathematics", "Physics", "Computer Science"]
+  }
+  </script>
+</head>
+
+<body class="exams">
+  <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="ex-brand" href="#top" aria-label="Exam Success — العودة إلى الأعلى">
+        <img src="assets/img/exams-logo.webp" alt="" width="40" height="40">
+        <span>Exam Success</span>
+      </a>
+      <nav aria-label="القائمة الرئيسية">
+        <ul class="nav__links" role="list">
+          <li class="nav__indicator" aria-hidden="true"></li>
+          <li><a class="nav__link" href="#subjects">المواد</a></li>
+          <li><a class="nav__link" href="#why">لماذا نحن</a></li>
+          <li><a class="nav__link" href="#faq">الأسئلة</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <a class="btn btn--sm btn--ghost nav__contact" href="#contact">اتصال</a>
+        <a class="btn btn--sm" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noopener" data-magnetic>
+          <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-whatsapp"/></svg> واتساب
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="فتح القائمة"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="قائمة الجوال">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="#subjects"><span class="mono num">01</span>المواد</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="#why"><span class="mono num">02</span>لماذا نحن</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="#faq"><span class="mono num">03</span>الأسئلة الشائعة</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="#contact"><span class="mono num">04</span>تواصل</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static latin" href="tel:+972585291291" dir="ltr">0585-291-291</a>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+
+    <!-- HERO -->
+    <section class="hero ex-hero" id="top" aria-labelledby="ex-title">
+      <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div><div class="hero__glow"></div></div>
+      <div class="container hero__inner">
+        <div>
+          <p class="ex-badge" data-hero style="--delay:0ms">
+            <span class="ex-badge__icon" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-star"/></svg></span>
+            نتائج أعلى بثقة — من أول حصة
+          </p>
+          <h1 class="ex-title" id="ex-title" data-hero style="--delay:120ms">
+            دروس خصوصية في <em>الرياضيات</em>، <em>الفيزياء</em> و<em>علوم الحاسوب</em>
+          </h1>
+          <p class="lead" data-hero style="--delay:260ms">
+            بإشراف <strong>مهندس برمجيات</strong> — أسلوب حديث، أمثلة واقعية، وخطة ذكية تحقق لك
+            <span class="latin-serif" dir="ltr">Exam Success</span>.
+          </p>
+          <div class="hero__actions" data-hero style="--delay:400ms">
+            <a class="btn" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noopener" data-magnetic>
+              <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-whatsapp"/></svg> احجز حصتك الآن
+            </a>
+            <a class="btn btn--ghost" href="#subjects" data-magnetic>تعرّف على المواد
+              <svg class="icon icon--flip" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg>
+            </a>
+          </div>
+          <ul class="ex-assure" role="list" data-hero style="--delay:520ms">
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check"/></svg> منهجية مجرّبة</li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check"/></svg> متابعة شخصية</li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-check"/></svg> حضوري وأونلاين</li>
+          </ul>
+        </div>
+
+        <aside class="ex-plan" data-hero style="--delay:300ms" data-parallax="0.035" aria-label="خطة الدراسة">
+          <div class="ex-plan__head">
+            <p class="ex-plan__title">امتحانك القادم<br>يبدأ من هنا</p>
+            <div class="ex-plan__logo"><img src="assets/img/exams-logo.webp" alt="شعار Exam Success" width="480" height="411"></div>
+          </div>
+          <ol class="ex-steps" role="list">
+            <li class="ex-step"><span class="num">01</span><strong>نحدّد نقاط القوة والضعف</strong></li>
+            <li class="ex-step"><span class="num">02</span><strong>نصمّم خطة قصيرة المدى</strong></li>
+            <li class="ex-step"><span class="num">03</span><strong>تدريب على أسئلة تشبه الامتحان</strong></li>
+          </ol>
+          <div class="ex-plan__foot" aria-hidden="true">
+            <div class="ex-plan__bar"><i></i></div>
+            <div class="ex-plan__legend"><span>التشخيص</span><span>الامتحان</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SUBJECTS -->
+    <section class="section" id="subjects" aria-labelledby="subjects-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx num">01</span> المواد</p>
+          <div class="section-head__row">
+            <h2 class="h2" id="subjects-title" data-reveal>المواد التي <em>نغطيها</em></h2>
+            <p class="lead" data-reveal>من الأساسيات حتى مستوى البجروت والجامعة — فهم عميق بدل الحفظ، وتدريب يشبه الامتحان الحقيقي.</p>
+          </div>
+        </header>
+
+        <div class="ex-subjects" data-stagger>
+          <article class="ex-subject" data-reveal>
+            <div class="ex-subject__top">
+              <span class="ex-subject__icon" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-calculator"/></svg></span>
+              <span class="num">01</span>
+            </div>
+            <h3>رياضيات</h3>
+            <p>من الأساسيات حتى المعادلات المتقدمة، نغطي كل ما تحتاجه لتفهم الرياضيات بعمق وليس بالحفظ فقط:</p>
+            <ul class="ex-list" role="list">
+              <li>الأعداد، النسب، الدوال والمعادلات</li>
+              <li>الجبر، والهندسة المستوية والمجسمة</li>
+              <li>التفاضل والتكامل، والإحصاء والاحتمالات</li>
+              <li>تدريب على أسئلة البجروت والجامعة</li>
+            </ul>
+            <p class="ex-subject__note">نربط بين الأرقام والحياة اليومية لتصبح الحسابات منطقية وممتعة وسهلة التذكر.</p>
+          </article>
+
+          <article class="ex-subject" data-reveal>
+            <div class="ex-subject__top">
+              <span class="ex-subject__icon" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-atom"/></svg></span>
+              <span class="num">02</span>
+            </div>
+            <h3>فيزياء</h3>
+            <p>الفيزياء عندنا ليست معادلات فقط — هي فهم للطبيعة بطريقة ذكية وممتعة:</p>
+            <ul class="ex-list" role="list">
+              <li>قوانين الحركة، السرعة، والعجلة</li>
+              <li>الكهرباء والمغناطيسية والدوائر العملية</li>
+              <li>الموجات، الصوت، الضوء والبصريات</li>
+              <li>الطاقة، القوى، والزخم بتجارب ذهنية ورسومات</li>
+            </ul>
+          </article>
+
+          <article class="ex-subject" data-reveal>
+            <div class="ex-subject__top">
+              <span class="ex-subject__icon" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-code"/></svg></span>
+              <span class="num">03</span>
+            </div>
+            <h3>علوم الحاسوب</h3>
+            <p>تعلم كيف يفكر المبرمجون وكيف تبنى الأنظمة الحديثة من الصفر بخطوات واضحة:</p>
+            <ul class="ex-list" role="list">
+              <li>مبادئ البرمجة بلغة السي شارب والجافا</li>
+              <li>هياكل البيانات والخوارزميات خطوة بخطوة</li>
+              <li>تطوير صفحات ويب ومشاريع بسيطة تفاعلية</li>
+              <li>فهم كيف يعمل الكمبيوتر والمنطق البرمجي</li>
+            </ul>
+            <p class="ex-subject__note">بإشراف مهندس برمجيات، ستكتسب مهارات حقيقية تفيدك في الدراسة والحياة العملية.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section section--dark" id="why" aria-labelledby="why-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx num">02</span> لماذا نحن</p>
+          <div class="section-head__row">
+            <h2 class="h2" id="why-title" data-reveal>لماذا <em class="latin-serif" dir="ltr">Exam Success</em>؟</h2>
+            <p class="lead" data-reveal>شرح واضح، خطة شخصية، ومتابعة حقيقية حتى يوم الامتحان.</p>
+          </div>
+        </header>
+        <div class="ex-why" data-stagger>
+          <div class="ex-why__item" data-reveal><span class="icon-wrap" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-brain"/></svg></span><h3>شرح مبسّط ومباشر</h3><p>تبسيط المفاهيم المعقّدة بخطوات واضحة وأمثلة عملية.</p></div>
+          <div class="ex-why__item" data-reveal><span class="icon-wrap" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-sigma"/></svg></span><h3>رياضيات لكل المستويات</h3><p>من الابتدائي حتى الجامعة: أسس قوية ثم تدرّج ذكي.</p></div>
+          <div class="ex-why__item" data-reveal><span class="icon-wrap" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-atom"/></svg></span><h3>فيزياء ممتعة</h3><p>تجارب ذهنية ورسوم لفهم القوانين وليس حفظها فقط.</p></div>
+          <div class="ex-why__item" data-reveal><span class="icon-wrap" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-code"/></svg></span><h3>علوم الحاسوب</h3><p>برمجة وخوارزميات بإشراف مهندس برمجيات.</p></div>
+          <div class="ex-why__item" data-reveal><span class="icon-wrap" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-shield"/></svg></span><h3>خطة شخصية آمنة</h3><p>برنامج تعلم مخصص لأهدافك، مع متابعة وتغذية راجعة.</p></div>
+          <div class="ex-why__item" data-reveal><span class="icon-wrap" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-clock"/></svg></span><h3>مواعيد مرنة</h3><p>حضوري أو أونلاين — أوقات تناسب جدولك.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section--alt" id="testimonials" aria-labelledby="quotes-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx num">03</span> آراء الطلاب</p>
+          <h2 class="h2" id="quotes-title" data-reveal>ماذا قال <em>طلابنا</em>؟</h2>
+        </header>
+        <div class="ex-quotes" data-stagger>
+          <figure class="ex-quote" data-reveal>
+            <blockquote>ارتفع معدّلي من 72 إلى 90 خلال شهرين بفضل التركيز على مهارات الحل.</blockquote>
+            <figcaption>
+              <span class="ex-quote__who"><strong>عمر .</strong><span>رياضيات · مدرسة المطران</span></span>
+              <span class="ex-stars" role="img" aria-label="5 من 5 نجوم"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg></span>
+            </figcaption>
+          </figure>
+          <figure class="ex-quote" data-reveal>
+            <blockquote>الشرح منظّم وبسيط — صرت أعرف أهاجم أسئلة الحركة والطاقة بثقة.</blockquote>
+            <figcaption>
+              <span class="ex-quote__who"><strong>لانا .</strong><span>فيزياء · مدرسة الفرنسيسكان</span></span>
+              <span class="ex-stars" role="img" aria-label="5 من 5 نجوم"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg></span>
+            </figcaption>
+          </figure>
+          <figure class="ex-quote" data-reveal>
+            <blockquote>برمجة أول مشروع C# خلّتني أفهم الخوارزميات بطريقة عملية.</blockquote>
+            <figcaption>
+              <span class="ex-quote__who"><strong>يوسف .</strong><span>علوم الحاسوب · مدرسة المخلّص</span></span>
+              <span class="ex-stars" role="img" aria-label="5 من 5 نجوم"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg></span>
+            </figcaption>
+          </figure>
+          <figure class="ex-quote" data-reveal>
+            <blockquote>خطّة مراجعة قبل البجروت ساعدتني أرفع مستواي في التفاضل والتكامل.</blockquote>
+            <figcaption>
+              <span class="ex-quote__who"><strong>ميرا .</strong><span>رياضيات · مدرسة المار يوسف</span></span>
+              <span class="ex-stars" role="img" aria-label="5 من 5 نجوم"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg></span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- TUTOR -->
+    <section class="section" id="tutor" aria-labelledby="tutor-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx num">04</span> <span id="tutor-title">عن المدرّس</span></p>
+        </header>
+        <div class="ex-tutor">
+          <p class="ex-tutor__statement" data-reveal>
+            أنا <strong>مهندس برمجيات</strong> بخبرة تزيد عن <strong><span data-exp-text>6 سنوات</span></strong>
+            في تعليم الرياضيات، الفيزياء، وعلوم الحاسوب. أحب تحويل الأفكار المعقّدة إلى مفاهيم بسيطة قابلة للتطبيق.
+          </p>
+          <div class="ex-tutor__side" data-reveal style="--delay:150ms">
+            <p class="ex-tutor__years"><span class="num" data-exp-num>6+</span><span>سنوات في التعليم</span></p>
+            <p>نهجي يعتمد على الفهم العميق، التدريب الذكي، والاهتمام بكل طالب على حدة.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--tight section--alt" id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <header class="section-head" style="text-align:center; justify-items:center">
+          <p class="eyebrow eyebrow--plain" data-reveal><span class="idx num">05</span> الأسئلة الشائعة</p>
+          <h2 class="h2" id="faq-title" data-reveal>أسئلة <em>تتكرر</em> كثيرًا</h2>
+        </header>
+        <div class="ex-faq" data-reveal>
+          <details>
+            <summary>هل الدروس مناسبة لكل الأعمار؟ <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-plus"/></svg></span></summary>
+            <p>نعم — نغطي جميع المستويات من المرحلة الابتدائية حتى الجامعة، مع تخصيص الأسلوب لكل طالب.</p>
+          </details>
+          <details>
+            <summary>كيف تتم الدروس الأونلاين؟ <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-plus"/></svg></span></summary>
+            <p>نعتمد منصات اتصال مع مشاركة الشاشة ومواد تدريبية رقمية.</p>
+          </details>
+          <details>
+            <summary>هل يوجد واجبات ومتابعة؟ <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-plus"/></svg></span></summary>
+            <p>نقدّم واجبات قصيرة بعد كل درس مع ملاحظات سريعة ومراجعات مبنية على نقاط الضعف.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="idx num">06</span> تواصل</p>
+        <h2 class="ex-contact__title" id="contact-title" data-reveal>امتحانك القادم <em>يبدأ اليوم.</em></h2>
+
+        <div class="contact__grid">
+          <div data-reveal>
+            <p class="lead">أخبرنا عن هدفك الدراسي، وسنقترح عليك الخطة الأنسب. الأسرع: رسالة واتساب.</p>
+            <div class="hero__actions" style="margin-top:28px">
+              <a class="btn" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noopener" data-magnetic>
+                <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-whatsapp"/></svg> راسلنا على واتساب
+              </a>
+            </div>
+            <ul class="ex-info" role="list">
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-phone"/></svg><a class="link latin" href="tel:+972585291291">0585-291-291</a></li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-pin"/></svg> حصص حضورية وأونلاين</li>
+              <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-star"/></svg> نتائج مضمونة مع متابعة</li>
+            </ul>
+            <div class="ex-stamp"><img src="assets/img/exams-logo.webp" alt="شعار Exam Success" width="84" height="84" loading="lazy"><span class="latin-serif" dir="ltr" style="font-size:1.5rem">Exam Success</span></div>
+          </div>
+
+          <form class="form" action="https://formspree.io/f/xblzajpo" method="POST" data-reveal style="--delay:120ms">
+            <p class="form__title">أرسل رسالة</p>
+            <div class="form__row">
+              <div class="field">
+                <label class="field__label" for="ex-name">الاسم الكامل</label>
+                <input class="field__input" id="ex-name" name="name" type="text" autocomplete="name" required placeholder="الاسم الكامل">
+              </div>
+              <div class="field">
+                <label class="field__label" for="ex-phone">رقم الهاتف</label>
+                <input class="field__input" id="ex-phone" name="phone" type="tel" autocomplete="tel" placeholder="05X-XXX-XXXX">
+              </div>
+            </div>
+            <div class="field">
+              <label class="field__label" for="ex-email">البريد الإلكتروني</label>
+              <input class="field__input" id="ex-email" name="email" type="email" autocomplete="email" required placeholder="name@example.com">
+            </div>
+            <div class="field">
+              <label class="field__label" for="ex-message">الرسالة</label>
+              <textarea class="field__input" id="ex-message" name="message" required placeholder="أخبرنا عن هدفك الدراسي"></textarea>
+            </div>
+            <div class="form__foot">
+              <p class="form__note">أو تواصل مباشرة عبر واتساب أو الهاتف.</p>
+              <button class="btn" type="submit">أرسل الرسالة</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container ex-footer__row">
+      <a class="ex-brand" href="#top" data-scroll-top><img src="assets/img/exams-logo.webp" alt="" width="40" height="40" loading="lazy"><span>Exam Success</span></a>
+      <p class="subtle ex-footer__credit">
+        © <span class="num" data-year>2026</span> Exam Success — كل الحقوق محفوظة. | صُمّم بواسطة
+        <a href="https://wesamghrayeb.com" target="_blank" rel="noopener" dir="ltr">Wesam Software Solutions</a>
+      </p>
+    </div>
+  </footer>
+
+  <a class="ex-wa" href="https://wa.me/972585291291" target="_blank" rel="noopener" aria-label="تواصل الآن عبر واتساب">
+    <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-whatsapp"/></svg> تواصل الآن
+  </a>
+
+  <div class="ex-sticky">
+    <a class="btn btn--wa" href="https://wa.me/972585291291?text=%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AD%D8%B5%D8%A9%20%D9%81%D9%8A%20Exam%20Success" target="_blank" rel="noopener">
+      <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-whatsapp"/></svg> واتساب
+    </a>
+    <a class="btn btn--ghost" href="tel:+972585291291">
+      <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-phone"/></svg> اتصال
+    </a>
+  </div>
+
+  <script>
+    (function () {
+      var years = Math.max(0, new Date().getFullYear() - 2019);
+      function arabicYears(n) {
+        if (n === 0) return "0 سنة";
+        if (n === 1) return "سنة واحدة";
+        if (n === 2) return "سنتين";
+        if (n >= 3 && n <= 10) return n + " سنوات";
+        return n + " سنة";
+      }
+      document.querySelectorAll("[data-exp-text]").forEach(function (el) { el.textContent = arabicYears(years); });
+      document.querySelectorAll("[data-exp-num]").forEach(function (el) { el.textContent = years + "+"; });
+    })();
   </script>
 </body>
 </html>

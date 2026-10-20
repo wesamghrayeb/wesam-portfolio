@@ -1,114 +1,362 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flying Packages | Wesam Ghrayeb</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: linear-gradient(to bottom, #0d1117, #0a0f1a);
-      color: #e6edf3;
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #58a6ff;
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    h2 {
-      color: #2ea043;
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      padding-bottom: 4px;
-      border-bottom: 2px solid #2ea043;
-      display: inline-block;
-    }
-    .section {
-      margin-bottom: 50px;
-    }
-    ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-    a {
-      color: #2ea043;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .back {
-      display: inline-block;
-      margin-bottom: 35px;
-      font-weight: 600;
-      color: #58a6ff;
-      font-size: 1rem;
-    }
-    .screenshots {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: flex-start;
-      margin-top: 20px;
-    }
-    .screenshots img {
-      width: 100%;
-      max-width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .screenshots img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-      h2 {
-        font-size: 1.3rem;
-      }
-      .back {
-        display: block;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fly Package — Delivery Management System Case Study · Wesam Ghrayeb</title>
+  <meta name="description" content="Case study: a React, Node.js, Express and MongoDB delivery platform for suppliers, couriers and managers, with nearest-available-courier selection via geospatial queries and logistics dashboards.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/flying-packages.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="Fly Package — Delivery management system">
+  <meta property="og:description" content="Case study: a React, Node.js, Express and MongoDB delivery platform for suppliers, couriers and managers, with nearest-available-courier selection via geospatial queries and logistics dashboards.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/flying-packages.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
-  <a href="../index.html/#projects" class="back"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-  <h1>Flying Packages</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
-  <div class="section">
-    <h2>Description</h2>
-    <p>A full-stack logistics web app to track deliveries in real-time. Features include package assignment, status updates, and an admin dashboard with insights.</p>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
+    </div>
   </div>
 
-  <div class="section">
-    <h2>Tech Stack</h2>
-    <ul>
-      <li>Frontend: React, CSS</li>
-      <li>Backend: Node.js, Express.js</li>
-      <li>Database: MongoDB</li>
-      <li>Features: Delivery status updates, admin analytics, role-based auth</li>
-    </ul>
-  </div>
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#work"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> All work</a>
+          <p class="eyebrow" data-hero><span class="idx">Case study 04</span> Logistics</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">Fly Package</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">A delivery management system that connects suppliers, couriers and managers — and assigns each order to the nearest available courier.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Type</dt><dd>Academic full-stack project</dd></div>
+            <div><dt class="mono">Roles</dt><dd>Supplier · Courier · Manager</dd></div>
+            <div><dt class="mono">Stack</dt><dd>React, Node.js, Express, MongoDB</dd></div>
+            <div><dt class="mono">Artifacts</dt><dd>UML use cases &amp; data model</dd></div>
+          </dl>
+        </div>
+      </header>
 
+      <section class="cs-visual" aria-label="Diagram">
+        <div class="container">
+          <figure data-reveal="scale">
+            <div class="canvas">
+              <p class="canvas__label mono">fig. 04 — nearest available courier</p>
+              <div class="canvas__art" data-anim>
+                <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: a delivery map. A new order sits at the centre of expanding search rings; the nearest available courier is selected while busy couriers are skipped. A side panel tracks deliveries by state." data-draw>
+                    <defs><clipPath id="fp-clip"><rect x="20" y="24" width="430" height="352" rx="16"/></clipPath></defs>
+                    <rect class="dg-box dg-pop" style="--d:50" x="20" y="24" width="430" height="352" rx="16"/>
+                    <g clip-path="url(#fp-clip)" class="dg-pop" style="--d:150">
+                      <path class="dg-road" d="M10 120C140 104 220 166 460 136"/>
+                      <path class="dg-road" d="M118 14C134 140 96 262 144 390"/>
+                      <path class="dg-road" d="M10 296C160 270 300 326 460 282"/>
+                      <path class="dg-road" d="M336 14C300 120 366 244 318 390"/>
+                      <circle class="dg-ring" cx="232" cy="205" r="44"/>
+                      <circle class="dg-ring" cx="232" cy="205" r="88"/>
+                      <circle class="dg-ring" cx="232" cy="205" r="132"/>
+                      <circle class="dg-ring dg-ring--live anim-ring" cx="232" cy="205" r="120"/>
+                    </g>
+                    <path id="fp-route" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:800; stroke-width:1.6" d="M300 168C276 170 252 186 238 200"/>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.8s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#fp-route"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.8s" begin="1.6s" repeatCount="indefinite"/></circle>
 
-  <div class="section">
-    <h2>Live Demo</h2>
-    <p><a href="../index.html#contact">(Demo on request)</a></p>
-  </div>
+                    <g class="dg-pop" style="--d:500">
+                      <circle class="dg-fill-accent" cx="232" cy="205" r="11"/>
+                      <rect class="dg-fill-surface" x="227.5" y="200.5" width="9" height="9" rx="1.5"/>
+                      <text class="dg-label dg-label--sm" x="250" y="232">new order · pickup</text>
+                    </g>
+                    <g class="dg-pop" style="--d:650"><circle class="dg-junction" cx="306" cy="166" r="8"/><circle class="dg-dot--ok" cx="306" cy="166" r="3.5"/><text class="dg-label dg-label--sm dg-label--accent" x="320" y="162">nearest available</text></g>
+                    <g class="dg-pop" style="--d:700"><circle class="dg-box" cx="130" cy="118" r="7"/><circle class="dg-dot--ok" cx="130" cy="118" r="3"/></g>
+                    <g class="dg-pop" style="--d:720"><circle class="dg-box" cx="92" cy="300" r="7"/><circle class="dg-dot--ok" cx="92" cy="300" r="3"/></g>
+                    <g class="dg-pop" style="--d:740"><circle class="dg-box" cx="380" cy="300" r="7"/><circle class="dg-dot--muted" cx="380" cy="300" r="3"/></g>
+                    <g class="dg-pop" style="--d:760"><circle class="dg-box" cx="372" cy="78" r="7"/><circle class="dg-dot--muted" cx="372" cy="78" r="3"/></g>
+                    <g class="dg-pop" style="--d:780"><circle class="dg-box" cx="190" cy="334" r="7"/><circle class="dg-dot--muted" cx="190" cy="334" r="3"/></g>
+                    <g class="dg-pop" style="--d:800"><circle class="dg-box" cx="220" cy="62" r="7"/><circle class="dg-dot--ok" cx="220" cy="62" r="3"/></g>
+                    <g class="dg-pop" style="--d:850">
+                      <circle class="dg-dot--ok" cx="40" cy="356" r="3"/><text class="dg-label dg-label--sm" x="50" y="359">available</text>
+                      <circle class="dg-dot--muted" cx="122" cy="356" r="3"/><text class="dg-label dg-label--sm" x="132" y="359">busy</text>
+                    </g>
+
+                    <g class="dg-pop" style="--d:400">
+                      <rect class="dg-box" x="470" y="24" width="150" height="352" rx="16"/>
+                      <text class="dg-label" x="486" y="54">deliveries</text>
+                      <text class="dg-label dg-label--sm" x="486" y="70">manager view</text>
+                      <text class="dg-label dg-label--sm" x="486" y="104">pending</text>
+                      <rect class="dg-fill-line" x="486" y="112" width="118" height="6" rx="3"/><rect class="dg-fill-strong" x="486" y="112" width="44" height="6" rx="3"/>
+                      <text class="dg-label dg-label--sm" x="486" y="146">assigned</text>
+                      <rect class="dg-fill-line" x="486" y="154" width="118" height="6" rx="3"/><rect class="dg-fill-accent" x="486" y="154" width="70" height="6" rx="3"/>
+                      <text class="dg-label dg-label--sm" x="486" y="188">in transit</text>
+                      <rect class="dg-fill-line" x="486" y="196" width="118" height="6" rx="3"/><rect class="dg-fill-accent anim-progress" x="486" y="196" width="96" height="6" rx="3"/>
+                      <text class="dg-label dg-label--sm" x="486" y="230">delivered</text>
+                      <rect class="dg-fill-line" x="486" y="238" width="118" height="6" rx="3"/><rect class="dg-fill-ink" x="486" y="238" width="104" height="6" rx="3"/>
+                      <line class="dg-edge" x1="486" y1="270" x2="604" y2="270"/>
+                      <text class="dg-label dg-label--sm" x="486" y="296">couriers</text>
+                      <circle class="dg-dot--ok" cx="490" cy="314" r="3.5"/><circle class="dg-dot--ok" cx="504" cy="314" r="3.5"/><circle class="dg-dot--muted" cx="518" cy="314" r="3.5"/><circle class="dg-dot--ok" cx="532" cy="314" r="3.5"/><circle class="dg-dot--muted" cx="546" cy="314" r="3.5"/>
+                      <text class="dg-label dg-label--sm" x="486" y="356">supplier · courier · mgr</text>
+                    </g>
+                  </svg>
+              </div>
+            </div>
+            <figcaption class="mono subtle" style="margin-top:14px">Illustrative diagram — not a product screenshot.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-problem">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-problem">The problem</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Deliveries break down at the hand-offs: who takes the order, who is actually free, and where everything stands right now.</p>
+            <p>Suppliers need to submit and track orders. Couriers need clear assignments and a simple way to update status. Managers need to approve suppliers, manage couriers and see the whole operation.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-role">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-role">My responsibility</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ul class="cs-list" role="list">
+              <li><span class="mono">01</span><span><strong>Domain modeling</strong><span class="txt">Use-case and data modeling for suppliers, couriers, managers, orders and locations.</span></span></li>
+              <li><span class="mono">02</span><span><strong>Backend</strong><span class="txt">REST API on Node.js and Express, with a MongoDB schema for orders, couriers and locations.</span></span></li>
+              <li><span class="mono">03</span><span><strong>Courier selection</strong><span class="txt">Nearest-available-courier assignment using geospatial queries.</span></span></li>
+              <li><span class="mono">04</span><span><strong>Dashboards</strong><span class="txt">React interfaces for each role, including logistics dashboards for managers.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-arch">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-arch">The architecture</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="arch" role="img" aria-label="Clients · React: supplier portal, courier app, manager dashboard. API · Express: rest api, auth · role-based access. Domain: orders · delivery states, couriers · availability, suppliers, billing. Data: mongodb, geospatial queries · locations">
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Clients · React</span></div>
+                <div class="arch__nodes"><span class="arch__node">supplier portal</span><span class="arch__node">courier app</span><span class="arch__node">manager dashboard</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>API · Express</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--ink">rest api</span><span class="arch__node">auth · role-based access</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Domain</span></div>
+                <div class="arch__nodes"><span class="arch__node">orders · delivery states</span><span class="arch__node">couriers · availability</span><span class="arch__node">suppliers</span><span class="arch__node">billing</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Data</span></div>
+                <div class="arch__nodes"><span class="arch__node">mongodb</span><span class="arch__node">geospatial queries · locations</span></div>
+              </div>
+
+            </div>
+            <p>The original design artifacts below show the actors and use cases, and the data model behind them — including courier availability and status, and order origin and destination locations.</p>
+            <div class="gallery">
+              <button class="gallery__btn" type="button" data-lightbox="fly" data-full="../assets/img/fly-usecase.webp" data-alt="UML use-case diagram: manager, supplier and courier use cases" aria-label="Enlarge: UML use-case diagram: manager, supplier and courier use cases"><img src="../assets/img/fly-usecase.webp" alt="UML use-case diagram: manager, supplier and courier use cases" width="1226" height="528" loading="lazy" decoding="async"></button>
+              <button class="gallery__btn" type="button" data-lightbox="fly" data-full="../assets/img/fly-datamodel.webp" data-alt="Class diagram of the FlyingPackages data model" aria-label="Enlarge: Class diagram of the FlyingPackages data model"><img src="../assets/img/fly-datamodel.webp" alt="Class diagram of the FlyingPackages data model" width="1165" height="516" loading="lazy" decoding="async"></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-challenges">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">04</p>
+            <h2 id="s-challenges">Engineering challenges</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">01</span><h3>Choosing the right courier</h3><p>The best courier is the closest one who is actually available — not just the closest.</p></div>
+              <div class="cs-pair"><span class="mono">02</span><h3>Consistent delivery states</h3><p>Orders move through states that suppliers, couriers and managers all depend on.</p></div>
+              <div class="cs-pair"><span class="mono">03</span><h3>Three roles, one system</h3><p>Each role needs different views and permissions over the same data.</p></div>
+              <div class="cs-pair"><span class="mono">04</span><h3>Operational visibility</h3><p>Managers need a live picture of orders, couriers and supplier activity.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-solution">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">05</p>
+            <h2 id="s-solution">The solution</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ol class="flow" role="list">
+              <li><strong>Model locations explicitly</strong><span>Orders carry origin and destination locations; couriers carry availability and status.</span></li>
+              <li><strong>Select the nearest available courier</strong><span>When a supplier submits an order, a geospatial query finds the closest courier whose status is available.</span></li>
+              <li><strong>Drive the delivery lifecycle</strong><span>Couriers accept or reject orders and update their status, and suppliers are notified as orders progress.</span></li>
+              <li><strong>Give managers control</strong><span>Managers confirm or reject new suppliers, manage couriers, check payments and monitor deliveries from dashboards.</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-tech">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">06</p>
+            <h2 id="s-tech">Technologies</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Frontend</span><ul class="tags" role="list"><li class="tag">React</li><li class="tag">CSS</li></ul></div>
+              <div class="cs-pair"><span class="mono">Backend</span><ul class="tags" role="list"><li class="tag">Node.js</li><li class="tag">Express</li><li class="tag">REST APIs</li></ul></div>
+              <div class="cs-pair"><span class="mono">Data</span><ul class="tags" role="list"><li class="tag">MongoDB</li><li class="tag">Geospatial queries</li></ul></div>
+              <div class="cs-pair"><span class="mono">Design</span><ul class="tags" role="list"><li class="tag">UML use cases</li><li class="tag">Class diagrams</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-outcome">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">07</p>
+            <h2 id="s-outcome">Outcome &amp; lessons</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Modeling the domain first — actors, states and locations — made the hardest feature, courier selection, almost straightforward.</p>
+            <ul class="showcase__points" role="list">
+              <li>Availability is as important as distance in dispatch logic.</li>
+              <li>Explicit state models keep three different user roles in sync.</li>
+              <li>Design artifacts are worth keeping: they explain the system faster than the code.</li>
+            </ul>
+            <p><a class="link-arrow" href="../index.html#contact">Demo available on request <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span></a></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="moments.html">
+          <span class="cs-next__label mono">Next case study · 05</span>
+          <span class="cs-next__title">Moments <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Screenshot viewer">
+    <img src="data:," alt="">
+    <div class="lightbox__bar mono">
+      <span class="lightbox__caption"></span>
+      <span class="lightbox__nav">
+        <button class="icon-btn" type="button" data-lb-prev aria-label="Previous image"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-chevron-left"/></svg></button>
+        <button class="icon-btn" type="button" data-lb-next aria-label="Next image"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-chevron-right"/></svg></button>
+        <button class="icon-btn" type="button" data-lb-close aria-label="Close viewer"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg></button>
+      </span>
+    </div>
+  </dialog>
 </body>
 </html>

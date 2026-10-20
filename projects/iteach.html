@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>iTeach — AI-Powered Learning Platform Case Study · Wesam Ghrayeb</title>
+  <meta name="description" content="Case study: backend contributions to iTeach, a cloud-native .NET 10 microservices platform — exercise-duration estimation, progress calculations and an onboarding Todo system built on Manager, Engine and Accessor services.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/iteach.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="iTeach — AI-powered learning platform">
+  <meta property="og:description" content="Case study: backend contributions to iTeach, a cloud-native .NET 10 microservices platform — exercise-duration estimation, progress calculations and an onboarding Todo system built on Manager, Engine and Accessor services.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/iteach.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#work"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> All work</a>
+          <p class="eyebrow" data-hero><span class="idx">Case study 02</span> Cloud-native microservices</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">iTeach</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">Backend contributions to an AI-powered learning platform built by a larger team as cloud-native .NET microservices.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Role</dt><dd>.NET Software Engineering Intern</dd></div>
+            <div><dt class="mono">Company</dt><dd>ZioNet</dd></div>
+            <div><dt class="mono">Period</dt><dd>2026</dd></div>
+            <div><dt class="mono">Stack</dt><dd>C#, .NET 10, Dapr, PostgreSQL</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <section class="cs-visual" aria-label="Diagram">
+        <div class="container">
+          <figure data-reveal="scale">
+            <div class="canvas">
+              <p class="canvas__label mono">fig. 02 — manager / engine / accessor</p>
+              <p class="canvas__label canvas__label--right mono"><span style="color:var(--accent)">■</span> my work</p>
+              <div class="canvas__art" data-anim>
+                <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: iTeach's layered .NET services. Managers orchestrate engines and accessors behind Dapr sidecars, with PostgreSQL, Redis and Grafana. My contributions are highlighted: the onboarding todo manager, engine and accessor, plus the duration-estimation and progress engines." data-draw>
+                    <path id="it-c1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:300" d="M125 62V120"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:340" d="M316 62V120"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:380" d="M511 62V120"/>
+                    <path id="it-m1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:600" d="M125 154C125 174 105 172 105 192"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:640" d="M316 154C316 174 252 172 252 192"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:680" d="M316 154C316 174 404 172 404 192"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:720" d="M511 154C511 174 543 172 543 192"/>
+                    <path id="it-e1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:900" d="M105 226C105 245 115 245 115 264"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:940" d="M543 226C543 250 287 240 287 264"/>
+                    <path id="it-a1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:1150" d="M115 298V344"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:1200" d="M287 298C287 320 257 322 257 344"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1250" d="M528 324V344"/>
+
+                    <g class="dg-node dg-node--ink dg-pop" style="--d:100"><rect x="24" y="28" width="592" height="34" rx="10"/><text class="dg-label" x="320" y="49" text-anchor="middle">clients → api · ai-powered learning</text></g>
+                    <g class="dg-pop" style="--d:200">
+                      <rect class="dg-frame" x="24" y="92" width="592" height="232" rx="16"/>
+                      <text class="dg-label dg-label--sm" x="340" y="316">dapr · invocation + pub/sub</text>
+                      <text class="dg-label dg-label--sm" x="40" y="114">managers</text>
+                      <text class="dg-label dg-label--sm" x="40" y="186">engines</text>
+                      <text class="dg-label dg-label--sm" x="40" y="258">accessors</text>
+                    </g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:400"><rect x="40" y="120" width="170" height="34" rx="9"/><text class="dg-label dg-label--accent" x="125" y="141" text-anchor="middle">todo.manager</text></g>
+                    <g class="dg-node dg-pop" style="--d:440"><rect x="226" y="120" width="180" height="34" rx="9"/><text class="dg-label" x="316" y="141" text-anchor="middle">platform.manager</text></g>
+                    <g class="dg-node dg-pop" style="--d:480"><rect x="422" y="120" width="178" height="34" rx="9"/><text class="dg-label" x="511" y="141" text-anchor="middle">platform.manager</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:700"><rect x="40" y="192" width="130" height="34" rx="9"/><text class="dg-label dg-label--accent" x="105" y="213" text-anchor="middle">todo.engine</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:740"><rect x="182" y="192" width="140" height="34" rx="9"/><text class="dg-label dg-label--accent" x="252" y="213" text-anchor="middle">duration.engine</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:780"><rect x="334" y="192" width="140" height="34" rx="9"/><text class="dg-label dg-label--accent" x="404" y="213" text-anchor="middle">progress.engine</text></g>
+                    <g class="dg-node dg-pop" style="--d:820"><rect x="486" y="192" width="114" height="34" rx="9"/><text class="dg-label" x="543" y="213" text-anchor="middle">platform…</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:1000"><rect x="40" y="264" width="150" height="34" rx="9"/><text class="dg-label dg-label--accent" x="115" y="285" text-anchor="middle">todo.accessor</text></g>
+                    <g class="dg-node dg-pop" style="--d:1040"><rect x="202" y="264" width="170" height="34" rx="9"/><text class="dg-label" x="287" y="285" text-anchor="middle">platform.accessor</text></g>
+                    <g class="dg-node dg-pop" style="--d:1300"><rect x="40" y="344" width="150" height="34" rx="17"/><text class="dg-label" x="115" y="365" text-anchor="middle">postgresql</text></g>
+                    <g class="dg-node dg-pop" style="--d:1340"><rect x="202" y="344" width="110" height="34" rx="17"/><text class="dg-label" x="257" y="365" text-anchor="middle">redis</text></g>
+                    <g class="dg-node dg-pop" style="--d:1380"><rect x="440" y="344" width="176" height="34" rx="17"/><circle class="dg-dot--ok anim-pulse" cx="460" cy="361" r="2.5"/><text class="dg-label" x="534" y="365" text-anchor="middle">grafana · observability</text></g>
+
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.4s" begin="1.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-c1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.4s" begin="1.8s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.2s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-m1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.2s" begin="2.4s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.2s" begin="2.9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-e1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.2s" begin="2.9s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.3s" begin="3.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-a1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.3s" begin="3.4s" repeatCount="indefinite"/></circle>
+                  </svg>
+              </div>
+            </div>
+            <figcaption class="mono subtle" style="margin-top:14px">Illustrative diagram. Highlighted nodes are my contributions; the rest of the platform was built by the team.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-problem">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-problem">The problem</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Learners need a realistic sense of how long their work will take and how far they've come — and new users need a guided start.</p>
+            <p>iTeach already had an architecture, conventions and teams in place. My work was to add these capabilities inside that system, matching its contracts, boundaries and quality bar.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-role">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-role">My responsibility</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ul class="cs-list" role="list">
+              <li><span class="mono">01</span><span><strong>Duration estimation</strong><span class="txt">Implemented the logic that estimates how long an exercise will take.</span></span></li>
+              <li><span class="mono">02</span><span><strong>Progress calculations</strong><span class="txt">Implemented learner progress calculations.</span></span></li>
+              <li><span class="mono">03</span><span><strong>Onboarding Todo system</strong><span class="txt">Built an onboarding Todo feature across Manager, Accessor and Engine services.</span></span></li>
+              <li><span class="mono">04</span><span><strong>Integration &amp; quality</strong><span class="txt">Worked with service contracts, API integration, testing, debugging and observability.</span></span></li>
+            </ul>
+            <p class="note"><span class="note__mark mono">Scope</span><span>iTeach is a team-built platform. I didn't build its infrastructure or most of its services — this page focuses on my contributions within it.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-arch">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-arch">The architecture</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="arch" role="img" aria-label="Clients: web clients → api. Managers: todo.manager, platform managers. Engines: todo.engine, duration estimation, progress calculation, platform engines. Accessors: todo.accessor, platform accessors. Infrastructure: dapr sidecars, postgresql, redis, azure, grafana">
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Clients</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--ink">web clients → api</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Managers</span><span>orchestration</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--mine">todo.manager</span><span class="arch__node">platform managers</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Engines</span><span>business logic</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--mine">todo.engine</span><span class="arch__node arch__node--mine">duration estimation</span><span class="arch__node arch__node--mine">progress calculation</span><span class="arch__node">platform engines</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Accessors</span><span>data access</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--mine">todo.accessor</span><span class="arch__node">platform accessors</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Infrastructure</span></div>
+                <div class="arch__nodes"><span class="arch__node">dapr sidecars</span><span class="arch__node">postgresql</span><span class="arch__node">redis</span><span class="arch__node">azure</span><span class="arch__node">grafana</span></div>
+              </div>
+              <p class="arch__legend mono" aria-hidden="true"><span><i class="mine"></i>My contributions</span><span><i></i>Platform / team</span></p>
+            </div>
+            <p>The platform separates orchestration (Managers), business logic (Engines) and data access (Accessors). Services communicate through Dapr, which keeps service invocation and messaging consistent across the system. Features have to respect those boundaries: Managers coordinate, Engines compute, Accessors own data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-challenges">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">04</p>
+            <h2 id="s-challenges">Engineering challenges</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">01</span><h3>Fitting an established architecture</h3><p>New code had to follow existing contracts, naming and layering rather than invent its own.</p></div>
+              <div class="cs-pair"><span class="mono">02</span><h3>Numbers learners can trust</h3><p>Duration and progress values need to be consistent and explainable, not just computed.</p></div>
+              <div class="cs-pair"><span class="mono">03</span><h3>Contracts across services</h3><p>A contract change ripples across services, so integration had to be deliberate and tested.</p></div>
+              <div class="cs-pair"><span class="mono">04</span><h3>Debugging distributed calls</h3><p>An issue can sit in any hop between services and sidecars, so observability matters.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-solution">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">05</p>
+            <h2 id="s-solution">The solution</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ol class="flow" role="list">
+              <li><strong>Model the feature in layers</strong><span>Split the onboarding Todo feature into a Manager for orchestration, an Engine for its rules, and an Accessor for data access.</span></li>
+              <li><strong>Keep calculations in Engines</strong><span>Placed duration estimation and progress calculation logic in Engines, so it stays testable and reusable by Managers.</span></li>
+              <li><strong>Integrate through contracts</strong><span>Worked against defined service contracts and APIs, so other services can rely on predictable shapes.</span></li>
+              <li><strong>Test and observe</strong><span>Verified behavior with tests, and used Grafana dashboards and logs to trace and debug calls between services.</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-tech">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">06</p>
+            <h2 id="s-tech">Technologies</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Backend</span><ul class="tags" role="list"><li class="tag">C#</li><li class="tag">.NET 10</li><li class="tag">REST APIs</li></ul></div>
+              <div class="cs-pair"><span class="mono">Distributed runtime</span><ul class="tags" role="list"><li class="tag">Dapr</li></ul></div>
+              <div class="cs-pair"><span class="mono">Data</span><ul class="tags" role="list"><li class="tag">PostgreSQL</li><li class="tag">Redis</li></ul></div>
+              <div class="cs-pair"><span class="mono">Cloud &amp; observability</span><ul class="tags" role="list"><li class="tag">Azure</li><li class="tag">Grafana</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-outcome">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">07</p>
+            <h2 id="s-outcome">Outcome &amp; lessons</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Shipping inside someone else's architecture is its own skill — and a fast way to learn how well-designed systems stay that way.</p>
+            <ul class="showcase__points" role="list">
+              <li>Layering by responsibility (Manager / Engine / Accessor) makes features easier to place and review.</li>
+              <li>Contracts are the real interface between teams.</li>
+              <li>Observability is part of the feature, not an afterthought.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="approveflow.html">
+          <span class="cs-next__label mono">Next case study · 03</span>
+          <span class="cs-next__title">ApproveFlow <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

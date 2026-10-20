@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Moments — Real-Time Event Platform Case Study · Wesam Ghrayeb</title>
+  <meta name="description" content="Case study: a Next.js, TypeScript and Supabase platform where event guests upload photos via QR code to a live, moderated gallery, with host dashboards, analytics and per-event data isolation.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/moments.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="Moments — Real-time event platform">
+  <meta property="og:description" content="Case study: a Next.js, TypeScript and Supabase platform where event guests upload photos via QR code to a live, moderated gallery, with host dashboards, analytics and per-event data isolation.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/moments.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#work"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> All work</a>
+          <p class="eyebrow" data-hero><span class="idx">Case study 05</span> Real-time product</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">Moments</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">A real-time event platform: guests share photos by scanning a QR code, and hosts curate a live gallery.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Type</dt><dd>Product design &amp; build</dd></div>
+            <div><dt class="mono">Platform</dt><dd>Web · staff mobile concept</dd></div>
+            <div><dt class="mono">Stack</dt><dd>Next.js, TypeScript, Supabase, PostgreSQL</dd></div>
+            <div><dt class="mono">Focus</dt><dd>Real-time, auth, data isolation</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <section class="cs-visual" aria-label="Diagram">
+        <div class="container">
+          <figure data-reveal="scale">
+            <div class="canvas">
+              <p class="canvas__label mono">fig. 05 — scan, upload, appear live</p>
+              <div class="canvas__art" data-anim>
+                <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: a guest scans an event QR code, uploads a photo from their phone without an app, and the photo appears on a live gallery over a real-time channel after moderation." data-draw>
+                    <g class="dg-pop" style="--d:100">
+                      <rect class="dg-box" x="28" y="92" width="172" height="212" rx="16"/>
+                      <g transform="translate(51 114)">
+                        <path class="dg-qr" d="M54 0h6v6h-6zM72 0h6v6h-6zM48 6h6v6h-6zM60 6h6v6h-6zM66 6h6v6h-6zM72 6h6v6h-6zM48 12h6v6h-6zM54 12h6v6h-6zM60 12h6v6h-6zM48 18h6v6h-6zM54 18h6v6h-6zM66 18h6v6h-6zM48 24h6v6h-6zM54 24h6v6h-6zM72 24h6v6h-6zM48 30h6v6h-6zM54 30h6v6h-6zM60 30h6v6h-6zM66 30h6v6h-6zM72 30h6v6h-6zM60 36h6v6h-6zM66 42h6v6h-6zM72 42h6v6h-6zM0 48h6v6h-6zM6 48h6v6h-6zM24 48h6v6h-6zM48 48h6v6h-6zM72 48h6v6h-6zM78 48h6v6h-6zM0 54h6v6h-6zM6 54h6v6h-6zM18 54h6v6h-6zM30 54h6v6h-6zM36 54h6v6h-6zM42 54h6v6h-6zM60 54h6v6h-6zM66 54h6v6h-6zM78 54h6v6h-6zM90 54h6v6h-6zM114 54h6v6h-6zM120 54h6v6h-6zM6 60h6v6h-6zM36 60h6v6h-6zM48 60h6v6h-6zM66 60h6v6h-6zM78 60h6v6h-6zM84 60h6v6h-6zM90 60h6v6h-6zM96 60h6v6h-6zM102 60h6v6h-6zM108 60h6v6h-6zM18 66h6v6h-6zM30 66h6v6h-6zM42 66h6v6h-6zM54 66h6v6h-6zM72 66h6v6h-6zM96 66h6v6h-6zM102 66h6v6h-6zM108 66h6v6h-6zM120 66h6v6h-6zM6 72h6v6h-6zM12 72h6v6h-6zM18 72h6v6h-6zM42 72h6v6h-6zM54 72h6v6h-6zM60 72h6v6h-6zM66 72h6v6h-6zM90 72h6v6h-6zM102 72h6v6h-6zM108 72h6v6h-6zM120 72h6v6h-6zM48 78h6v6h-6zM54 78h6v6h-6zM60 78h6v6h-6zM66 78h6v6h-6zM84 78h6v6h-6zM90 78h6v6h-6zM114 78h6v6h-6zM120 78h6v6h-6zM54 84h6v6h-6zM60 84h6v6h-6zM72 84h6v6h-6zM96 84h6v6h-6zM102 84h6v6h-6zM108 84h6v6h-6zM114 84h6v6h-6zM120 84h6v6h-6zM54 90h6v6h-6zM72 90h6v6h-6zM78 90h6v6h-6zM84 90h6v6h-6zM114 90h6v6h-6zM120 90h6v6h-6zM48 96h6v6h-6zM60 96h6v6h-6zM72 96h6v6h-6zM90 96h6v6h-6zM102 96h6v6h-6zM120 96h6v6h-6zM60 102h6v6h-6zM66 102h6v6h-6zM72 102h6v6h-6zM78 102h6v6h-6zM84 102h6v6h-6zM90 102h6v6h-6zM102 102h6v6h-6zM108 102h6v6h-6zM114 102h6v6h-6zM120 102h6v6h-6zM84 108h6v6h-6zM90 108h6v6h-6zM114 108h6v6h-6zM54 114h6v6h-6zM66 114h6v6h-6zM72 114h6v6h-6zM102 114h6v6h-6zM108 114h6v6h-6zM120 114h6v6h-6zM66 120h6v6h-6zM90 120h6v6h-6zM96 120h6v6h-6zM108 120h6v6h-6z"/>
+                        <rect class="dg-qr-finder" x="3" y="3" width="36" height="36" rx="5"/><rect class="dg-qr" x="12" y="12" width="18" height="18" rx="2"/>
+                        <rect class="dg-qr-finder" x="87" y="3" width="36" height="36" rx="5"/><rect class="dg-qr" x="96" y="12" width="18" height="18" rx="2"/>
+                        <rect class="dg-qr-finder" x="3" y="87" width="36" height="36" rx="5"/><rect class="dg-qr" x="12" y="96" width="18" height="18" rx="2"/>
+                      </g>
+                      <text class="dg-label" x="114" y="278" text-anchor="middle">scan · no app</text>
+                    </g>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:500" d="M200 198H236"/>
+
+                    <g class="dg-pop" style="--d:400">
+                      <rect class="dg-box" x="236" y="60" width="124" height="256" rx="20"/>
+                      <rect class="dg-fill-strong" x="280" y="70" width="36" height="6" rx="3"/>
+                      <rect class="dg-tile--a" x="248" y="90" width="100" height="124" rx="10"/>
+                      <circle class="dg-fill-strong" cx="326" cy="114" r="8"/>
+                      <path class="dg-fill-strong" d="M256 206l26-34 16 18 12-14 30 30z"/>
+                      <text class="dg-label dg-label--sm" x="248" y="236">uploading</text>
+                      <rect class="dg-fill-line" x="248" y="244" width="100" height="6" rx="3"/>
+                      <rect class="dg-fill-accent anim-progress" x="248" y="244" width="100" height="6" rx="3"/>
+                      <g class="dg-node dg-node--ink"><rect x="248" y="266" width="100" height="32" rx="16"/><text class="dg-label" x="298" y="286" text-anchor="middle">post</text></g>
+                    </g>
+
+                    <path id="mo-rt" class="dg-edge dg-edge--accent anim-dash dg-pop" style="--d:700" d="M360 183H414"/>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:700" x="387" y="172" text-anchor="middle">realtime</text>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.4s" begin="1.6s" repeatCount="indefinite"><mpath href="#mo-rt"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.4s" begin="1.6s" repeatCount="indefinite"/></circle>
+
+                    <g class="dg-pop" style="--d:800">
+                      <text class="dg-label" x="420" y="70">live gallery</text>
+                      <rect class="dg-tile--new anim-appear" x="420" y="84" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile" x="487" y="84" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--b" x="554" y="84" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--a" x="420" y="151" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--b" x="487" y="151" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile" x="554" y="151" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile" x="420" y="218" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--a" x="487" y="218" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--pending" x="554" y="218" width="58" height="58" rx="8"/>
+                      <text class="dg-label dg-label--xs" x="583" y="251" text-anchor="middle">review</text>
+                    </g>
+                    <g class="dg-node dg-pop" style="--d:950"><rect x="420" y="292" width="192" height="30" rx="15"/><circle class="dg-dot--ok" cx="438" cy="307" r="3"/><text class="dg-label" x="450" y="311">moderation · host</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1000" x="28" y="346">host dashboard · analytics · per-event isolation</text>
+                  </svg>
+              </div>
+            </div>
+            <figcaption class="mono subtle" style="margin-top:14px">Illustrative diagram — not a product screenshot.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-problem">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-problem">The problem</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">At events, the best photos are spread across a hundred phones — and nobody wants to install an app to share them.</p>
+            <p>Hosts want those moments in one place, live, without losing control over what appears on screen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-role">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-role">My responsibility</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ul class="cs-list" role="list">
+              <li><span class="mono">01</span><span><strong>Product architecture</strong><span class="txt">Designed the event workflows across guests, hosts and staff.</span></span></li>
+              <li><span class="mono">02</span><span><strong>Guest flow</strong><span class="txt">QR-based photo upload from the mobile web, with no app install.</span></span></li>
+              <li><span class="mono">03</span><span><strong>Real-time gallery</strong><span class="txt">Live gallery updates and the moderation workflow behind them.</span></span></li>
+              <li><span class="mono">04</span><span><strong>Access &amp; isolation</strong><span class="txt">Authentication, roles and per-event data access.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-arch">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-arch">The architecture</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="arch" role="img" aria-label="Guests: qr code → mobile web upload, no app install. Application · Next.js: host dashboard, moderation queue, live gallery, analytics. Supabase: auth, postgresql, storage · media, realtime">
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Guests</span></div>
+                <div class="arch__nodes"><span class="arch__node">qr code → mobile web upload</span><span class="arch__node">no app install</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Application · Next.js</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--ink">host dashboard</span><span class="arch__node">moderation queue</span><span class="arch__node">live gallery</span><span class="arch__node">analytics</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Supabase</span></div>
+                <div class="arch__nodes"><span class="arch__node">auth</span><span class="arch__node">postgresql</span><span class="arch__node">storage · media</span><span class="arch__node">realtime</span></div>
+              </div>
+
+            </div>
+            <p>Uploads land in storage with their metadata in PostgreSQL. Changes stream to the live gallery in real time, and hosts approve or hide media from the moderation queue. Every record belongs to exactly one event.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-challenges">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">04</p>
+            <h2 id="s-challenges">Engineering challenges</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">01</span><h3>Zero friction for guests</h3><p>Uploading has to work from a QR scan in seconds, on any phone.</p></div>
+              <div class="cs-pair"><span class="mono">02</span><h3>Live, but moderated</h3><p>Photos should appear quickly — but the host decides what is shown.</p></div>
+              <div class="cs-pair"><span class="mono">03</span><h3>Isolation between events</h3><p>One host must never see another event's guests or media.</p></div>
+              <div class="cs-pair"><span class="mono">04</span><h3>Bursty media</h3><p>Many uploads arrive at the same moment, right when the event peaks.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-solution">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">05</p>
+            <h2 id="s-solution">The solution</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ol class="flow" role="list">
+              <li><strong>QR to upload</strong><span>Each event has its own QR code that opens a mobile web upload flow — no app required.</span></li>
+              <li><strong>Event-scoped data</strong><span>Event data is scoped and protected per event, with authentication for hosts and staff.</span></li>
+              <li><strong>Real-time gallery</strong><span>Approved media streams to the gallery as it arrives.</span></li>
+              <li><strong>Moderation &amp; analytics</strong><span>Hosts manage media, work the moderation queue and follow event activity from a dashboard.</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-tech">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">06</p>
+            <h2 id="s-tech">Technologies</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Application</span><ul class="tags" role="list"><li class="tag">Next.js</li><li class="tag">TypeScript</li></ul></div>
+              <div class="cs-pair"><span class="mono">Backend services</span><ul class="tags" role="list"><li class="tag">Supabase Auth</li><li class="tag">Realtime</li><li class="tag">Storage</li></ul></div>
+              <div class="cs-pair"><span class="mono">Data</span><ul class="tags" role="list"><li class="tag">PostgreSQL</li></ul></div>
+              <div class="cs-pair"><span class="mono">Mobile</span><ul class="tags" role="list"><li class="tag">Expo (staff app concept)</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-outcome">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">07</p>
+            <h2 id="s-outcome">Outcome &amp; lessons</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Real-time products only feel simple when the data model, permissions and failure states are designed together.</p>
+            <ul class="showcase__points" role="list">
+              <li>Decide who can see what before deciding how fast it appears.</li>
+              <li>Moderation is a product feature, not an admin afterthought.</li>
+              <li>The guest path deserves the most polish — it is the one used most.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="together-crm.html">
+          <span class="cs-next__label mono">Next case study · 01</span>
+          <span class="cs-next__title">Together CRM <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

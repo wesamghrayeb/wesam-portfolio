@@ -1,122 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wix Auto Parts | Wesam Ghrayeb</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: linear-gradient(to bottom, #0d1117, #0a0f1a);
-      color: #e6edf3;
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-      line-height: 1.8;
-    }
-    h1 {
-      color: #58a6ff;
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    h2 {
-      color: #2ea043;
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-      padding-bottom: 4px;
-      border-bottom: 2px solid #2ea043;
-      display: inline-block;
-    }
-    .section {
-      margin-bottom: 50px;
-    }
-    ul {
-      padding-left: 20px;
-      margin: 0;
-    }
-    a {
-      color: #2ea043;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .back {
-      display: inline-block;
-      margin-bottom: 35px;
-      font-weight: 600;
-      color: #58a6ff;
-      font-size: 1rem;
-    }
-    .screenshots {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: flex-start;
-      margin-top: 20px;
-    }
-    .screenshots img {
-      width: 100%;
-      max-width: 280px;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .screenshots img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.5);
-    }
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-        text-align: center;
-      }
-      h2 {
-        font-size: 1.3rem;
-      }
-      .back {
-        display: block;
-        text-align: center;
-        margin-bottom: 30px;
-      }
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wix Auto Parts — ERP-Synced E-commerce · Wesam Ghrayeb</title>
+  <meta name="description" content="A large-scale Wix e-commerce store with 30,000+ car parts, integrated with an ERP for live stock updates and automated pricing via Wix Velo.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/wix-auto-parts.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="Wix Auto Parts — ERP-Synced E-commerce · Wesam Ghrayeb">
+  <meta property="og:description" content="A large-scale Wix e-commerce store with 30,000+ car parts, integrated with an ERP for live stock updates and automated pricing via Wix Velo.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/wix-auto-parts.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
-  <a href="../index.html/#projects" class="back"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
-  <h1>Wix Auto Parts</h1>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
-  <div class="section">
-    <h2>Description</h2>
-    <p>A large-scale Wix eCommerce site featuring 30,000+ car parts. Integrated with ERP for live stock updates and automated pricing via Wix Velo scripts.</p>
-  </div>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
 
-  <div class="section">
-    <h2>Tech Stack</h2>
-    <ul>
-      <li>Platform: Wix</li>
-      <li>Tools: Wix Velo (JavaScript), Wix Data, Corvid APIs</li>
-      <li>Integration: ERP Sync, real-time filtering, product variation logic</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Screenshots</h2>
-    <div class="screenshots">
-      <img src="../images/wi1.png" alt="Wix Auto Screenshot 1">
-      <img src="../images/wi2.png" alt="Wix Auto Screenshot 2">
-      <img src="../images/wi3.png" alt="Wix Auto Screenshot 3">
-      <img src="../images/wi4.png" alt="Wix Auto Screenshot 4">
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
     </div>
   </div>
 
-  <div class="section">
-    <h2>Live</h2>
-    <p><a href="https://www.wjs-iet-autoparts.com/" target="_blank">Visit the live store</a></p>
-  </div>
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#more-projects"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> More projects</a>
+          <p class="eyebrow" data-hero><span class="idx">Project</span> E-commerce</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">Wix Auto Parts</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">A large-scale e-commerce store with 30,000+ car parts, integrated with an ERP for live stock updates and automated pricing.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Type</dt><dd>E-commerce</dd></div>
+            <div><dt class="mono">Catalog</dt><dd>30,000+ items</dd></div>
+            <div><dt class="mono">Platform</dt><dd>Wix · Velo</dd></div>
+            <div><dt class="mono">Integration</dt><dd>ERP sync</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <section class="cs-section" aria-labelledby="s-overview">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-overview">Overview</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">A catalog this size only works if stock and prices stay correct without manual updates.</p>
+            <ul class="showcase__points" role="list">
+              <li>ERP integration for live stock updates</li>
+              <li>Automated pricing through Wix Velo scripts</li>
+              <li>Real-time filtering and product-variation logic across a 30,000+ item catalog</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-stack">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-stack">Stack</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Platform</span><ul class="tags" role="list"><li class="tag">Wix</li><li class="tag">Wix Data</li></ul></div>
+              <div class="cs-pair"><span class="mono">Code</span><ul class="tags" role="list"><li class="tag">Wix Velo (JavaScript)</li><li class="tag">Corvid APIs</li></ul></div>
+              <div class="cs-pair"><span class="mono">Integration</span><ul class="tags" role="list"><li class="tag">ERP sync</li><li class="tag">Automated pricing</li></ul></div>
+              <div class="cs-pair"><span class="mono">Catalog</span><ul class="tags" role="list"><li class="tag">Filtering</li><li class="tag">Variations</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-shots">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-shots">Screenshots</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="gallery">
+              <button class="gallery__btn" type="button" data-lightbox="wix-auto-parts" data-full="../assets/img/wix-1.webp" data-alt="Store home page with category navigation" aria-label="Enlarge: Store home page with category navigation"><img src="../assets/img/wix-1.webp" alt="Store home page with category navigation" width="1280" height="611" loading="lazy" decoding="async"></button>
+              <button class="gallery__btn" type="button" data-lightbox="wix-auto-parts" data-full="../assets/img/wix-2.webp" data-alt="Product catalog" aria-label="Enlarge: Product catalog"><img src="../assets/img/wix-2.webp" alt="Product catalog" width="1280" height="610" loading="lazy" decoding="async"></button>
+              <button class="gallery__btn" type="button" data-lightbox="wix-auto-parts" data-full="../assets/img/wix-3.webp" data-alt="Product listing" aria-label="Enlarge: Product listing"><img src="../assets/img/wix-3.webp" alt="Product listing" width="1280" height="605" loading="lazy" decoding="async"></button>
+              <button class="gallery__btn" type="button" data-lightbox="wix-auto-parts" data-full="../assets/img/wix-4.webp" data-alt="Product page" aria-label="Enlarge: Product page"><img src="../assets/img/wix-4.webp" alt="Product page" width="1280" height="597" loading="lazy" decoding="async"></button>
+            </div>
+            <p class="mono subtle">Select an image to enlarge it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-links">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">04</p>
+            <h2 id="s-links">Links</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p><a class="link-arrow" href="https://www.wjs-iet-autoparts.com/" target="_blank" rel="noopener">Visit the live store <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></span><span class="sr-only">(opens in a new tab)</span></a></p>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="android-apps.html">
+          <span class="cs-next__label mono">Next project</span>
+          <span class="cs-next__title">Android Apps <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" aria-label="Screenshot viewer">
+    <img src="data:," alt="">
+    <div class="lightbox__bar mono">
+      <span class="lightbox__caption"></span>
+      <span class="lightbox__nav">
+        <button class="icon-btn" type="button" data-lb-prev aria-label="Previous image"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-chevron-left"/></svg></button>
+        <button class="icon-btn" type="button" data-lb-next aria-label="Next image"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-chevron-right"/></svg></button>
+        <button class="icon-btn" type="button" data-lb-close aria-label="Close viewer"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg></button>
+      </span>
+    </div>
+  </dialog>
 </body>
 </html>

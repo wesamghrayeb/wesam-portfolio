@@ -1,134 +1,197 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Business Cards | Wesam Ghrayeb</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap');
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: linear-gradient(to bottom, #0d1117, #0a0f1a);
-      color: #e6edf3;
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-.back {
-  display: inline-block;
-  margin-bottom: 35px;
-  font-weight: 600;
-  color: #58a6ff;
-  font-size: 1rem;
-}
-@media (max-width: 768px) {
-  .back {
-    display: block;
-    text-align: center;
-    margin-bottom: 30px;
-  }
-}
-    h1 {
-      color: #58a6ff;
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-    .card {
-      background: #161b22;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      transition: transform 0.3s, box-shadow 0.3s;
-      text-align: center;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    }
-    .card img {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-    .card h3 {
-      margin-top: 0;
-      color: #2ea043;
-      font-size: 1.4rem;
-    }
-    .card p {
-      margin: 10px 0;
-      font-size: 0.95rem;
-      color: #c9d1d9;
-    }
-    .card a {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 10px 16px;
-      background: #238636;
-      color: white;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .card a:hover {
-      background: #2ea043;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Digital Business Cards · Wesam Ghrayeb</title>
+  <meta name="description" content="Responsive digital business cards built for local businesses across Israel — garages, barbershops and cleaning services.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/business-card.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="Digital Business Cards · Wesam Ghrayeb">
+  <meta property="og:description" content="Responsive digital business cards built for local businesses across Israel — garages, barbershops and cleaning services.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/business-card.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
-    <a href="../index.html/#projects" class="back"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
-  <h1>Digital Business Cards</h1>
-  <div class="cards-container">
-    <div class="card">
-      <img src="../images/eilat-logo.png" alt="Eilat Garage Logo" />
-      <h3>Eilat Garage</h3>
-      <p>Car repair services located in Eilat.</p>
-      <p><i class="fas fa-map-marker-alt"></i> Eilat, Israel</p>
-      <p><i class="fas fa-phone"></i> +972-54-9281012</p>
-      <a href="https://eilat-garage.netlify.app" target="_blank">View Card</a>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
     </div>
-    <div class="card">
-      <img src="../images/ramon-logo.png" alt="Ramon Garage Logo" />
-      <h3>Ramon Garage</h3>
-      <p>Auto maintenance specialists in Ramon area.</p>
-      <p><i class="fas fa-map-marker-alt"></i> Eilat, Israel</p>
-      <p><i class="fas fa-phone"></i> +972-53-9191040</p>
-      <a href="https://eilat-ramon.netlify.app" target="_blank">View Card</a>
-    </div>
-    <div class="card">
-      <img src="../images/jan-logo.png" alt="Jan Barbershop Logo" />
-      <h3>Jan Barbershop</h3>
-      <p>Modern barbershop providing premium grooming services.</p>
-      <p><i class="fas fa-map-marker-alt"></i> Nazareth, Israel</p>
-      <p><i class="fas fa-phone"></i> +972-52-4852854</p>
-      <a href="https://jan-shukha-barbershop.netlify.app" target="_blank">View Card</a>
-    </div>
-    <div class="card">
-      <img src="../images/jerry.png" alt="Eilat Garage Logo" />
-      <h3>Jerry Barbershop</h3>
-      <p>Premuiem Barbershop.</p>
-      <p><i class="fas fa-map-marker-alt"></i> Nof Hagalil, Israel</p>
-      <p><i class="fas fa-phone"></i> +972-52-6177394</p>
-      <a href="https://jerry-barbershop.netlify.app" target="_blank">View Card</a>
-    </div>
-    <div class="card">
-      <img src="../images/fjob-logo.png" alt="F-JOB Logo" />
-      <h3>F-JOB Cleaning Services</h3>
-      <p>Professional cleaning for homes and businesses.</p>
-      <p><i class="fas fa-map-marker-alt"></i> Israel</p>
-      <p><i class="fas fa-phone"></i> +972-53-9808236</p>
-      <a href="https://ff-job.netlify.app" target="_blank">View Card</a>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
     </div>
   </div>
+
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#more-projects"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> More projects</a>
+          <p class="eyebrow" data-hero><span class="idx">Project</span> Client work</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">Digital Business Cards</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">Responsive digital business cards for local businesses — fast, mobile-first and easy to share.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Type</dt><dd>Client websites</dd></div>
+            <div><dt class="mono">Clients</dt><dd>5 local businesses</dd></div>
+            <div><dt class="mono">Stack</dt><dd>HTML, CSS, JavaScript</dd></div>
+            <div><dt class="mono">Hosting</dt><dd>Netlify</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <section class="cs-section" aria-labelledby="s-overview">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-overview">Overview</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">A phone-first card that opens instantly from a link or QR code — with contact details and directions one tap away.</p>
+            <div class="cards">
+              <a class="bcard" href="https://eilat-garage.netlify.app" target="_blank" rel="noopener"><img src="../assets/img/card-eilat.webp" alt="" width="64" height="64" loading="lazy"><span><span class="bcard__name">Eilat Garage</span><span class="bcard__meta">Car repair services · Eilat</span></span><span class="go mono">View card <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg><span class="sr-only">(opens in a new tab)</span></span></a>
+              <a class="bcard" href="https://eilat-ramon.netlify.app" target="_blank" rel="noopener"><img src="../assets/img/card-ramon.webp" alt="" width="64" height="64" loading="lazy"><span><span class="bcard__name">Ramon Garage</span><span class="bcard__meta">Auto maintenance specialists · Eilat</span></span><span class="go mono">View card <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg><span class="sr-only">(opens in a new tab)</span></span></a>
+              <a class="bcard" href="https://jan-shukha-barbershop.netlify.app" target="_blank" rel="noopener"><img src="../assets/img/card-jan.webp" alt="" width="64" height="64" loading="lazy"><span><span class="bcard__name">Jan Barbershop</span><span class="bcard__meta">Modern barbershop and grooming · Nazareth</span></span><span class="go mono">View card <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg><span class="sr-only">(opens in a new tab)</span></span></a>
+              <a class="bcard" href="https://jerry-barbershop.netlify.app" target="_blank" rel="noopener"><img src="../assets/img/card-jerry.webp" alt="" width="64" height="64" loading="lazy"><span><span class="bcard__name">Jerry Barbershop</span><span class="bcard__meta">Premium barbershop · Nof Hagalil</span></span><span class="go mono">View card <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg><span class="sr-only">(opens in a new tab)</span></span></a>
+              <a class="bcard" href="https://ff-job.netlify.app" target="_blank" rel="noopener"><img src="../assets/img/card-fjob.webp" alt="" width="64" height="64" loading="lazy"><span><span class="bcard__name">F-JOB Cleaning Services</span><span class="bcard__meta">Home and business cleaning · Israel</span></span><span class="go mono">View card <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg><span class="sr-only">(opens in a new tab)</span></span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-stack">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-stack">Stack</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Markup</span><ul class="tags" role="list"><li class="tag">HTML5</li></ul></div>
+              <div class="cs-pair"><span class="mono">Styling</span><ul class="tags" role="list"><li class="tag">CSS3</li><li class="tag">Responsive design</li></ul></div>
+              <div class="cs-pair"><span class="mono">Behavior</span><ul class="tags" role="list"><li class="tag">JavaScript</li></ul></div>
+              <div class="cs-pair"><span class="mono">Hosting</span><ul class="tags" role="list"><li class="tag">Netlify</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-links">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-links">Links</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="muted">Each card above links to its live version.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="crm.html">
+          <span class="cs-next__label mono">Next project</span>
+          <span class="cs-next__title">CRM Panel <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>

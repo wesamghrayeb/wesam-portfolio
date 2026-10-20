@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ApproveFlow — Intelligent Approval Engine Case Study · Wesam Ghrayeb</title>
+  <meta name="description" content="Case study: an event-driven approval engine for expenses and invoices in C#/.NET, Dapr and PostgreSQL — deterministic policy validation first, advisory AI second, with automatic approval, human review and a full audit trail.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/approveflow.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="ApproveFlow — Intelligent approval engine">
+  <meta property="og:description" content="Case study: an event-driven approval engine for expenses and invoices in C#/.NET, Dapr and PostgreSQL — deterministic policy validation first, advisory AI second, with automatic approval, human review and a full audit trail.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/approveflow.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#work"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> All work</a>
+          <p class="eyebrow" data-hero><span class="idx">Case study 03</span> Event-driven decisions</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">ApproveFlow</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">An event-driven approval engine for business expenses and invoices — AI where it helps, deterministic rules where it matters.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Domain</dt><dd>Expense &amp; invoice approvals</dd></div>
+            <div><dt class="mono">Architecture</dt><dd>Event-driven pipeline</dd></div>
+            <div><dt class="mono">Decision model</dt><dd>Rules first, AI advisory</dd></div>
+            <div><dt class="mono">Stack</dt><dd>C#, .NET, Dapr, PostgreSQL</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <section class="cs-visual" aria-label="Diagram">
+        <div class="container">
+          <figure data-reveal="scale">
+            <div class="canvas">
+              <p class="canvas__label mono">fig. 03 — rules first, ai second</p>
+              <div class="canvas__art" data-anim>
+                <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: an approval pipeline. A request passes a deterministic policy check, then an advisory AI assessment, then a router that either auto-approves or sends it to human review. Policy violations go straight to review, and every step is written to an event stream and audit log." data-draw>
+                    <path id="af-p1" fill="none" d="M128 150H460C482 150 478 83 500 83"/>
+                    <path id="af-p2" fill="none" d="M128 150H460C482 150 478 217 500 217"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:300" d="M128 150H152"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:500" d="M272 150H296"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:700" d="M416 150H444"/>
+                    <path class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:900" d="M476 150C490 150 486 83 500 83"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:950" d="M476 150C490 150 486 217 500 217"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1000" d="M240 170C240 250 440 228 500 228"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1100" d="M76 196V290"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1140" d="M356 196V290"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1160" d="M558 236V290"/>
+
+                    <circle class="dg-packet" r="3.5" opacity="0"><animateMotion dur="3.2s" begin="1.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .55 1"><mpath href="#af-p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="3.2s" begin="1.8s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3.5" opacity="0"><animateMotion dur="3.6s" begin="3.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .55 1"><mpath href="#af-p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="3.6s" begin="3.4s" repeatCount="indefinite"/></circle>
+
+                    <g class="dg-node dg-node--ink dg-pop" style="--d:100"><rect x="24" y="130" width="104" height="40" rx="10"/><text class="dg-label" x="76" y="154" text-anchor="middle">request</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:150" x="76" y="188" text-anchor="middle">expense · invoice</text>
+                    <g class="dg-node dg-pop" style="--d:350"><rect x="152" y="130" width="120" height="40" rx="10"/><text class="dg-label" x="212" y="154" text-anchor="middle">policy.check</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:400" x="212" y="188" text-anchor="middle">deterministic</text>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:550"><rect x="296" y="130" width="120" height="40" rx="10"/><circle class="dg-dot anim-pulse" cx="312" cy="150" r="2.5"/><text class="dg-label dg-label--accent" x="362" y="154" text-anchor="middle">ai.assess</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:600" x="356" y="188" text-anchor="middle">advisory only</text>
+                    <path class="dg-box dg-pop" style="--d:750" d="M460 134L476 150L460 166L444 150Z"/>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:900" x="486" y="62" text-anchor="end">rules pass · confident</text>
+                    <g class="dg-node dg-pop" style="--d:950"><rect x="500" y="64" width="116" height="38" rx="10"/><circle class="dg-dot--ok" cx="516" cy="83" r="3"/><text class="dg-label" x="564" y="87" text-anchor="middle">auto-approve</text></g>
+                    <g class="dg-node dg-pop" style="--d:1000"><rect x="500" y="198" width="116" height="38" rx="10"/><circle class="dg-dot--muted" cx="516" cy="217" r="3"/><text class="dg-label" x="564" y="221" text-anchor="middle">human.review</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1050" x="300" y="252">policy violation</text>
+                    <g class="dg-node dg-pop" style="--d:1200"><rect x="24" y="290" width="592" height="36" rx="10"/><text class="dg-label" x="40" y="312">event stream → audit log</text><text class="dg-label dg-label--sm" x="600" y="312" text-anchor="end">postgresql</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1300" x="24" y="356">submitted → evaluated → assessed → decided</text>
+                  </svg>
+              </div>
+            </div>
+            <figcaption class="mono subtle" style="margin-top:14px">Illustrative diagram — not a product screenshot.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-problem">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-problem">The problem</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Approving expenses and invoices by hand is slow. Approving them with an AI model alone is a risk no finance team should accept.</p>
+            <p>Most requests are routine and match a clear policy; some aren't. The system needs to move routine requests quickly, route the rest to people, and explain every decision afterwards.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-role">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-role">My responsibility</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ul class="cs-list" role="list">
+              <li><span class="mono">01</span><span><strong>Decision pipeline</strong><span class="txt">Designed the sequence of policy validation, AI assessment and decision routing.</span></span></li>
+              <li><span class="mono">02</span><span><strong>Event flow</strong><span class="txt">Built the event-driven processing between steps on Dapr.</span></span></li>
+              <li><span class="mono">03</span><span><strong>Policy layer</strong><span class="txt">Implemented deterministic validation that runs before any AI step.</span></span></li>
+              <li><span class="mono">04</span><span><strong>Auditability</strong><span class="txt">Persisted requests, assessments and decisions in PostgreSQL so every outcome can be traced.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-arch">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-arch">The architecture</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="arch" role="img" aria-label="Intake: expense / invoice request. Decision pipeline: policy validation · deterministic, ai assessment · advisory, decision router. Outcomes: auto-approve, human review queue. Backbone: dapr · events, postgresql · requests + audit">
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Intake</span></div>
+                <div class="arch__nodes"><span class="arch__node arch__node--ink">expense / invoice request</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Decision pipeline</span></div>
+                <div class="arch__nodes"><span class="arch__node">policy validation · deterministic</span><span class="arch__node">ai assessment · advisory</span><span class="arch__node">decision router</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Outcomes</span></div>
+                <div class="arch__nodes"><span class="arch__node">auto-approve</span><span class="arch__node">human review queue</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Backbone</span></div>
+                <div class="arch__nodes"><span class="arch__node">dapr · events</span><span class="arch__node">postgresql · requests + audit</span></div>
+              </div>
+
+            </div>
+            <p>Each stage consumes an event and publishes the next. Policy validation runs first and is fully deterministic; the AI assessment can only add information; the router makes the final call based on both — and every step is recorded.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-challenges">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">04</p>
+            <h2 id="s-challenges">Engineering challenges</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">01</span><h3>Probabilistic models, deterministic domain</h3><p>Model outputs vary between runs; policy outcomes must not.</p></div>
+              <div class="cs-pair"><span class="mono">02</span><h3>Explaining decisions</h3><p>Every approval or escalation needs a reason a reviewer or auditor can follow.</p></div>
+              <div class="cs-pair"><span class="mono">03</span><h3>Independent failures</h3><p>Steps can fail on their own; the pipeline must resume without losing decisions.</p></div>
+              <div class="cs-pair"><span class="mono">04</span><h3>When to involve a human</h3><p>Too many escalations waste reviewers' time; too few create risk.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-solution">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">05</p>
+            <h2 id="s-solution">The solution</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ol class="flow" role="list">
+              <li><strong>Submit</strong><span>An expense or invoice enters the system and is persisted with its full context.</span></li>
+              <li><strong>Validate policy</strong><span>Deterministic rules check the request. A violation routes straight to human review — the AI is never asked to override a rule.</span></li>
+              <li><strong>Assess</strong><span>An AI step adds an advisory assessment and its reasoning, stored alongside the request.</span></li>
+              <li><strong>Decide</strong><span>Requests that pass policy and receive a confident assessment can be approved automatically; everything else goes to a reviewer.</span></li>
+              <li><strong>Audit</strong><span>Each step is recorded as an event, so any decision can be traced from start to finish.</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-tech">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">06</p>
+            <h2 id="s-tech">Technologies</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Backend</span><ul class="tags" role="list"><li class="tag">C#</li><li class="tag">.NET</li></ul></div>
+              <div class="cs-pair"><span class="mono">Messaging</span><ul class="tags" role="list"><li class="tag">Dapr</li><li class="tag">Event-driven architecture</li></ul></div>
+              <div class="cs-pair"><span class="mono">Data</span><ul class="tags" role="list"><li class="tag">PostgreSQL</li></ul></div>
+              <div class="cs-pair"><span class="mono">AI</span><ul class="tags" role="list"><li class="tag">LLM-assisted assessment</li><li class="tag">Human-in-the-loop review</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-outcome">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">07</p>
+            <h2 id="s-outcome">Outcome &amp; lessons</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">AI is most useful as an advisor behind deterministic guardrails — fast where it is safe, accountable everywhere.</p>
+            <ul class="showcase__points" role="list">
+              <li>Put rules before models.</li>
+              <li>Design the audit trail first; it shapes the events.</li>
+              <li>Make human review a first-class path, not an error state.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="flying-packages.html">
+          <span class="cs-next__label mono">Next case study · 04</span>
+          <span class="cs-next__title">Fly Package <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

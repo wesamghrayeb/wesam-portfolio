@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Together CRM — Multi-Tenant SaaS Case Study · Wesam Ghrayeb</title>
+  <meta name="description" content="Case study: a production multi-tenant B2B CRM built as an Express API gateway in front of ~12 domain services, with database-per-tenant MongoDB, Redis, RabbitMQ, Socket.IO and AWS.">
+  <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/projects/together-crm.html">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="Together CRM — Multi-tenant SaaS platform">
+  <meta property="og:description" content="Case study: a production multi-tenant B2B CRM built as an Express API gateway in front of ~12 domain services, with database-per-tenant MongoDB, Redis, RabbitMQ, Socket.IO and AWS.">
+  <meta property="og:url" content="https://wesamghrayeb.com/projects/together-crm.html">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="../assets/js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="../index.html" aria-label="Wesam Ghrayeb, home">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
+      </a>
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li><a class="nav__link" href="../index.html#about">About</a></li>
+          <li><a class="nav__link" href="../index.html#work" aria-current="true">Work</a></li>
+          <li><a class="nav__link" href="../index.html#experience">Experience</a></li>
+          <li><a class="nav__link" href="../index.html#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="../index.html#contact" data-magnetic>Contact <svg class="icon icon--ne" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-up-right"/></svg></a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="../index.html#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="../index.html#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="../index.html#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="../index.html#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="../index.html#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main" tabindex="-1">
+    <article>
+      <header class="cs-hero" id="top">
+        <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div></div>
+        <div class="container">
+          <a class="cs-back mono" href="../index.html#work"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg> All work</a>
+          <p class="eyebrow" data-hero><span class="idx">Case study 01</span> Multi-tenant SaaS</p>
+          <h1 class="h1 cs-hero__title" data-hero style="--delay:80ms">Together CRM</h1>
+          <p class="lead cs-hero__lead" data-hero style="--delay:180ms">A production B2B CRM serving multiple business clients — an API gateway in front of roughly twelve domain services, with every tenant's data in its own database.</p>
+          <dl class="cs-meta" data-hero style="--delay:280ms">
+            <div><dt class="mono">Role</dt><dd>Full Stack Engineer &amp; Agile Lead</dd></div>
+            <div><dt class="mono">Company</dt><dd>WJS Digital Innovations</dd></div>
+            <div><dt class="mono">Period</dt><dd>2024 — 2026</dd></div>
+            <div><dt class="mono">Focus</dt><dd>Architecture, backend, production operations</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <section class="cs-visual" aria-label="Diagram">
+        <div class="container">
+          <figure data-reveal="scale">
+            <div class="canvas">
+              <p class="canvas__label mono">fig. 01 — gateway + domain services · db per tenant</p>
+              <div class="canvas__art" data-anim>
+                <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: an API gateway with central authentication routes to about twelve domain services, backed by Redis, RabbitMQ and Socket.IO, with a separate database for each tenant." data-draw>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:250" d="M90 194V218"/>
+                    <path id="crm-e1" class="dg-edge dg-draw" pathLength="1" style="--d:300" d="M152 174C178 174 174 127 200 127"/>
+                    <path id="crm-e2" class="dg-edge dg-draw" pathLength="1" style="--d:350" d="M152 174C178 174 174 171 200 171"/>
+                    <path id="crm-e3" class="dg-edge dg-draw" pathLength="1" style="--d:400" d="M152 174C178 174 174 215 200 215"/>
+                    <path id="crm-t1" class="dg-edge dg-draw" pathLength="1" style="--d:800" d="M526 127C544 127 542 111 560 111"/>
+                    <path id="crm-t2" class="dg-edge dg-draw" pathLength="1" style="--d:850" d="M526 171C544 171 542 181 560 181"/>
+                    <path id="crm-t3" class="dg-edge dg-draw" pathLength="1" style="--d:900" d="M526 215C544 215 542 251 560 251"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:950" d="M249 232V262"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1000" d="M363 232V262"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1050" d="M477 232V262"/>
+
+                    <g class="dg-pop" style="--d:100">
+                      <text class="dg-label dg-label--sm" x="28" y="142">requests</text>
+                      <g class="dg-node dg-node--ink"><rect x="28" y="154" width="124" height="40" rx="10"/><text class="dg-label" x="90" y="178" text-anchor="middle">api-gateway</text></g>
+                    </g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:300"><rect x="28" y="218" width="124" height="34" rx="10"/><text class="dg-label dg-label--accent" x="90" y="239" text-anchor="middle">auth · rbac/abac</text></g>
+
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:420" x="200" y="98">≈12 domain services</text>
+                    <g class="dg-node dg-pop" style="--d:450"><rect x="200" y="110" width="74" height="34" rx="8"/><circle class="dg-dot--ok anim-pulse" cx="212" cy="127" r="2.5"/><text class="dg-label" x="222" y="131">svc·01</text></g>
+                    <g class="dg-node dg-pop" style="--d:480"><rect x="284" y="110" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="296" cy="127" r="2.5"/><text class="dg-label" x="306" y="131">svc·02</text></g>
+                    <g class="dg-node dg-pop" style="--d:510"><rect x="368" y="110" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="380" cy="127" r="2.5"/><text class="dg-label" x="390" y="131">svc·03</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:540"><rect x="452" y="110" width="74" height="34" rx="8"/><circle class="dg-dot anim-pulse" style="animation-delay:.6s" cx="464" cy="127" r="2.5"/><text class="dg-label dg-label--accent" x="474" y="131">svc·04</text></g>
+                    <g class="dg-node dg-pop" style="--d:570"><rect x="200" y="154" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="212" cy="171" r="2.5"/><text class="dg-label" x="222" y="175">svc·05</text></g>
+                    <g class="dg-node dg-pop" style="--d:600"><rect x="284" y="154" width="74" height="34" rx="8"/><circle class="dg-dot--ok anim-pulse" style="animation-delay:1.2s" cx="296" cy="171" r="2.5"/><text class="dg-label" x="306" y="175">svc·06</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:630"><rect x="368" y="154" width="74" height="34" rx="8"/><circle class="dg-dot anim-pulse" style="animation-delay:.3s" cx="380" cy="171" r="2.5"/><text class="dg-label dg-label--accent" x="390" y="175">svc·07</text></g>
+                    <g class="dg-node dg-pop" style="--d:660"><rect x="452" y="154" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="464" cy="171" r="2.5"/><text class="dg-label" x="474" y="175">svc·08</text></g>
+                    <g class="dg-node dg-pop" style="--d:690"><rect x="200" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="212" cy="215" r="2.5"/><text class="dg-label" x="222" y="219">svc·09</text></g>
+                    <g class="dg-node dg-pop" style="--d:720"><rect x="284" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="296" cy="215" r="2.5"/><text class="dg-label" x="306" y="219">svc·10</text></g>
+                    <g class="dg-node dg-pop" style="--d:750"><rect x="368" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok anim-pulse" style="animation-delay:1.8s" cx="380" cy="215" r="2.5"/><text class="dg-label" x="390" y="219">svc·11</text></g>
+                    <g class="dg-node dg-pop" style="--d:780"><rect x="452" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="464" cy="215" r="2.5"/><text class="dg-label" x="474" y="219">svc·12</text></g>
+
+                    <g class="dg-node dg-pop" style="--d:1000"><rect x="200" y="262" width="98" height="32" rx="16"/><text class="dg-label" x="249" y="282" text-anchor="middle">redis</text></g>
+                    <g class="dg-node dg-pop" style="--d:1050"><rect x="314" y="262" width="98" height="32" rx="16"/><text class="dg-label" x="363" y="282" text-anchor="middle">rabbitmq</text></g>
+                    <g class="dg-node dg-pop" style="--d:1100"><rect x="428" y="262" width="98" height="32" rx="16"/><text class="dg-label" x="477" y="282" text-anchor="middle">socket.io</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1200" x="200" y="330">docker · aws · k6 load tests</text>
+
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:820" x="590" y="80" text-anchor="middle">db / tenant</text>
+                    <g class="dg-pop" style="--d:860"><path class="dg-box" d="M560 96v30a30 7 0 0 0 60 0V96"/><ellipse class="dg-box" cx="590" cy="96" rx="30" ry="7"/><text class="dg-label dg-label--xs" x="590" y="119" text-anchor="middle">tenant_a</text></g>
+                    <g class="dg-pop" style="--d:900"><path class="dg-box" d="M560 166v30a30 7 0 0 0 60 0V166"/><ellipse class="dg-box" cx="590" cy="166" rx="30" ry="7"/><text class="dg-label dg-label--xs" x="590" y="189" text-anchor="middle">tenant_b</text></g>
+                    <g class="dg-pop" style="--d:940"><path class="dg-box dg-box--accent" d="M560 236v30a30 7 0 0 0 60 0V236"/><ellipse class="dg-box dg-box--accent" cx="590" cy="236" rx="30" ry="7"/><text class="dg-label dg-label--xs dg-label--accent" x="590" y="259" text-anchor="middle">tenant_c</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:980" x="590" y="300" text-anchor="middle">tenant_n …</text>
+
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.8s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-e1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.8s" begin="1.6s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2.1s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-e3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="2.1s" begin="2.4s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.6s" begin="2s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-t3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.6s" begin="2s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-t1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.9s" begin="3s" repeatCount="indefinite"/></circle>
+                  </svg>
+              </div>
+            </div>
+            <figcaption class="mono subtle" style="margin-top:14px">Illustrative diagram — not a product screenshot.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-problem">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">01</p>
+            <h2 id="s-problem">The problem</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">Business clients needed one CRM that felt like their own: their data isolated, their permissions respected, and their teams updated in real time.</p>
+            <p>As the product grew, so did its capabilities — contacts, messaging, notifications, background processing and integrations. The platform had to keep adding features without letting one tenant's data, load or failures leak into another's.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-role">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">02</p>
+            <h2 id="s-role">My responsibility</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ul class="cs-list" role="list">
+              <li><span class="mono">01</span><span><strong>Feature ownership</strong><span class="txt">Took features from product requirement through API design, UI implementation, deployment and validation.</span></span></li>
+              <li><span class="mono">02</span><span><strong>Service design</strong><span class="txt">Defined service boundaries, REST APIs and RPC contracts between domain services.</span></span></li>
+              <li><span class="mono">03</span><span><strong>Security</strong><span class="txt">Implemented authentication, RBAC/ABAC authorization and strict tenant isolation.</span></span></li>
+              <li><span class="mono">04</span><span><strong>Production</strong><span class="txt">Deployed with Docker on AWS behind Nginx and PM2, and investigated and fixed live issues.</span></span></li>
+              <li><span class="mono">05</span><span><strong>Quality</strong><span class="txt">Led CRM testing and quality validation with 50+ Google developers through a Technion QA partnership.</span></span></li>
+            </ul>
+            <p class="note"><span class="note__mark mono">Note</span><span>Together CRM was built by a team. This page describes the parts I owned or co-owned, at a level of detail that doesn't expose internal implementation.</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-arch">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">03</p>
+            <h2 id="s-arch">The architecture</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="arch" role="img" aria-label="Edge: clients · web, api-gateway · express, auth · rbac / abac. Domain services: ≈12 node.js / typescript services, rest + rpc contracts, socket.io real-time. Async &amp; cache: rabbitmq · background jobs, redis · cache + coordination. Data: mongodb · tenant_a, mongodb · tenant_b, mongodb · tenant_…. Platform: docker, aws, nginx, pm2, k6">
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Edge</span></div>
+                <div class="arch__nodes"><span class="arch__node">clients · web</span><span class="arch__node arch__node--ink">api-gateway · express</span><span class="arch__node">auth · rbac / abac</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Domain services</span><span>one capability per service</span></div>
+                <div class="arch__nodes"><span class="arch__node">≈12 node.js / typescript services</span><span class="arch__node">rest + rpc contracts</span><span class="arch__node">socket.io real-time</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Async &amp; cache</span></div>
+                <div class="arch__nodes"><span class="arch__node">rabbitmq · background jobs</span><span class="arch__node">redis · cache + coordination</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Data</span><span>database per tenant</span></div>
+                <div class="arch__nodes"><span class="arch__node">mongodb · tenant_a</span><span class="arch__node">mongodb · tenant_b</span><span class="arch__node">mongodb · tenant_…</span></div>
+              </div>
+              <div class="arch__link" aria-hidden="true"></div>
+              <div class="arch__layer" aria-hidden="true">
+                <div class="arch__layer-label mono"><span>Platform</span></div>
+                <div class="arch__nodes"><span class="arch__node">docker</span><span class="arch__node">aws</span><span class="arch__node">nginx</span><span class="arch__node">pm2</span><span class="arch__node">k6</span></div>
+              </div>
+
+            </div>
+            <p>A request enters through the Express gateway, which authenticates the caller, establishes tenant context and routes to the owning domain service. Services talk over REST and RPC, hand long-running work to RabbitMQ, use Redis for caching and coordination, and push updates to connected users through Socket.IO.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-challenges">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">04</p>
+            <h2 id="s-challenges">Engineering challenges</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">01</span><h3>Isolation without duplication</h3><p>Every service must read and write only the current tenant's database — without each feature re-implementing tenant handling.</p></div>
+              <div class="cs-pair"><span class="mono">02</span><h3>Authorization everywhere</h3><p>Role- and attribute-based rules have to be enforced consistently across a dozen services.</p></div>
+              <div class="cs-pair"><span class="mono">03</span><h3>Real-time without cross-talk</h3><p>Messages and notifications must reach the right users of the right tenant, and nobody else.</p></div>
+              <div class="cs-pair"><span class="mono">04</span><h3>Fast APIs, heavy work</h3><p>Imports, notifications and integrations can't block request/response cycles.</p></div>
+              <div class="cs-pair"><span class="mono">05</span><h3>Debugging across hops</h3><p>One user action can touch the gateway, several services, a queue and a database.</p></div>
+              <div class="cs-pair"><span class="mono">06</span><h3>Confidence under load</h3><p>Critical endpoints need evidence, not assumptions, before traffic grows.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-solution">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">05</p>
+            <h2 id="s-solution">The solution</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <ol class="flow" role="list">
+              <li><strong>Resolve context once, at the edge</strong><span>The gateway authenticates the request and establishes tenant and user context, which travels with the request to downstream services.</span></li>
+              <li><strong>Database per tenant</strong><span>Each tenant has its own MongoDB database, so isolation is enforced by where data lives — not only by query filters.</span></li>
+              <li><strong>Centralized authorization</strong><span>RBAC/ABAC checks are applied consistently, keeping permission logic out of individual feature code.</span></li>
+              <li><strong>Asynchronous by default for heavy work</strong><span>Background jobs run through RabbitMQ; Redis handles caching and coordination between instances.</span></li>
+              <li><strong>Scoped real-time delivery</strong><span>Socket.IO delivers messages and notifications only to the intended users within a tenant.</span></li>
+              <li><strong>Measure before trusting</strong><span>k6 load tests exercised critical endpoints, and production issues were traced through logs across services.</span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-tech">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">06</p>
+            <h2 id="s-tech">Technologies</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <div class="cs-pairs">
+              <div class="cs-pair"><span class="mono">Backend</span><ul class="tags" role="list"><li class="tag">Node.js</li><li class="tag">TypeScript</li><li class="tag">Express</li><li class="tag">REST</li><li class="tag">RPC</li></ul></div>
+              <div class="cs-pair"><span class="mono">Data</span><ul class="tags" role="list"><li class="tag">MongoDB</li><li class="tag">Redis</li></ul></div>
+              <div class="cs-pair"><span class="mono">Messaging &amp; real-time</span><ul class="tags" role="list"><li class="tag">RabbitMQ</li><li class="tag">Socket.IO</li></ul></div>
+              <div class="cs-pair"><span class="mono">Infrastructure &amp; testing</span><ul class="tags" role="list"><li class="tag">AWS</li><li class="tag">Docker</li><li class="tag">Nginx</li><li class="tag">PM2</li><li class="tag">k6</li></ul></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cs-section" aria-labelledby="s-outcome">
+        <div class="container cs-section__grid">
+          <div class="cs-section__label">
+            <p class="mono idx">07</p>
+            <h2 id="s-outcome">Outcome &amp; lessons</h2>
+          </div>
+          <div class="cs-section__body" data-reveal>
+            <p class="big">The platform runs in production for multiple business clients — and taught me that most reliability is decided by early architectural choices.</p>
+            <ul class="showcase__points" role="list">
+              <li>Isolation decided at the data layer is simpler to reason about, review and explain.</li>
+              <li>Clear service contracts matter more than the number of services.</li>
+              <li>Queues and caches buy speed only when you can see what they are doing.</li>
+              <li>Load tests and real production debugging teach different lessons — both are needed.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="container">
+        <a class="cs-next" href="iteach.html">
+          <span class="cs-next__label mono">Next case study · 02</span>
+          <span class="cs-next__title">iTeach <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-right"/></svg></span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="../index.html"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="../index.html#about">About</a>
+          <a class="link" href="../index.html#work">Work</a>
+          <a class="link" href="../index.html#experience">Experience</a>
+          <a class="link" href="../index.html#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="together-crm.html">Together CRM</a>
+          <a class="link" href="iteach.html">iTeach</a>
+          <a class="link" href="approveflow.html">ApproveFlow</a>
+          <a class="link" href="flying-packages.html">Fly Package</a>
+          <a class="link" href="moments.html">Moments</a>
+        </div>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="../Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
+        </div>
+      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <a class="link" href="../index.html#work">All work</a>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="../assets/img/icons.svg#i-arrow-up"/></svg></span></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

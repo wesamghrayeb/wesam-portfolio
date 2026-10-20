@@ -1,3346 +1,1085 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wesam Ghrayeb | Full Stack Engineer & AI Systems</title>
-  <meta name="description"
-    content="Portfolio of Wesam Ghrayeb, Full Stack Engineer focused on production SaaS platforms, APIs, real-time workflows, and AI-native systems.">
-  <meta name="keywords"
-    content="Full Stack Engineer, AI Systems, AI Agent, LLM Workflows, React, TypeScript, Node.js, MongoDB, AWS, Tool Calling, Portfolio, Wesam Ghrayeb">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Wesam Ghrayeb — Software Engineer · Backend, Cloud &amp; AI-Powered Products</title>
+  <meta name="description" content="Wesam Ghrayeb is a software engineer building reliable backend systems, multi-tenant SaaS platforms, cloud infrastructure and AI-assisted workflows with Node.js, C#/.NET, TypeScript, PostgreSQL, MongoDB and AWS.">
   <meta name="author" content="Wesam Ghrayeb">
+  <link rel="canonical" href="https://wesamghrayeb.com/">
+  <meta name="theme-color" content="#f8f7f4">
+  <meta name="color-scheme" content="light dark">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Wesam Ghrayeb | Full Stack Engineer & AI Systems">
-  <meta property="og:description"
-    content="Portfolio of Wesam Ghrayeb, Full Stack Engineer focused on production SaaS platforms, APIs, real-time workflows, and AI-native systems.">
-  <meta property="og:url" content="https://wesamghrayeb.com">
-  <meta property="og:image" content="https://wesamghrayeb.com/IMG_3958.jpeg">
+  <meta property="og:site_name" content="Wesam Ghrayeb">
+  <meta property="og:title" content="Wesam Ghrayeb — Software Engineer">
+  <meta property="og:description" content="Backend systems, cloud architecture and AI-powered products. Case studies across multi-tenant SaaS, .NET microservices, event-driven workflows and real-time platforms.">
+  <meta property="og:url" content="https://wesamghrayeb.com/">
+  <meta property="og:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portrait of Wesam Ghrayeb">
+  <meta property="og:locale" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Wesam Ghrayeb | Full Stack Engineer & AI Systems">
-  <meta name="twitter:description"
-    content="Production SaaS, APIs, real-time workflows, and AI-native systems.">
+  <meta name="twitter:title" content="Wesam Ghrayeb — Software Engineer">
+  <meta name="twitter:description" content="Backend systems, cloud architecture and AI-powered products.">
+  <meta name="twitter:image" content="https://wesamghrayeb.com/assets/img/og-portrait.jpg">
 
-  <!-- Preconnect for performance -->
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="IMG_3958.jpeg">
-
-  <style>
-    /* === CSS Custom Properties === */
-    :root {
-      /* Modern Color Palette 2025 - Dark & Modern */
-      --primary: #1e293b;
-      --primary-dark: #0f172a;
-      --primary-light: #334155;
-      --secondary: #64748b;
-      --secondary-dark: #475569;
-      --accent: #0ea5e9;
-      --accent-light: #38bdf8;
-      --accent-dark: #0284c7;
-      --warning: #f59e0b;
-      --error: #ef4444;
-      --success: #22c55e;
-
-      /* Text Colors */
-      --text-primary: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --text-inverse: #0f172a;
-
-      /* Background Colors */
-      --bg-primary: #0a0a0a;
-      --bg-secondary: #111827;
-      --bg-tertiary: #1f2937;
-      --bg-quaternary: #374151;
-      --bg-glass: rgba(17, 24, 39, 0.8);
-      --bg-glass-light: rgba(255, 255, 255, 0.05);
-
-      /* Borders */
-      --border: rgba(148, 163, 184, 0.1);
-      --border-light: rgba(148, 163, 184, 0.05);
-      --border-dark: rgba(148, 163, 184, 0.2);
-
-      /* Shadows - Modern 2025 */
-      --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-      --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      --shadow-glow: 0 0 20px rgba(30, 41, 59, 0.3);
-      --shadow-glow-lg: 0 0 40px rgba(30, 41, 59, 0.4);
-
-      /* Modern Gradients 2025 - Dark & Modern */
-      --gradient-primary: linear-gradient(135deg, #1e293b 0%, #334155 50%, #0ea5e9 100%);
-      --gradient-secondary: linear-gradient(135deg, #334155 0%, #64748b 50%, #0ea5e9 100%);
-      --gradient-accent: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #64748b 100%);
-      --gradient-bg: linear-gradient(135deg, #0a0a0a 0%, #111827 25%, #1f2937 50%, #374151 75%, #4b5563 100%);
-      --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-      --gradient-text: linear-gradient(135deg, #1e293b 0%, #334155 50%, #0ea5e9 100%);
-      --gradient-border: linear-gradient(135deg, #1e293b, #334155, #0ea5e9);
-
-      /* Typography - Modern Fonts */
-      --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-      --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
-      --font-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-
-      /* Spacing System */
-      --space-px: 1px;
-      --space-0: 0;
-      --space-1: 0.25rem;
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-5: 1.25rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-10: 2.5rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-      --space-20: 5rem;
-      --space-24: 6rem;
-      --space-32: 8rem;
-
-      /* Legacy spacing for compatibility */
-      --space-xs: var(--space-1);
-      --space-sm: var(--space-2);
-      --space-md: var(--space-4);
-      --space-lg: var(--space-6);
-      --space-xl: var(--space-8);
-      --space-2xl: var(--space-12);
-      --space-3xl: var(--space-16);
-
-      /* Border Radius - Modern */
-      --radius-none: 0;
-      --radius-sm: 0.25rem;
-      --radius-md: 0.375rem;
-      --radius-lg: 0.5rem;
-      --radius-xl: 0.75rem;
-      --radius-2xl: 1rem;
-      --radius-3xl: 1.5rem;
-      --radius-full: 9999px;
-
-      /* Transitions - Advanced */
-      --transition-none: none;
-      --transition-all: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-fast: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-normal: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-slow: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-      --transition-bounce: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-      --transition-elastic: all 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-      /* Z-index Scale */
-      --z-0: 0;
-      --z-10: 10;
-      --z-20: 20;
-      --z-30: 30;
-      --z-40: 40;
-      --z-50: 50;
-      --z-auto: auto;
-      --z-dropdown: 1000;
-      --z-sticky: 1020;
-      --z-fixed: 1030;
-      --z-modal: 1040;
-      --z-popover: 1050;
-      --z-tooltip: 1060;
-      --z-toast: 1070;
-    }
-
-    /* === Global Reset === */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
-
-    body {
-      font-family: var(--font-primary);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* === Typography === */
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      font-weight: 600;
-      line-height: 1.2;
-      color: var(--text-primary);
-    }
-
-    h1 {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-    }
-
-    h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-    }
-
-    h3 {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-    }
-
-    h4 {
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    }
-
-    p {
-      color: var(--text-secondary);
-      font-size: 1.125rem;
-      line-height: 1.7;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-
-    /* === Utility Classes === */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
-    }
-
-    .glass {
-      background: var(--bg-glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-    }
-
-    .gradient-text {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .animate-fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
-    }
-
-    .animate-slide-up {
-      animation: slideUp 0.6s ease-out forwards;
-    }
-
-    .animate-scale-in {
-      animation: scaleIn 0.4s ease-out forwards;
-    }
-
-    /* === Advanced Animations & Effects === */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes fadeInRight {
-      from {
-        opacity: 0;
-        transform: translateX(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes scaleIn {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    @keyframes float {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-10px) rotate(1deg);
-      }
-    }
-
-    @keyframes floatReverse {
-
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-
-      50% {
-        transform: translateY(-8px) rotate(-1deg);
-      }
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.8;
-        transform: scale(1.05);
-      }
-    }
-
-    @keyframes shimmer {
-      0% {
-        transform: translateX(-100%);
-      }
-
-      100% {
-        transform: translateX(100%);
-      }
-    }
-
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    @keyframes bounce {
-
-      0%,
-      20%,
-      53%,
-      80%,
-      100% {
-        transform: translate3d(0, 0, 0);
-      }
-
-      40%,
-      43% {
-        transform: translate3d(0, -8px, 0);
-      }
-
-      70% {
-        transform: translate3d(0, -4px, 0);
-      }
-
-      90% {
-        transform: translate3d(0, -2px, 0);
-      }
-    }
-
-    @keyframes glow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary);
-      }
-
-      50% {
-        box-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
-      }
-    }
-
-    @keyframes gradientShift {
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    @keyframes morphing {
-
-      0%,
-      100% {
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-      }
-
-      50% {
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-      }
-    }
-
-    @keyframes textGlow {
-
-      0%,
-      100% {
-        text-shadow: 0 0 5px var(--primary), 0 0 10px var(--primary), 0 0 15px var(--primary);
-      }
-
-      50% {
-        text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary), 0 0 30px var(--primary);
-      }
-    }
-
-    @keyframes slideInFromTop {
-      0% {
-        transform: translateY(-100%);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInFromBottom {
-      0% {
-        transform: translateY(100%);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInFromLeft {
-      0% {
-        transform: translateX(-100%);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes slideInFromRight {
-      0% {
-        transform: translateX(100%);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateX(0);
-        opacity: 1;
-      }
-    }
-
-    @keyframes zoomIn {
-      0% {
-        transform: scale(0);
-        opacity: 0;
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
-    }
-
-    @keyframes flipInX {
-      0% {
-        transform: perspective(400px) rotateX(90deg);
-        opacity: 0;
-      }
-
-      100% {
-        transform: perspective(400px) rotateX(0deg);
-        opacity: 1;
-      }
-    }
-
-    @keyframes flipInY {
-      0% {
-        transform: perspective(400px) rotateY(90deg);
-        opacity: 0;
-      }
-
-      100% {
-        transform: perspective(400px) rotateY(0deg);
-        opacity: 1;
-      }
-    }
-
-    @keyframes wobble {
-      0% {
-        transform: translateX(0%);
-      }
-
-      15% {
-        transform: translateX(-25%) rotate(-5deg);
-      }
-
-      30% {
-        transform: translateX(20%) rotate(3deg);
-      }
-
-      45% {
-        transform: translateX(-15%) rotate(-3deg);
-      }
-
-      60% {
-        transform: translateX(10%) rotate(2deg);
-      }
-
-      75% {
-        transform: translateX(-5%) rotate(-1deg);
-      }
-
-      100% {
-        transform: translateX(0%);
-      }
-    }
-
-    @keyframes heartbeat {
-      0% {
-        transform: scale(1);
-      }
-
-      14% {
-        transform: scale(1.1);
-      }
-
-      28% {
-        transform: scale(1);
-      }
-
-      42% {
-        transform: scale(1.1);
-      }
-
-      70% {
-        transform: scale(1);
-      }
-    }
-
-    @keyframes shake {
-
-      0%,
-      100% {
-        transform: translateX(0);
-      }
-
-      10%,
-      30%,
-      50%,
-      70%,
-      90% {
-        transform: translateX(-2px);
-      }
-
-      20%,
-      40%,
-      60%,
-      80% {
-        transform: translateX(2px);
-      }
-    }
-
-    @keyframes blink {
-
-      0%,
-      50% {
-        border-color: var(--primary);
-        opacity: 1;
-      }
-
-      51%,
-      100% {
-        border-color: transparent;
-        opacity: 0.3;
-      }
-    }
-
-
-    /* === Floating Navigation === */
-    .floating-nav {
-      position: fixed;
-      top: 50%;
-      right: var(--space-lg);
-      transform: translateY(-50%);
-      z-index: var(--z-fixed);
-      background: var(--bg-glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: var(--space-md);
-      box-shadow: var(--shadow-lg);
-      transition: var(--transition-normal);
-    }
-
-    .floating-nav:hover {
-      transform: translateY(-50%) scale(1.05);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .floating-nav__container {
-      display: flex;
-      flex-direction: column;
-      gap: var(--space-sm);
-    }
-
-    .floating-nav__link {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      color: var(--text-secondary);
-      text-decoration: none;
-      transition: var(--transition-normal);
-      font-size: 1.25rem;
-    }
-
-    .floating-nav__link.active {
-      background: var(--primary);
-      color: var(--text-primary);
-      box-shadow: var(--shadow-glow);
-    }
-
-    .floating-nav__link::before {
-      content: attr(data-tooltip);
-      position: absolute;
-      right: 60px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      font-size: 0.875rem;
-      font-weight: 500;
-      white-space: nowrap;
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition-normal);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-md);
-    }
-
-    .floating-nav__link::after {
-      content: '';
-      position: absolute;
-      right: 50px;
-      top: 50%;
-      transform: translateY(-50%);
-      border: 6px solid transparent;
-      border-left-color: var(--bg-primary);
-      opacity: 0;
-      visibility: hidden;
-      transition: var(--transition-normal);
-    }
-
-    .floating-nav__link:hover::before,
-    .floating-nav__link:hover::after {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Mobile Floating Navigation */
-    @media (max-width: 768px) {
-      .floating-nav {
-        top: auto;
-        bottom: var(--space-lg);
-        right: var(--space-lg);
-        left: var(--space-lg);
-        transform: none;
-        flex-direction: row;
-        justify-content: space-around;
-        padding: var(--space-sm);
-      }
-
-      .floating-nav__container {
-        flex-direction: row;
-        gap: var(--space-xs);
-        width: 100%;
-        justify-content: space-around;
-      }
-
-      .floating-nav__link {
-        width: 45px;
-        height: 45px;
-        font-size: 1.1rem;
-        flex: 1;
-        max-width: 60px;
-      }
-
-      .floating-nav__link::before {
-        bottom: 60px;
-        top: auto;
-        right: 50%;
-        transform: translateX(50%);
-      }
-
-      .floating-nav__link::after {
-        bottom: 50px;
-        top: auto;
-        right: 50%;
-        transform: translateX(50%);
-        border-left-color: transparent;
-        border-top-color: var(--bg-primary);
-      }
-    }
-
-    /* === Hero Section === */
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--gradient-bg);
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-      animation: float 20s ease-in-out infinite;
-    }
-
-    .hero__container {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 800px;
-      padding: var(--space-3xl) var(--space-lg);
-    }
-
-    .hero__avatar {
-      position: relative;
-      display: inline-block;
-      margin-bottom: var(--space-2xl);
-    }
-
-    .hero__avatar img {
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      border: 4px solid transparent;
-      background: var(--gradient-border);
-      background-clip: padding-box;
-      box-shadow:
-        0 0 0 8px rgba(30, 41, 59, 0.2),
-        0 0 40px rgba(30, 41, 59, 0.3),
-        0 0 80px rgba(30, 41, 59, 0.1),
-        var(--shadow-2xl);
-      transition: var(--transition-slow);
-      animation: float 6s ease-in-out infinite, morphing 8s ease-in-out infinite;
-      filter: brightness(1.1) contrast(1.1) saturate(1.2);
-    }
-
-    .hero__avatar::before {
-      content: '';
-      position: absolute;
-      top: -15px;
-      left: -15px;
-      right: -15px;
-      bottom: -15px;
-      border-radius: 50%;
-      background: var(--gradient-primary);
-      opacity: 0;
-      animation: pulse 3s ease-in-out infinite, gradientShift 4s ease-in-out infinite;
-      z-index: -1;
-      background-size: 200% 200%;
-    }
-
-    .hero__avatar::after {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: -20px;
-      right: -20px;
-      bottom: -20px;
-      border-radius: 50%;
-      background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--accent), var(--primary));
-      opacity: 0.3;
-      animation: rotate 10s linear infinite;
-      z-index: -2;
-    }
-
-    .hero__avatar:hover img {
-      transform: scale(1.05) rotate(5deg);
-      box-shadow:
-        0 0 0 12px rgba(30, 41, 59, 0.3),
-        0 0 60px rgba(30, 41, 59, 0.5),
-        0 0 100px rgba(30, 41, 59, 0.2),
-        var(--shadow-2xl);
-      animation: heartbeat 1.5s ease-in-out infinite;
-    }
-
-    .hero__avatar:hover::before {
-      opacity: 0.2;
-      animation: glow 2s ease-in-out infinite;
-    }
-
-    .hero__title {
-      font-size: clamp(3rem, 8vw, 5rem);
-      font-weight: 800;
-      margin-bottom: var(--space-md);
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      background-size: 200% 200%;
-      line-height: 1.1;
-      animation:
-        slideUp 0.8s ease-out 0.2s both,
-        gradientShift 3s ease-in-out infinite,
-        textGlow 4s ease-in-out infinite;
-      text-shadow: 0 0 30px rgba(30, 41, 59, 0.5);
-      position: relative;
-    }
-
-
-    .hero__subtitle {
-      font-size: clamp(1.25rem, 3vw, 1.75rem);
-      color: var(--text-secondary);
-      margin-bottom: var(--space-lg);
-      font-weight: 500;
-      animation: slideUp 0.8s ease-out 0.4s both;
-    }
-
-    .hero__description {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      margin-bottom: var(--space-2xl);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.6;
-      animation: slideUp 0.8s ease-out 0.6s both;
-    }
-
-    .hero__cta {
-      display: flex;
-      gap: var(--space-lg);
-      justify-content: center;
-      flex-wrap: wrap;
-      animation: slideUp 0.8s ease-out 0.8s both;
-    }
-
-    .hero__btn {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-2xl);
-      border-radius: var(--radius-2xl);
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-decoration: none;
-      transition: var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero__btn--primary {
-      background: var(--gradient-primary);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .hero__btn--primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero__btn--secondary {
-      background: transparent;
-      color: var(--text-primary);
-      border: 2px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
-
-    .hero__btn--secondary:hover {
-      background: rgba(99, 102, 241, 0.1);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .hero__btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: var(--transition-slow);
-    }
-
-    .hero__btn:hover::before {
-      left: 100%;
-    }
-
-    /* === Floating Elements === */
-    .floating-element {
-      position: absolute;
-      opacity: 0.1;
-      animation: float 15s ease-in-out infinite;
-    }
-
-    .floating-element:nth-child(1) {
-      top: 20%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .floating-element:nth-child(2) {
-      top: 60%;
-      right: 10%;
-      animation-delay: 5s;
-    }
-
-    .floating-element:nth-child(3) {
-      bottom: 20%;
-      left: 20%;
-      animation-delay: 10s;
-    }
-
-    /* === Typewriter Effect === */
-    .typewriter {
-      display: inline-block;
-      border-right: 2px solid var(--primary);
-      animation: blink 1s infinite;
-      margin-left: var(--space-sm);
-    }
-
-    @keyframes blink {
-
-      0%,
-      50% {
-        border-color: var(--primary);
-      }
-
-      51%,
-      100% {
-        border-color: transparent;
-      }
-    }
-
-    /* === Sections === */
-    .section {
-      padding: var(--space-3xl) 0;
-      position: relative;
-    }
-
-    .section__container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
-    }
-
-    .section__header {
-      text-align: center;
-      margin-bottom: var(--space-3xl);
-    }
-
-    .section__title {
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 700;
-      margin-bottom: var(--space-lg);
-      position: relative;
-      display: inline-block;
-    }
-
-    .section__title::after {
-      content: '';
-      position: absolute;
-      bottom: -var(--space-md);
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 4px;
-      background: var(--gradient-primary);
-      border-radius: 2px;
-    }
-
-    .section__subtitle {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    /* === Grid System === */
-    .grid {
-      display: grid;
-      gap: var(--space-xl);
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    }
-
-    .grid--2 {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    .grid--3 {
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    /* === Cards === */
-    .card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: var(--space-2xl);
-      transition: var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(10px);
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: var(--gradient-primary);
-      transform: scaleX(0);
-      transition: var(--transition-normal);
-    }
-
-    .card:hover {
-      transform: translateY(-8px) scale(1.02);
-      box-shadow: var(--shadow-2xl), var(--shadow-glow);
-      border-color: var(--primary);
-    }
-
-    .card:hover::before {
-      transform: scaleX(1);
-    }
-
-    .card:hover .card__icon {
-      transform: scale(1.1) rotate(5deg);
-      animation: bounce 0.6s ease-in-out;
-    }
-
-    .card:hover .card__title {
-      background: var(--gradient-text);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .card__header {
-      display: flex;
-      align-items: center;
-      gap: var(--space-md);
-      margin-bottom: var(--space-lg);
-    }
-
-    .card__icon {
-      width: 50px;
-      height: 50px;
-      border-radius: var(--radius-lg);
-      background: var(--gradient-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      color: white;
-      flex-shrink: 0;
-    }
-
-    .card__title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin: 0;
-    }
-
-    .card__content {
-      color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: var(--space-lg);
-    }
-
-    .card__footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: auto;
-    }
-
-    /* === Tech Icons === */
-    .tech-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-md);
-      justify-content: center;
-      margin-top: var(--space-lg);
-    }
-
-    .tech-icon {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-md);
-      border-radius: var(--radius-lg);
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid rgba(99, 102, 241, 0.2);
-      transition: var(--transition-normal);
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .tech-icon::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      transition: var(--transition-slow);
-    }
-
-    .tech-icon:hover {
-      transform: translateY(-6px) scale(1.1);
-      background: rgba(30, 41, 59, 0.2);
-      border-color: var(--primary);
-      box-shadow:
-        0 10px 25px rgba(30, 41, 59, 0.3),
-        0 0 20px rgba(30, 41, 59, 0.2);
-      animation: bounce 0.6s ease-in-out;
-    }
-
-    .tech-icon:hover::before {
-      left: 100%;
-    }
-
-    .tech-icon i {
-      font-size: 2rem;
-      color: var(--primary);
-      transition: var(--transition-normal);
-    }
-
-    .tech-icon:hover i {
-      transform: scale(1.3) rotate(10deg);
-      color: var(--accent);
-      filter: drop-shadow(0 0 10px var(--accent));
-    }
-
-    .tech-icon:hover span {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .tech-icon span {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      text-align: center;
-    }
-
-    /* === Skill Bars === */
-    .skill-bar {
-      margin-bottom: var(--space-lg);
-    }
-
-    .skill-bar__header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-sm);
-    }
-
-    .skill-bar__name {
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .skill-bar__percentage {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      font-family: var(--font-mono);
-    }
-
-    .skill-bar__track {
-      height: 8px;
-      background: var(--bg-tertiary);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .skill-bar__fill {
-      height: 100%;
-      background: var(--gradient-primary);
-      border-radius: var(--radius-sm);
-      transition: width 1s ease-out;
-      position: relative;
-    }
-
-    .skill-bar__fill::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-      animation: shimmer 2s infinite;
-    }
-
-    /* === Forms === */
-    .form {
-      max-width: 600px;
-      margin: 0 auto;
-      background: var(--bg-secondary);
-      padding: var(--space-2xl);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
-
-    .form__group {
-      margin-bottom: var(--space-lg);
-    }
-
-    .form__label {
-      display: block;
-      margin-bottom: var(--space-sm);
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    .form__input,
-    .form__textarea {
-      width: 100%;
-      padding: var(--space-md);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      font-size: 1rem;
-      font-family: var(--font-primary);
-      transition: var(--transition-normal);
-      resize: vertical;
-    }
-
-    .form__input:focus,
-    .form__textarea:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
-    }
-
-    .form__textarea {
-      min-height: 120px;
-    }
-
-    /* === Buttons === */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: var(--space-sm);
-      padding: var(--space-md) var(--space-xl);
-      border: none;
-      border-radius: var(--radius-lg);
-      font-weight: 600;
-      font-size: 1rem;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-      font-family: var(--font-primary);
-    }
-
-    .btn--primary {
-      background: var(--gradient-primary);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn--primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .btn--secondary {
-      background: transparent;
-      color: var(--text-primary);
-      border: 2px solid var(--border);
-    }
-
-    .btn--secondary:hover {
-      background: rgba(99, 102, 241, 0.1);
-      border-color: var(--primary);
-      transform: translateY(-2px);
-    }
-
-    .btn--outline {
-      background: transparent;
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .btn--outline:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: var(--transition-slow);
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    .btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* === Footer === */
-    .footer {
-      background: var(--bg-primary);
-      border-top: 1px solid var(--border);
-      padding: var(--space-3xl) 0 var(--space-2xl);
-      margin-top: var(--space-3xl);
-    }
-
-    .footer__container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 var(--space-lg);
-      text-align: center;
-    }
-
-    .footer__content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: var(--space-2xl);
-      margin-bottom: var(--space-2xl);
-    }
-
-    .footer__section h3 {
-      color: var(--text-primary);
-      margin-bottom: var(--space-lg);
-      font-size: 1.25rem;
-    }
-
-    .footer__section p {
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: var(--space-md);
-    }
-
-    .footer__socials {
-      display: flex;
-      justify-content: center;
-      gap: var(--space-lg);
-      margin-bottom: var(--space-2xl);
-    }
-
-    .footer__social {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--bg-secondary);
-      color: var(--text-secondary);
-      font-size: 1.5rem;
-      transition: var(--transition-normal);
-      border: 1px solid var(--border);
-    }
-
-    .footer__social:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-4px) scale(1.1);
-      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
-    }
-
-    .footer__bottom {
-      padding-top: var(--space-xl);
-      border-top: 1px solid var(--border);
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-
-    /* === Project Cards === */
-    .project-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      transition: var(--transition-normal);
-      position: relative;
-      backdrop-filter: blur(10px);
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-
-    .project-card__image {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      object-position: center;
-      transition: var(--transition-normal);
-      filter: brightness(0.9) contrast(1.1) saturate(1.1);
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-    }
-
-    .project-card:hover .project-card__image {
-      transform: scale(1.05);
-      filter: brightness(1) contrast(1.2) saturate(1.2);
-    }
-
-    .project-card__content {
-      padding: var(--space-2xl);
-    }
-
-    .project-card__title {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: var(--space-md);
-    }
-
-    .project-card__description {
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: var(--space-lg);
-    }
-
-    .project-card__tech {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-      margin-bottom: var(--space-lg);
-    }
-
-    .project-card__tech-item {
-      padding: var(--space-xs) var(--space-sm);
-      background: rgba(30, 41, 59, 0.1);
-      color: var(--primary);
-      border-radius: var(--radius-sm);
-      font-size: 0.875rem;
-      font-weight: 500;
-      border: 1px solid rgba(30, 41, 59, 0.2);
-      transition: var(--transition-fast);
-    }
-
-    .project-card__tech-item:hover {
-      background: rgba(30, 41, 59, 0.2);
-      transform: translateY(-1px);
-    }
-
-    .project-card__footer {
-      display: flex;
-      gap: var(--space-md);
-      align-items: center;
-    }
-
-    .project-card__btn {
-      flex: 1;
-      text-align: center;
-      padding: var(--space-sm) var(--space-md);
-      background: var(--gradient-primary);
-      color: white;
-      border-radius: var(--radius-md);
-      font-weight: 500;
-      transition: var(--transition-normal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .project-card__btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: var(--transition-slow);
-    }
-
-    .project-card__btn:hover::before {
-      left: 100%;
-    }
-
-    .project-card__btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(30, 41, 59, 0.3);
-    }
-
-    .project-card__links {
-      display: flex;
-      gap: var(--space-sm);
-    }
-
-    .project-card__link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-md);
-      background: var(--bg-tertiary);
-      color: var(--text-secondary);
-      transition: var(--transition-normal);
-    }
-
-    .project-card__link:hover {
-      background: var(--primary);
-      color: white;
-      transform: scale(1.1);
-    }
-
-    /* === Scroll Animations === */
-    .scroll-reveal {
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.8s ease-out;
-    }
-
-    .scroll-reveal.revealed {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .scroll-reveal--delay-1 {
-      transition-delay: 0.1s;
-    }
-
-    .scroll-reveal--delay-2 {
-      transition-delay: 0.2s;
-    }
-
-    .scroll-reveal--delay-3 {
-      transition-delay: 0.3s;
-    }
-
-    .scroll-reveal--delay-4 {
-      transition-delay: 0.4s;
-    }
-
-    /* === Loading States === */
-    .loading {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .loading::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-      animation: shimmer 1.5s infinite;
-    }
-
-    /* === Responsive Design === */
-    @media (max-width: 1024px) {
-      .grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: var(--space-lg);
-      }
-
-      .hero__cta {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .hero__btn {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      .section__container {
-        padding: 0 var(--space-md);
-      }
-    }
-
-    @media (max-width: 768px) {
-      :root {
-        --space-lg: 1rem;
-        --space-xl: 1.5rem;
-        --space-2xl: 2rem;
-        --space-3xl: 2.5rem;
-      }
-
-      .section {
-        padding: var(--space-2xl) 0;
-      }
-
-      .section__container {
-        padding: 0 var(--space-md);
-        max-width: 100%;
-      }
-
-      .hero__container {
-        padding: var(--space-2xl) var(--space-md);
-        text-align: center;
-      }
-
-      .hero__avatar img {
-        width: 150px;
-        height: 150px;
-      }
-
-      .card {
-        padding: var(--space-lg);
-        margin: 0 auto;
-        max-width: 100%;
-      }
-
-      .tech-icons {
-        gap: var(--space-sm);
-        justify-content: center;
-      }
-
-      .tech-icon {
-        padding: var(--space-sm);
-        min-width: 80px;
-      }
-
-      .tech-icon i {
-        font-size: 1.5rem;
-      }
-
-      .footer__socials {
-        gap: var(--space-md);
-        justify-content: center;
-      }
-
-      .footer__social {
-        width: 45px;
-        height: 45px;
-        font-size: 1.25rem;
-      }
-
-      .project-card {
-        margin: 0 auto;
-        max-width: 100%;
-      }
-
-      .project-card__image {
-        height: 180px;
-        object-fit: cover;
-        object-position: center;
-      }
-
-      /* Contact form mobile layout */
-      .grid[style*="grid-template-columns: 1fr 1fr"] {
-        grid-template-columns: 1fr !important;
-        gap: var(--space-xl) !important;
-      }
-
-      .form {
-        margin: 0 auto;
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero__title {
-        font-size: 2.5rem;
-        line-height: 1.1;
-      }
-
-      .hero__subtitle {
-        font-size: 1.125rem;
-      }
-
-      .hero__description {
-        font-size: 1rem;
-        padding: 0 var(--space-sm);
-      }
-
-      .section__title {
-        font-size: 2rem;
-        margin-bottom: var(--space-md);
-      }
-
-      .card__title {
-        font-size: 1.25rem;
-      }
-
-      .btn {
-        padding: var(--space-sm) var(--space-lg);
-        font-size: 0.9rem;
-      }
-
-      .hero__avatar img {
-        width: 120px;
-        height: 120px;
-      }
-
-      .tech-icon {
-        min-width: 70px;
-        padding: var(--space-xs);
-      }
-
-      .tech-icon i {
-        font-size: 1.25rem;
-      }
-
-      .tech-icon span {
-        font-size: 0.75rem;
-      }
-    }
-
-
-    /* === Particle Background === */
-    .particles {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .particle {
-      position: absolute;
-      background: var(--primary);
-      border-radius: 50%;
-      opacity: 0.1;
-      animation: float 20s linear infinite;
-    }
-
-    /* === Custom Scrollbar === */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg-primary);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary-dark);
-    }
-
-    /* === Selection === */
-    ::selection {
-      background: var(--primary);
-      color: white;
-    }
-
-    /* === Hero — Hiring Focus === */
-    .hero__grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .hero__eyebrow {
-      display: inline-block;
-      font-size: 0.95rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: var(--space-md);
-      padding: var(--space-xs) var(--space-md);
-      border: 1px solid rgba(14, 165, 233, 0.25);
-      border-radius: var(--radius-full);
-      background: rgba(14, 165, 233, 0.08);
-      animation: slideUp 0.8s ease-out 0.15s both;
-    }
-
-    .hero__headline {
-      font-size: clamp(1.75rem, 4.5vw, 2.75rem);
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--text-primary);
-      margin-bottom: var(--space-lg);
-      max-width: 820px;
-      margin-left: auto;
-      margin-right: auto;
-      animation: slideUp 0.8s ease-out 0.3s both;
-    }
-
-    .hero__container {
-      max-width: 920px;
-    }
-
-    .hero__btn--outline {
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--text-primary);
-      border: 1px solid var(--border-dark);
-    }
-
-    .hero__btn--outline:hover {
-      background: rgba(14, 165, 233, 0.12);
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .hero__status {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-      justify-content: center;
-      margin-top: var(--space-xl);
-      animation: slideUp 0.8s ease-out 1s both;
-    }
-
-    .hero__badge {
-      font-size: 0.8rem;
-      font-family: var(--font-mono);
-      color: var(--text-muted);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      background: var(--bg-glass-light);
-      border: 1px solid var(--border);
-    }
-
-    /* === AI Systems Section === */
-    .section--ai {
-      background: linear-gradient(180deg, transparent 0%, rgba(14, 165, 233, 0.04) 50%, transparent 100%);
-    }
-
-    .ai-intro {
-      max-width: 760px;
-      margin: 0 auto var(--space-2xl);
-      text-align: center;
-      color: var(--text-secondary);
-      line-height: 1.75;
-      font-size: 1.05rem;
-    }
-
-    .ai-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: var(--space-lg);
-    }
-
-    .ai-card {
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      transition: var(--transition-normal);
-    }
-
-    .ai-card:hover {
-      border-color: rgba(14, 165, 233, 0.4);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .ai-card__icon {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: var(--radius-lg);
-      background: rgba(14, 165, 233, 0.12);
-      color: var(--accent-light);
-      margin-bottom: var(--space-md);
-      font-size: 1.1rem;
-    }
-
-    .ai-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: var(--space-sm);
-    }
-
-    .ai-card p {
-      color: var(--text-muted);
-      font-size: 0.92rem;
-      line-height: 1.6;
-    }
-
-    /* === Skill Groups === */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: var(--space-lg);
-    }
-
-    .skill-group {
-      padding: var(--space-xl);
-      border-radius: var(--radius-xl);
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      transition: var(--transition-normal);
-    }
-
-    .skill-group:hover {
-      border-color: rgba(14, 165, 233, 0.35);
-    }
-
-    .skill-group__title {
-      display: flex;
-      align-items: center;
-      gap: var(--space-sm);
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: var(--space-md);
-      color: var(--accent-light);
-    }
-
-    .skill-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-sm);
-    }
-
-    .skill-tag {
-      font-size: 0.82rem;
-      font-family: var(--font-mono);
-      padding: var(--space-xs) var(--space-sm);
-      border-radius: var(--radius-md);
-      background: rgba(14, 165, 233, 0.08);
-      color: var(--text-secondary);
-      border: 1px solid rgba(14, 165, 233, 0.15);
-    }
-
-    /* === Case Study Cards === */
-    .case-studies {
-      display: grid;
-      gap: var(--space-2xl);
-    }
-
-    .case-study {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: var(--space-xl);
-      padding: var(--space-xl);
-      border-radius: var(--radius-2xl);
-      border: 1px solid var(--border);
-      background: var(--bg-secondary);
-      transition: var(--transition-normal);
-    }
-
-    .case-study:hover {
-      border-color: rgba(14, 165, 233, 0.35);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .case-study__media img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border);
-    }
-
-    .case-study__header {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-md);
-      margin-bottom: var(--space-md);
-    }
-
-    .case-study__title {
-      font-size: 1.35rem;
-      font-weight: 600;
-    }
-
-    .case-study__tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-xs);
-    }
-
-    .case-study__body {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: var(--space-md);
-      margin: var(--space-md) 0;
-    }
-
-    .case-study__field h4 {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-light);
-      margin-bottom: var(--space-xs);
-      font-family: var(--font-mono);
-    }
-
-    .case-study__field p {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-
-    .case-study__impact {
-      padding: var(--space-md);
-      border-radius: var(--radius-lg);
-      background: rgba(14, 165, 233, 0.06);
-      border-left: 3px solid var(--accent);
-      color: var(--text-secondary);
-      font-size: 0.92rem;
-      line-height: 1.55;
-    }
-
-    .case-study__links {
-      display: flex;
-      gap: var(--space-sm);
-      margin-top: var(--space-md);
-    }
-
-    .projects-divider {
-      margin: var(--space-3xl) 0 var(--space-xl);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .projects-divider::before,
-    .projects-divider::after {
-      content: '';
-      display: inline-block;
-      width: 40px;
-      height: 1px;
-      background: var(--border-dark);
-      vertical-align: middle;
-      margin: 0 var(--space-md);
-    }
-
-    .contact-availability {
-      padding: var(--space-lg);
-      border-radius: var(--radius-xl);
-      background: rgba(14, 165, 233, 0.08);
-      border: 1px solid rgba(14, 165, 233, 0.2);
-      margin-bottom: var(--space-xl);
-    }
-
-    .contact-availability p {
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .contact-link-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .contact-link-list li {
-      margin-bottom: var(--space-md);
-    }
-
-    .contact-link-list a {
-      color: var(--accent-light);
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-
-    .contact-link-list a:hover {
-      color: var(--text-primary);
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .case-study {
-        grid-template-columns: 1fr;
-      }
-
-      .case-study__body {
-        grid-template-columns: 1fr;
-      }
-
-      #contact .grid {
-        grid-template-columns: 1fr !important;
-      }
-    }
-
-    /* === Focus Styles === */
-    :focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 2px;
-    }
-
-    /* === Print Styles === */
-    @media print {
-
-      .header,
-      .footer,
-      .hero__cta,
-      .btn {
-        display: none;
-      }
-
-      .hero {
-        min-height: auto;
-        padding: var(--space-xl) 0;
-      }
-
-      .section {
-        padding: var(--space-lg) 0;
-      }
-    }
-  </style>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap"></noscript>
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <script>
+    (function (d) {
+      var r = d.documentElement;
+      r.classList.add("js");
+      try { var t = localStorage.getItem("theme"); if (t === "dark" || t === "light") r.setAttribute("data-theme", t); } catch (e) {}
+      setTimeout(function () { if (!window.__siteReady) r.classList.remove("js"); }, 2500);
+    })(document);
+  </script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://wesamghrayeb.com/#person",
+        "name": "Wesam Ghrayeb",
+        "url": "https://wesamghrayeb.com/",
+        "image": "https://wesamghrayeb.com/assets/img/portrait-960.webp",
+        "jobTitle": "Software Engineer",
+        "email": "mailto:wesamghrayeeb1@gmail.com",
+        "address": { "@type": "PostalAddress", "addressCountry": "IL" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Ort Braude College" },
+        "sameAs": ["https://github.com/wesamghrayeb", "https://linkedin.com/in/wesam-ghrayeb"],
+        "knowsAbout": ["Backend architecture", "Distributed systems", "Multi-tenant SaaS", "Node.js", "TypeScript", "C#", ".NET", "PostgreSQL", "MongoDB", "Redis", "RabbitMQ", "Dapr", "AWS", "Docker", "React", "LLM tool calling"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://wesamghrayeb.com/#website",
+        "url": "https://wesamghrayeb.com/",
+        "name": "Wesam Ghrayeb — Software Engineer",
+        "publisher": { "@id": "https://wesamghrayeb.com/#person" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
-
-  <!-- Floating Navigation -->
-  <nav class="floating-nav" id="floating-nav">
-    <div class="floating-nav__container">
-      <a href="#about" class="floating-nav__link" data-tooltip="About">
-        <i class="fas fa-user"></i>
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#top" aria-label="Wesam Ghrayeb, back to top">
+        <span class="brand__mark" aria-hidden="true">W</span>
+        <span class="brand__name">Wesam Ghrayeb</span>
       </a>
-      <a href="#ai-systems" class="floating-nav__link" data-tooltip="AI Systems">
-        <i class="fas fa-robot"></i>
-      </a>
-      <a href="#skills" class="floating-nav__link" data-tooltip="Skills">
-        <i class="fas fa-code"></i>
-      </a>
-      <a href="#experience" class="floating-nav__link" data-tooltip="Experience">
-        <i class="fas fa-briefcase"></i>
-      </a>
-      <a href="#projects" class="floating-nav__link" data-tooltip="Projects">
-        <i class="fas fa-folder"></i>
-      </a>
-      <a href="#contact" class="floating-nav__link" data-tooltip="Contact">
-        <i class="fas fa-envelope"></i>
-      </a>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="hero" id="hero">
-    <div class="hero__grid" aria-hidden="true"></div>
-    <div class="hero__container">
-      <div class="hero__avatar">
-        <img src="IMG_3958.jpeg" alt="Wesam Ghrayeb" />
-      </div>
-
-      <p class="hero__eyebrow">Wesam Ghrayeb</p>
-      <h1 class="hero__headline">Full Stack Engineer building reliable product workflows and AI-native systems.</h1>
-      <p class="hero__description">
-        I build production-grade SaaS platforms, APIs, real-time workflows, and LLM-powered systems with a focus on
-        reliability, usability, and end-to-end ownership.
-      </p>
-
-      <div class="hero__cta">
-        <a href="#projects" class="hero__btn hero__btn--primary">
-          <i class="fas fa-folder-open"></i>
-          View Projects
+      <nav aria-label="Primary">
+        <ul class="nav__links" role="list">
+          <li class="nav__indicator" aria-hidden="true"></li>
+          <li><a class="nav__link" href="#about">About</a></li>
+          <li><a class="nav__link" href="#work">Work</a></li>
+          <li><a class="nav__link" href="#experience">Experience</a></li>
+          <li><a class="nav__link" href="#skills">Capabilities</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to dark theme" aria-pressed="false">
+          <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-moon"/></svg>
+        </button>
+        <a class="btn btn--sm nav__contact" href="#contact" data-magnetic>
+          Contact <svg class="icon icon--ne" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg>
         </a>
-        <a href="Wesam CV.pdf" download class="hero__btn hero__btn--secondary">
-          <i class="fas fa-file-pdf"></i>
-          Download CV
-        </a>
-        <a href="#contact" class="hero__btn hero__btn--outline">
-          <i class="fas fa-envelope"></i>
-          Contact Me
-        </a>
-      </div>
-
-      <div class="hero__status">
-        <span class="hero__badge">React · TypeScript · Node.js</span>
-        <span class="hero__badge">SaaS · APIs · Real-time</span>
-        <span class="hero__badge">LLM Workflows · Agent Systems</span>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
       </div>
     </div>
+  </header>
 
-    <!-- Floating Elements -->
-    <div class="floating-element">
-      <i class="fab fa-react" style="font-size: 3rem; color: var(--primary);"></i>
+  <div class="menu" id="menu" inert>
+    <nav aria-label="Mobile">
+      <ul class="menu__list" role="list">
+        <li class="menu__item" style="--i:0"><a class="menu__link" href="#about"><span class="mono">01</span>About</a></li>
+        <li class="menu__item" style="--i:1"><a class="menu__link" href="#work"><span class="mono">02</span>Work</a></li>
+        <li class="menu__item" style="--i:2"><a class="menu__link" href="#experience"><span class="mono">03</span>Experience</a></li>
+        <li class="menu__item" style="--i:3"><a class="menu__link" href="#skills"><span class="mono">04</span>Capabilities</a></li>
+        <li class="menu__item" style="--i:4"><a class="menu__link" href="#contact"><span class="mono">05</span>Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu__footer menu__item" style="--i:5">
+      <a class="link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+      <div class="menu__social">
+        <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-github"/></svg></a>
+        <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-linkedin"/></svg></a>
+      </div>
     </div>
-    <div class="floating-element">
-      <i class="fab fa-node-js" style="font-size: 3rem; color: var(--accent);"></i>
-    </div>
-    <div class="floating-element">
-      <i class="fas fa-robot" style="font-size: 3rem; color: var(--accent-light);"></i>
-    </div>
-  </section>
+  </div>
 
-  <!-- About Section -->
-  <section class="section" id="about">
-    <div class="section__container">
-      <div class="section__header scroll-reveal">
-        <h2 class="section__title">About Me</h2>
-        <p class="section__subtitle">
-          Full-stack product engineer with production SaaS experience, now deepening AI systems and agent workflows
-        </p>
+  <main id="main" tabindex="-1">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow"></div>
       </div>
 
-      <div class="grid">
-        <div class="card scroll-reveal scroll-reveal--delay-1">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-user"></i>
-            </div>
-            <h3 class="card__title">Introduction</h3>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <p class="hero__meta mono" data-hero style="--delay:0ms">
+            <span class="status-dot" aria-hidden="true"></span> Open to new opportunities
+            <span class="sep" aria-hidden="true"></span> Based in Israel
+          </p>
+
+          <h1 class="display hero__name" id="hero-title">
+            <span class="line"><span>Wesam</span></span>
+            <span class="line"><span>Ghrayeb</span></span>
+          </h1>
+
+          <div class="hero__role" data-hero style="--delay:420ms">
+            <p class="hero__role-title">Software Engineer</p>
+            <p class="hero__role-focus">Backend Systems. Cloud Architecture. <span>AI&#8209;Powered Products.</span></p>
           </div>
-          <div class="card__content">
-            <p>Hi, I'm Wesam — a Full Stack Engineer based in Israel. I build end-to-end product workflows across
-              frontend, backend, APIs, and infrastructure, with growing hands-on experience in LLM tool-calling and
-              reliable AI-assisted systems.</p>
+
+          <p class="lead hero__copy" data-hero style="--delay:560ms">
+            I design and build reliable software systems — from distributed backend services and real-time platforms
+            to cloud-native applications and AI-driven workflows.
+          </p>
+
+          <div class="hero__actions" data-hero style="--delay:700ms">
+            <a class="btn" href="#work" data-magnetic>
+              Explore my work <svg class="icon icon--s" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-down"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf" data-magnetic>
+              Download CV <svg class="icon icon--s" aria-hidden="true"><use href="assets/img/icons.svg#i-download"/></svg>
+            </a>
+            <div class="hero__social">
+              <a class="icon-btn" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" aria-label="GitHub (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-github"/></svg></a>
+              <a class="icon-btn" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" aria-label="LinkedIn (opens in a new tab)"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-linkedin"/></svg></a>
+            </div>
           </div>
         </div>
 
-        <div class="card scroll-reveal scroll-reveal--delay-2">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-code"></i>
+        <div class="hero__visual" data-hero style="--delay:300ms">
+          <figure class="system-map" data-parallax="0.035">
+            <div class="system-map__bar mono" aria-hidden="true">
+              <span class="system-map__dots"><i></i><i></i><i></i></span>
+              <span>system.map</span>
+              <span class="system-map__live"><span class="status-dot"></span>live</span>
             </div>
-            <h3 class="card__title">Full Stack Engineer</h3>
+            <!--@svg:hero-->
+            <svg viewBox="0 0 520 410" role="img" aria-labelledby="sm-title" data-draw data-anim>
+              <title id="sm-title">Illustrative system map: clients call an API gateway that routes requests to identity, CRM, real-time and worker services. The services share an event bus and use Redis, per-tenant databases, PostgreSQL and RabbitMQ.</title>
+              <path id="sm-e0" class="dg-edge dg-draw" pathLength="1" style="--d:500" d="M260 58V100"/>
+              <path id="sm-e1" class="dg-edge dg-draw" pathLength="1" style="--d:700" d="M260 140C260 190 68 180 68 228"/>
+              <path id="sm-e2" class="dg-edge dg-draw" pathLength="1" style="--d:760" d="M260 140C260 190 192 180 192 228"/>
+              <path id="sm-e3" class="dg-edge dg-draw" pathLength="1" style="--d:820" d="M260 140C260 190 328 180 328 228"/>
+              <path id="sm-e4" class="dg-edge dg-draw" pathLength="1" style="--d:880" d="M260 140C260 190 452 180 452 228"/>
+              <path id="sm-d1" class="dg-edge dg-draw" pathLength="1" style="--d:1100" d="M68 264V346"/>
+              <path id="sm-d2" class="dg-edge dg-draw" pathLength="1" style="--d:1150" d="M192 264V346"/>
+              <path id="sm-d3" class="dg-edge dg-draw" pathLength="1" style="--d:1200" d="M328 264V346"/>
+              <path id="sm-d4" class="dg-edge dg-draw" pathLength="1" style="--d:1250" d="M452 264V346"/>
+              <g class="dg-pop" style="--d:1000">
+                <path id="sm-bus" class="dg-edge dg-edge--accent anim-dash" d="M16 305H504"/>
+                <text class="dg-label dg-label--sm" x="504" y="296" text-anchor="end">event bus</text>
+                <circle class="dg-junction" cx="68" cy="305" r="3.5"/>
+                <circle class="dg-junction" cx="192" cy="305" r="3.5"/>
+                <circle class="dg-junction" cx="328" cy="305" r="3.5"/>
+                <circle class="dg-junction" cx="452" cy="305" r="3.5"/>
+              </g>
+
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.6s" begin="1.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-e0"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.6s" begin="1.8s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2.2s" begin="2.3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-e2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="2.2s" begin="2.3s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2.6s" begin="2.9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-e4"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="2.6s" begin="2.9s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2.4s" begin="3.6s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-e1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="2.4s" begin="3.6s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2.3s" begin="4.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-e3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.12;.88;1" dur="2.3s" begin="4.4s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.8s" begin="3.1s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-d2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.8s" begin="3.1s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2s" begin="4.1s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#sm-d3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="2s" begin="4.1s" repeatCount="indefinite"/></circle>
+              <circle class="dg-packet" r="2.5" opacity="0"><animateMotion dur="5s" begin="2s" repeatCount="indefinite"><mpath href="#sm-bus"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="5s" begin="2s" repeatCount="indefinite"/></circle>
+
+              <g class="dg-node dg-pop" style="--d:300"><rect x="185" y="22" width="150" height="36" rx="10"/><text class="dg-label" x="260" y="44" text-anchor="middle">clients · web/mobile</text></g>
+              <g class="dg-node dg-node--ink dg-pop" style="--d:450">
+                <rect x="170" y="100" width="180" height="40" rx="10"/>
+                <circle class="dg-dot--ok anim-pulse" cx="190" cy="120" r="3"/>
+                <text class="dg-label" x="268" y="124" text-anchor="middle">api-gateway</text>
+              </g>
+              <g class="dg-pop" style="--d:600">
+                <text class="dg-label dg-label--sm" x="160" y="124" text-anchor="end">tenancy</text>
+                <text class="dg-label dg-label--sm" x="360" y="124">auth · rbac</text>
+              </g>
+              <g class="dg-node dg-pop" style="--d:900"><rect x="16" y="228" width="104" height="36" rx="10"/><circle class="dg-dot--ok" cx="30" cy="246" r="2.5"/><text class="dg-label" x="74" y="250" text-anchor="middle">identity</text></g>
+              <g class="dg-node dg-pop" style="--d:960"><rect x="140" y="228" width="104" height="36" rx="10"/><circle class="dg-dot--ok" cx="154" cy="246" r="2.5"/><text class="dg-label" x="198" y="250" text-anchor="middle">crm-core</text></g>
+              <g class="dg-node dg-node--accent dg-pop" style="--d:1020"><rect x="276" y="228" width="104" height="36" rx="10"/><circle class="dg-dot anim-pulse" cx="290" cy="246" r="2.5"/><text class="dg-label dg-label--accent" x="334" y="250" text-anchor="middle">realtime</text></g>
+              <g class="dg-node dg-pop" style="--d:1080"><rect x="400" y="228" width="104" height="36" rx="10"/><circle class="dg-dot--ok" cx="414" cy="246" r="2.5"/><text class="dg-label" x="458" y="250" text-anchor="middle">workers</text></g>
+              <g class="dg-node dg-pop" style="--d:1300"><rect x="16" y="346" width="104" height="38" rx="10"/><text class="dg-label" x="68" y="369" text-anchor="middle">redis</text></g>
+              <g class="dg-pop" style="--d:1350">
+                <rect class="dg-box" x="148" y="338" width="104" height="38" rx="10" opacity=".5"/>
+                <rect class="dg-box" x="144" y="342" width="104" height="38" rx="10" opacity=".8"/>
+                <g class="dg-node"><rect x="140" y="346" width="104" height="38" rx="10"/><text class="dg-label" x="192" y="369" text-anchor="middle">tenant_*</text></g>
+              </g>
+              <g class="dg-node dg-pop" style="--d:1400"><rect x="276" y="346" width="104" height="38" rx="10"/><text class="dg-label" x="328" y="369" text-anchor="middle">postgres</text></g>
+              <g class="dg-node dg-pop" style="--d:1450"><rect x="400" y="346" width="104" height="38" rx="10"/><text class="dg-label" x="452" y="369" text-anchor="middle">rabbitmq</text></g>
+            </svg>
+            <!--@end-->
+            <figcaption class="system-map__caption mono">
+              <span>fig. 00 — illustrative</span>
+              <span>gateway → services → data</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="hero__foot mono" data-hero style="--delay:900ms">
+          <a class="scroll-cue" href="#about"><span class="scroll-cue__track" aria-hidden="true"></span> Scroll</a>
+          <span class="hero__stack">Node.js · C# / .NET · TypeScript · PostgreSQL · MongoDB · AWS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__portrait" data-reveal="scale">
+            <div class="about__frame">
+              <img src="assets/img/portrait-960.webp"
+                   srcset="assets/img/portrait-480.webp 480w, assets/img/portrait-960.webp 960w"
+                   sizes="(min-width: 640px) 420px, 90vw"
+                   width="960" height="1020" loading="lazy" decoding="async"
+                   alt="Portrait of Wesam Ghrayeb outdoors, with a city and mountains behind him">
+            </div>
+            <p class="about__caption mono"><span>Wesam Ghrayeb</span><span>Israel · <span data-local-time>--:--</span></span></p>
           </div>
-          <div class="card__content">
-            <p>
-              I ship production SaaS features with React, TypeScript, Node.js, Express, MongoDB, and MySQL — from API
-              design and auth to deployment. I graduated from <strong>Ort Braude College</strong> with
-              <strong>honors (excellence)</strong> and bring a strong foundation in software engineering fundamentals.
+
+          <div>
+            <p class="eyebrow" data-reveal><span class="idx">01</span> About</p>
+            <h2 class="about__statement" id="about-title" data-split style="margin-top:28px">
+              I own production software <em class="serif">end to end</em> — architecture, code, deployment, and the
+              debugging that <span class="muted">keeps it running.</span>
+            </h2>
+
+            <div class="about__body" data-reveal>
+              <p>
+                For the past two years I built and operated a multi-tenant B2B SaaS platform at
+                <strong>WJS Digital Innovations</strong> — designing service boundaries, securing tenant data, and shipping
+                features from the first requirement to production. In 2026 I joined <strong>ZioNet</strong>, contributing
+                backend services to iTeach, a cloud-native .NET learning platform.
+              </p>
+              <p>
+                I like systems that are boring in the best way: predictable under load, easy to reason about, and honest
+                about failure. That is also how I use AI — as a fast collaborator whose output is reviewed, tested and
+                validated before it ships.
+              </p>
+              <p>
+                I work closely with product owners and teammates, review code, and enjoy mentoring. I led CRM testing and
+                quality validation with 50+ Google developers through a Technion QA partnership, and I have taught
+                programming and math to students for years.
+              </p>
+            </div>
+
+            <ol class="strengths" role="list" data-stagger>
+              <li class="strength" data-reveal><span class="strength__idx mono">01</span><span class="strength__title">Backend architecture &amp; distributed systems</span><span class="strength__text">Service boundaries, gateways, messaging and tenant isolation.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">02</span><span class="strength__title">Production SaaS</span><span class="strength__text">Features taken from requirement to release for real business clients.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">03</span><span class="strength__title">Full-stack delivery</span><span class="strength__text">React and TypeScript in front, Node.js and .NET behind it.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">04</span><span class="strength__title">Cloud &amp; infrastructure</span><span class="strength__text">AWS, Docker, Nginx and Linux — deploying and operating what runs.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">05</span><span class="strength__title">Debugging &amp; problem-solving</span><span class="strength__text">Tracing issues across services, queues and databases in production.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">06</span><span class="strength__title">End-to-end ownership</span><span class="strength__text">From ambiguous requirements to a validated, maintainable release.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">07</span><span class="strength__title">Collaboration &amp; mentorship</span><span class="strength__text">Code reviews, stakeholder work, and years of teaching.</span></li>
+              <li class="strength" data-reveal><span class="strength__idx mono">08</span><span class="strength__title">AI-assisted engineering</span><span class="strength__text">LLM workflows and tool calling, with review and validation built in.</span></li>
+            </ol>
+
+            <dl class="facts" data-reveal>
+              <div class="fact"><dt class="fact__label mono">Education</dt><dd class="fact__value">B.Sc. Software Engineering, Ort Braude College</dd></div>
+              <div class="fact"><dt class="fact__label mono">Recognition</dt><dd class="fact__value">3× Dean's List</dd></div>
+              <div class="fact"><dt class="fact__label mono">Cloud</dt><dd class="fact__value">AWS re/Start graduate, 2024</dd></div>
+              <div class="fact"><dt class="fact__label mono">Location</dt><dd class="fact__value">Israel</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section section--dark work" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx">02</span> Selected work</p>
+          <div class="section-head__row">
+            <h2 class="h2" id="work-title" data-split>Systems built for <em class="serif">real users</em> and real load.</h2>
+            <p class="lead" data-reveal>
+              Five case studies across multi-tenant SaaS, cloud-native microservices, event-driven workflows and
+              real-time products, with a clear account of what I owned.
             </p>
           </div>
-        </div>
+        </header>
 
-        <div class="card scroll-reveal scroll-reveal--delay-3">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-lightbulb"></i>
-            </div>
-            <h3 class="card__title">Product-Minded Builder</h3>
-          </div>
-          <div class="card__content">
-            <p>I take ownership from problem definition through delivery — working through ambiguity, debugging
-              production issues, and collaborating with stakeholders to ship features that hold up under real usage.</p>
-          </div>
-        </div>
+        <ol class="showcase" role="list">
 
-        <div class="card scroll-reveal scroll-reveal--delay-4">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-            <h3 class="card__title">Mentor & Educator</h3>
-          </div>
-          <div class="card__content">
-            <p>Alongside development, I actively mentor aspiring developers and teach technical topics including coding
-              fundamentals, data structures, and system design. I believe in sharing knowledge and empowering others to
-              grow in tech.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <!-- 01 Together CRM -->
+          <li class="showcase__item" data-reveal>
+            <a class="showcase__visual" href="projects/together-crm.html" tabindex="-1" aria-hidden="true">
+              <div class="canvas">
+                <p class="canvas__label mono">fig. 01 — gateway + domain services</p>
+                <div class="canvas__art" data-anim>
+                  <!--@svg:crm-->
+                  <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: an API gateway with central authentication routes to about twelve domain services, backed by Redis, RabbitMQ and Socket.IO, with a separate database for each tenant." data-draw>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:250" d="M90 194V218"/>
+                    <path id="crm-e1" class="dg-edge dg-draw" pathLength="1" style="--d:300" d="M152 174C178 174 174 127 200 127"/>
+                    <path id="crm-e2" class="dg-edge dg-draw" pathLength="1" style="--d:350" d="M152 174C178 174 174 171 200 171"/>
+                    <path id="crm-e3" class="dg-edge dg-draw" pathLength="1" style="--d:400" d="M152 174C178 174 174 215 200 215"/>
+                    <path id="crm-t1" class="dg-edge dg-draw" pathLength="1" style="--d:800" d="M526 127C544 127 542 111 560 111"/>
+                    <path id="crm-t2" class="dg-edge dg-draw" pathLength="1" style="--d:850" d="M526 171C544 171 542 181 560 181"/>
+                    <path id="crm-t3" class="dg-edge dg-draw" pathLength="1" style="--d:900" d="M526 215C544 215 542 251 560 251"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:950" d="M249 232V262"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1000" d="M363 232V262"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1050" d="M477 232V262"/>
 
-  <!-- AI Systems Focus -->
-  <section class="section section--ai" id="ai-systems">
-    <div class="section__container">
-      <div class="section__header scroll-reveal">
-        <h2 class="section__title">AI Systems Focus</h2>
-        <p class="section__subtitle">
-          Growing into AI Systems engineering — with strong full-stack foundations and hands-on workflow experience
-        </p>
-      </div>
+                    <g class="dg-pop" style="--d:100">
+                      <text class="dg-label dg-label--sm" x="28" y="142">requests</text>
+                      <g class="dg-node dg-node--ink"><rect x="28" y="154" width="124" height="40" rx="10"/><text class="dg-label" x="90" y="178" text-anchor="middle">api-gateway</text></g>
+                    </g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:300"><rect x="28" y="218" width="124" height="34" rx="10"/><text class="dg-label dg-label--accent" x="90" y="239" text-anchor="middle">auth · rbac/abac</text></g>
 
-      <p class="ai-intro scroll-reveal">
-        I am actively building toward AI Systems and agent engineering roles. My foundation is production full-stack
-        development — and I am applying that same reliability mindset to LLM workflows, tool-calling, structured
-        outputs, and product-grade AI features.
-      </p>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:420" x="200" y="98">≈12 domain services</text>
+                    <g class="dg-node dg-pop" style="--d:450"><rect x="200" y="110" width="74" height="34" rx="8"/><circle class="dg-dot--ok anim-pulse" cx="212" cy="127" r="2.5"/><text class="dg-label" x="222" y="131">svc·01</text></g>
+                    <g class="dg-node dg-pop" style="--d:480"><rect x="284" y="110" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="296" cy="127" r="2.5"/><text class="dg-label" x="306" y="131">svc·02</text></g>
+                    <g class="dg-node dg-pop" style="--d:510"><rect x="368" y="110" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="380" cy="127" r="2.5"/><text class="dg-label" x="390" y="131">svc·03</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:540"><rect x="452" y="110" width="74" height="34" rx="8"/><circle class="dg-dot anim-pulse" style="animation-delay:.6s" cx="464" cy="127" r="2.5"/><text class="dg-label dg-label--accent" x="474" y="131">svc·04</text></g>
+                    <g class="dg-node dg-pop" style="--d:570"><rect x="200" y="154" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="212" cy="171" r="2.5"/><text class="dg-label" x="222" y="175">svc·05</text></g>
+                    <g class="dg-node dg-pop" style="--d:600"><rect x="284" y="154" width="74" height="34" rx="8"/><circle class="dg-dot--ok anim-pulse" style="animation-delay:1.2s" cx="296" cy="171" r="2.5"/><text class="dg-label" x="306" y="175">svc·06</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:630"><rect x="368" y="154" width="74" height="34" rx="8"/><circle class="dg-dot anim-pulse" style="animation-delay:.3s" cx="380" cy="171" r="2.5"/><text class="dg-label dg-label--accent" x="390" y="175">svc·07</text></g>
+                    <g class="dg-node dg-pop" style="--d:660"><rect x="452" y="154" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="464" cy="171" r="2.5"/><text class="dg-label" x="474" y="175">svc·08</text></g>
+                    <g class="dg-node dg-pop" style="--d:690"><rect x="200" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="212" cy="215" r="2.5"/><text class="dg-label" x="222" y="219">svc·09</text></g>
+                    <g class="dg-node dg-pop" style="--d:720"><rect x="284" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="296" cy="215" r="2.5"/><text class="dg-label" x="306" y="219">svc·10</text></g>
+                    <g class="dg-node dg-pop" style="--d:750"><rect x="368" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok anim-pulse" style="animation-delay:1.8s" cx="380" cy="215" r="2.5"/><text class="dg-label" x="390" y="219">svc·11</text></g>
+                    <g class="dg-node dg-pop" style="--d:780"><rect x="452" y="198" width="74" height="34" rx="8"/><circle class="dg-dot--ok" cx="464" cy="215" r="2.5"/><text class="dg-label" x="474" y="219">svc·12</text></g>
 
-      <div class="ai-grid">
-        <div class="ai-card scroll-reveal scroll-reveal--delay-1">
-          <div class="ai-card__icon"><i class="fas fa-wrench"></i></div>
-          <h3>LLM Tool-Calling</h3>
-          <p>Sequential tool execution loops that connect models to real APIs and business logic safely.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-2">
-          <div class="ai-card__icon"><i class="fas fa-brackets-curly"></i></div>
-          <h3>Structured Outputs</h3>
-          <p>JSON schemas and validation to keep model responses predictable and usable in production pipelines.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-3">
-          <div class="ai-card__icon"><i class="fas fa-diagram-project"></i></div>
-          <h3>Agent Workflows</h3>
-          <p>Multi-step agent flows with clear state, logging, and controlled handoffs between tools and services.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-4">
-          <div class="ai-card__icon"><i class="fas fa-plug"></i></div>
-          <h3>External API Integrations</h3>
-          <p>Wiring LLM systems to third-party APIs, auth, rate limits, and real-world data sources.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-1">
-          <div class="ai-card__icon"><i class="fas fa-shield-halved"></i></div>
-          <h3>Fallback & Recovery</h3>
-          <p>Graceful handling when tools fail, models hallucinate, or upstream services are unavailable.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-2">
-          <div class="ai-card__icon"><i class="fas fa-database"></i></div>
-          <h3>Persistent Context</h3>
-          <p>Session and workflow context that survives across steps, retries, and user interactions.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-3">
-          <div class="ai-card__icon"><i class="fas fa-bolt"></i></div>
-          <h3>Real-Time AI Interactions</h3>
-          <p>Live dashboards and workflows where AI insights surface alongside real-time product data.</p>
-        </div>
-        <div class="ai-card scroll-reveal scroll-reveal--delay-4">
-          <div class="ai-card__icon"><i class="fas fa-magnifying-glass-chart"></i></div>
-          <h3>Observability & Validation</h3>
-          <p>Logging, output checks, and debugging discipline — treating AI features like any production system.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+                    <g class="dg-node dg-pop" style="--d:1000"><rect x="200" y="262" width="98" height="32" rx="16"/><text class="dg-label" x="249" y="282" text-anchor="middle">redis</text></g>
+                    <g class="dg-node dg-pop" style="--d:1050"><rect x="314" y="262" width="98" height="32" rx="16"/><text class="dg-label" x="363" y="282" text-anchor="middle">rabbitmq</text></g>
+                    <g class="dg-node dg-pop" style="--d:1100"><rect x="428" y="262" width="98" height="32" rx="16"/><text class="dg-label" x="477" y="282" text-anchor="middle">socket.io</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1200" x="200" y="330">docker · aws · k6 load tests</text>
 
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:820" x="590" y="80" text-anchor="middle">db / tenant</text>
+                    <g class="dg-pop" style="--d:860"><path class="dg-box" d="M560 96v30a30 7 0 0 0 60 0V96"/><ellipse class="dg-box" cx="590" cy="96" rx="30" ry="7"/><text class="dg-label dg-label--xs" x="590" y="119" text-anchor="middle">tenant_a</text></g>
+                    <g class="dg-pop" style="--d:900"><path class="dg-box" d="M560 166v30a30 7 0 0 0 60 0V166"/><ellipse class="dg-box" cx="590" cy="166" rx="30" ry="7"/><text class="dg-label dg-label--xs" x="590" y="189" text-anchor="middle">tenant_b</text></g>
+                    <g class="dg-pop" style="--d:940"><path class="dg-box dg-box--accent" d="M560 236v30a30 7 0 0 0 60 0V236"/><ellipse class="dg-box dg-box--accent" cx="590" cy="236" rx="30" ry="7"/><text class="dg-label dg-label--xs dg-label--accent" x="590" y="259" text-anchor="middle">tenant_c</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:980" x="590" y="300" text-anchor="middle">tenant_n …</text>
 
-  <!-- Skills Section -->
-  <section class="section" id="skills">
-    <div class="section__container">
-      <div class="section__header scroll-reveal">
-        <h2 class="section__title">Skills & Technologies</h2>
-        <p class="section__subtitle">
-          Organized by domain — from product frontend to AI workflows and infrastructure
-        </p>
-      </div>
-
-      <div class="skills-grid">
-        <div class="skill-group scroll-reveal scroll-reveal--delay-1">
-          <h3 class="skill-group__title"><i class="fas fa-laptop-code"></i> Frontend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">React</span>
-            <span class="skill-tag">TypeScript</span>
-            <span class="skill-tag">JavaScript</span>
-            <span class="skill-tag">HTML</span>
-            <span class="skill-tag">CSS</span>
-          </div>
-        </div>
-
-        <div class="skill-group scroll-reveal scroll-reveal--delay-2">
-          <h3 class="skill-group__title"><i class="fas fa-server"></i> Backend</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Node.js</span>
-            <span class="skill-tag">Express</span>
-            <span class="skill-tag">REST APIs</span>
-            <span class="skill-tag">Auth</span>
-            <span class="skill-tag">API Architecture</span>
-          </div>
-        </div>
-
-        <div class="skill-group scroll-reveal scroll-reveal--delay-3">
-          <h3 class="skill-group__title"><i class="fas fa-database"></i> Databases</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">MongoDB</span>
-            <span class="skill-tag">MySQL</span>
-            <span class="skill-tag">SQL / NoSQL</span>
-          </div>
-        </div>
-
-        <div class="skill-group scroll-reveal scroll-reveal--delay-4">
-          <h3 class="skill-group__title"><i class="fas fa-robot"></i> AI Systems</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">LLM Workflows</span>
-            <span class="skill-tag">Tool Calling</span>
-            <span class="skill-tag">Structured Outputs</span>
-            <span class="skill-tag">Prompt Engineering</span>
-            <span class="skill-tag">Fallback Handling</span>
-          </div>
-        </div>
-
-        <div class="skill-group scroll-reveal scroll-reveal--delay-1">
-          <h3 class="skill-group__title"><i class="fas fa-cloud"></i> Infrastructure</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Docker</span>
-            <span class="skill-tag">AWS</span>
-            <span class="skill-tag">Nginx</span>
-            <span class="skill-tag">PM2</span>
-          </div>
-        </div>
-
-        <div class="skill-group scroll-reveal scroll-reveal--delay-2">
-          <h3 class="skill-group__title"><i class="fas fa-bolt"></i> Realtime / Messaging</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">WebSockets</span>
-            <span class="skill-tag">Redis</span>
-            <span class="skill-tag">RabbitMQ</span>
-          </div>
-        </div>
-
-        <div class="skill-group scroll-reveal scroll-reveal--delay-3">
-          <h3 class="skill-group__title"><i class="fas fa-sitemap"></i> Architecture</h3>
-          <div class="skill-tags">
-            <span class="skill-tag">Microservices</span>
-            <span class="skill-tag">Multi-Tenant SaaS</span>
-            <span class="skill-tag">RBAC / ABAC</span>
-            <span class="skill-tag">System Design</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Experience Section -->
-  <section class="section" id="experience">
-    <div class="section__container">
-      <div class="section__header scroll-reveal">
-        <h2 class="section__title">Professional Experience</h2>
-        <p class="section__subtitle">
-          End-to-end ownership across production SaaS, APIs, and real-time product workflows
-        </p>
-      </div>
-
-      <div class="grid">
-        <div class="card scroll-reveal scroll-reveal--delay-1">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <h3 class="card__title">Full Stack Engineer</h3>
-          </div>
-          <div class="card__content">
-            <p><strong>WJS Digital</strong> | 2024–Present</p>
-            <p>Own production features end-to-end on a multi-tenant SaaS platform — API architecture, RBAC, real-time
-              workflows, background processing, and ERP integrations. Debug live issues, improve reliability, and ship
-              with product stakeholders under real business constraints.</p>
-          </div>
-        </div>
-
-        <div class="card scroll-reveal scroll-reveal--delay-2">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-            <h3 class="card__title">Technical Instructor</h3>
-          </div>
-          <div class="card__content">
-            <p><strong>Freelance</strong> | 2021–Present</p>
-            <p>Teach software engineering fundamentals — data structures, system design, and problem-solving — to
-              academic and school students. Strengthens how I explain technical decisions and mentor teammates.</p>
-          </div>
-        </div>
-
-        <div class="card scroll-reveal scroll-reveal--delay-3">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-cloud"></i>
-            </div>
-            <h3 class="card__title">AWS re/Start Graduate</h3>
-          </div>
-          <div class="card__content">
-            <p><strong>AWS</strong> | 2024 Cohort</p>
-            <p>Hands-on cloud and DevOps: EC2, S3, IAM, VPC, Linux, GitHub Actions, and CI/CD pipelines. Applied to
-              deploying and operating production services with clearer observability habits.</p>
-          </div>
-        </div>
-
-        <div class="card scroll-reveal scroll-reveal--delay-4">
-          <div class="card__header">
-            <div class="card__icon">
-              <i class="fas fa-laptop-code"></i>
-            </div>
-            <h3 class="card__title">Freelance Developer</h3>
-          </div>
-          <div class="card__content">
-            <p><strong>Remote</strong> | Various Projects</p>
-            <p>Delivered full-stack dashboards, automation tools, and client products — often with unclear requirements
-              and tight timelines. Practiced working with ambiguity while keeping APIs, UX, and deployment dependable.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section class="section" id="projects">
-    <div class="section__container">
-      <div class="section__header scroll-reveal">
-        <h2 class="section__title">Featured Projects</h2>
-        <p class="section__subtitle">
-          Product case studies — problem, solution, ownership, and why each build matters
-        </p>
-      </div>
-
-      <div class="case-studies">
-        <!-- Project 1: AI Tool-Calling Agent -->
-        <article class="case-study scroll-reveal">
-          <div class="case-study__media">
-            <img src="images/AI.png" alt="AI Tool-Calling Agent" loading="lazy">
-          </div>
-          <div class="case-study__content">
-            <div class="case-study__header">
-              <h3 class="case-study__title">AI Tool-Calling Agent</h3>
-              <div class="case-study__tags">
-                <span class="project-card__tech-item">C#</span>
-                <span class="project-card__tech-item">LLMs</span>
-                <span class="project-card__tech-item">Tool Calling</span>
-                <span class="project-card__tech-item">Agent Workflow</span>
-              </div>
-            </div>
-            <p class="project-card__description">Built an LLM tool-calling loop with sequential tool execution,
-              structured JSON output, logging, validation, and fallback behavior for failed API/tool calls.</p>
-            <div class="case-study__body">
-              <div class="case-study__field">
-                <h4>Problem</h4>
-                <p>LLM agents need to call external tools reliably — with predictable outputs when APIs fail or return
-                  unexpected data.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>Solution</h4>
-                <p>Implemented a sequential tool-calling loop with structured JSON schemas, validation layers, and
-                  fallback paths for failed tool/API responses.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>What I Owned</h4>
-                <p>Agent loop design, tool orchestration, output validation, logging, and error recovery handling.</p>
-              </div>
-            </div>
-            <p class="case-study__impact"><strong>Why it matters:</strong> Demonstrates the reliability patterns AI
-              Systems roles require — not just prompting, but production-grade agent behavior.</p>
-          </div>
-        </article>
-
-        <!-- Project 2: Crypto Investor Dashboard -->
-        <article class="case-study scroll-reveal scroll-reveal--delay-1">
-          <div class="case-study__media">
-            <img src="images/crypto.png" alt="Crypto Investor Dashboard" loading="lazy">
-          </div>
-          <div class="case-study__content">
-            <div class="case-study__header">
-              <h3 class="case-study__title">Crypto Investor Dashboard</h3>
-              <div class="case-study__tags">
-                <span class="project-card__tech-item">React</span>
-                <span class="project-card__tech-item">Node.js</span>
-                <span class="project-card__tech-item">MongoDB</span>
-                <span class="project-card__tech-item">OpenAI</span>
-              </div>
-            </div>
-            <p class="project-card__description">Full-stack dashboard with authentication, external API integrations,
-              live/fallback crypto data, AI insight generation, loading/error states, and production deployment.</p>
-            <div class="case-study__body">
-              <div class="case-study__field">
-                <h4>Problem</h4>
-                <p>Investors need a single dashboard for live market data, portfolio context, and AI-generated insights
-                  — even when external APIs are slow or unavailable.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>Solution</h4>
-                <p>Built a JWT-authenticated full-stack app with external API integrations, fallback data paths, OpenAI
-                  insight generation, and polished loading/error UX — deployed on Render and Vercel.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>What I Owned</h4>
-                <p>Frontend, backend APIs, auth, external integrations, AI insight workflow, deployment, and error
-                  handling.</p>
-              </div>
-            </div>
-            <p class="case-study__impact"><strong>Why it matters:</strong> Shows end-to-end product delivery combining
-              real-time data, AI features, and production deployment discipline.</p>
-          </div>
-        </article>
-
-        <!-- Project 3: B2B SaaS CRM Platform -->
-        <article class="case-study scroll-reveal scroll-reveal--delay-2">
-          <div class="case-study__media">
-            <img src="images/crm1.png" alt="B2B SaaS CRM Platform" loading="lazy">
-          </div>
-          <div class="case-study__content">
-            <div class="case-study__header">
-              <h3 class="case-study__title">B2B SaaS CRM Platform</h3>
-              <div class="case-study__tags">
-                <span class="project-card__tech-item">React</span>
-                <span class="project-card__tech-item">TypeScript</span>
-                <span class="project-card__tech-item">Docker</span>
-                <span class="project-card__tech-item">Redis</span>
-              </div>
-            </div>
-            <p class="project-card__description">Production multi-tenant CRM platform with role-based access control,
-              tenant isolation, microservices architecture, real-time features, and background processing.</p>
-            <div class="case-study__body">
-              <div class="case-study__field">
-                <h4>Problem</h4>
-                <p>B2B teams need isolated tenant data, role-based permissions, and real-time workflows at production
-                  scale.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>Solution</h4>
-                <p>Architected a multi-tenant CRM with RBAC, microservices, Redis caching, RabbitMQ background jobs,
-                  and real-time updates — containerized with Docker and deployed on AWS.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>What I Owned</h4>
-                <p>Full-stack features, API design, tenant isolation patterns, real-time flows, and service
-                  integration.</p>
-              </div>
-            </div>
-            <p class="case-study__impact"><strong>Why it matters:</strong> Direct evidence of production SaaS experience
-              — the foundation for AI Systems work inside real products.</p>
-            <div class="case-study__links">
-              <a href="projects/crm.html" class="project-card__btn">View Case Study</a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Project 4: Moments Event Platform -->
-        <article class="case-study scroll-reveal scroll-reveal--delay-3">
-          <div class="case-study__media">
-            <img src="images/Wedding.png" alt="Moments Event Platform" loading="lazy">
-          </div>
-          <div class="case-study__content">
-            <div class="case-study__header">
-              <h3 class="case-study__title">Moments Event Platform</h3>
-              <div class="case-study__tags">
-                <span class="project-card__tech-item">Next.js</span>
-                <span class="project-card__tech-item">Supabase</span>
-                <span class="project-card__tech-item">Expo</span>
-                <span class="project-card__tech-item">Realtime</span>
-              </div>
-            </div>
-            <p class="project-card__description">Product architecture for event workflows including host dashboard, guest
-              RSVP, QR check-in, real-time photo wall, moderation, and staff mobile flows.</p>
-            <div class="case-study__body">
-              <div class="case-study__field">
-                <h4>Problem</h4>
-                <p>Event hosts need a unified workflow — invitations, RSVPs, on-site check-in, and a live moderated
-                  photo experience without guests installing an app.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>Solution</h4>
-                <p>Designed end-to-end product flows across web (Next.js + Supabase) and staff mobile (Expo) — auth,
-                  realtime photo wall, QR check-in, moderation, and multi-role access.</p>
-              </div>
-              <div class="case-study__field">
-                <h4>What I Owned</h4>
-                <p>Product architecture, workflow design, realtime features, auth/roles, and cross-platform user flows.
-                </p>
-              </div>
-            </div>
-            <p class="case-study__impact"><strong>Why it matters:</strong> Shows product-minded system design across
-              realtime, auth, and multi-user workflows — skills that transfer directly to AI agent products.</p>
-          </div>
-        </article>
-      </div>
-
-      <p class="projects-divider scroll-reveal">Additional Projects</p>
-
-      <!-- MERN Stack Projects -->
-      <div class="scroll-reveal">
-        <h3
-          style="color: var(--accent); margin: var(--space-2xl) 0 var(--space-lg); font-size: 1.5rem; font-weight: 600;">
-          MERN Stack Applications</h3>
-        <div class="grid">
-          <div class="project-card scroll-reveal scroll-reveal--delay-1">
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="CRM Panel Dashboard" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">CRM Panel</h3>
-              <p class="project-card__description">Client/session/alert management system with full admin control and
-                booking engine. Features real-time notifications and comprehensive analytics.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">React</span>
-                <span class="project-card__tech-item">Node.js</span>
-                <span class="project-card__tech-item">MongoDB</span>
-                <span class="project-card__tech-item">Socket.io</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="projects/crm.html" class="project-card__btn">View Project</a>
-                <div class="project-card__links">
-                  <a href="projects/crm.html" class="project-card__link" title="View Details">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.8s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-e1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.8s" begin="1.6s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="2.1s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-e3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="2.1s" begin="2.4s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.6s" begin="2s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-t3"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.6s" begin="2s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.9s" begin="3s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#crm-t1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.9s" begin="3s" repeatCount="indefinite"/></circle>
+                  </svg>
+                  <!--@end-->
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="project-card scroll-reveal scroll-reveal--delay-2">
-            <img
-              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Logistics Dashboard" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">Flying Packages</h3>
-              <p class="project-card__description">Logistics dashboard with delivery tracking, live updates, and admin
-                analytics. Streamlined package management system.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">React</span>
-                <span class="project-card__tech-item">Express</span>
-                <span class="project-card__tech-item">MongoDB</span>
-                <span class="project-card__tech-item">Real-time</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="projects/flying-packages.html" class="project-card__btn">View Project</a>
-                <div class="project-card__links">
-                  <a href="projects/flying-packages.html" class="project-card__link" title="View Details">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card scroll-reveal scroll-reveal--delay-3">
-            <img
-              src="https://images.unsplash.com/photo-1556742111-a301076d9d18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="E-commerce Gaming Store" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">Gaming Store</h3>
-              <p class="project-card__description">E-commerce site with Stripe integration, product filters, and full
-                admin panel. Complete shopping experience with secure payments.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">React</span>
-                <span class="project-card__tech-item">Stripe</span>
-                <span class="project-card__tech-item">E-commerce</span>
-                <span class="project-card__tech-item">Admin Panel</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="https://chip-cart-emporium.vercel.app/" target="_blank" class="project-card__btn">Live Demo</a>
-                <div class="project-card__links">
-                  <a href="https://chip-cart-emporium.vercel.app/" target="_blank" class="project-card__link"
-                    title="Live Demo">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Trading & Automation -->
-      <div class="scroll-reveal">
-        <h3
-          style="color: var(--accent); margin: var(--space-2xl) 0 var(--space-lg); font-size: 1.5rem; font-weight: 600;">
-          Trading & Automation</h3>
-        <div class="grid">
-          <div class="project-card scroll-reveal scroll-reveal--delay-1">
-            <img
-              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Trading Dashboard" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">Trading Bots</h3>
-              <p class="project-card__description">Python-based algorithmic bots integrated with MetaTrader for
-                auto-trading and risk control. Advanced trading strategies with real-time market analysis.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">Python</span>
-                <span class="project-card__tech-item">MetaTrader</span>
-                <span class="project-card__tech-item">Algorithmic Trading</span>
-                <span class="project-card__tech-item">Risk Management</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="projects/trading-bots.html" class="project-card__btn">View Project</a>
-                <div class="project-card__links">
-                  <a href="projects/trading-bots.html" class="project-card__link" title="View Details">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Android Projects -->
-      <div class="scroll-reveal">
-        <h3
-          style="color: var(--accent); margin: var(--space-2xl) 0 var(--space-lg); font-size: 1.5rem; font-weight: 600;">
-          Mobile Applications</h3>
-        <div class="grid">
-          <div class="project-card scroll-reveal scroll-reveal--delay-1">
-            <img
-              src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Android Mobile Apps" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">Mobile Apps</h3>
-              <p class="project-card__description">Native Android applications including Reminder, Car Finder, Book
-                Library, and Real Estate Listings. Built with Java and modern Android development practices.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">Java</span>
-                <span class="project-card__tech-item">Android</span>
-                <span class="project-card__tech-item">SQLite</span>
-                <span class="project-card__tech-item">UI/UX</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="projects/android-apps.html" class="project-card__btn">View Project</a>
-                <div class="project-card__links">
-                  <a href="projects/android-apps.html" class="project-card__link" title="View Details">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Business Tools -->
-      <div class="scroll-reveal">
-        <h3
-          style="color: var(--accent); margin: var(--space-2xl) 0 var(--space-lg); font-size: 1.5rem; font-weight: 600;">
-          Business Solutions</h3>
-        <div class="grid">
-          <div class="project-card scroll-reveal scroll-reveal--delay-1">
-            <img
-              src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="E-commerce Auto Parts Store" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">Wix Auto Parts</h3>
-              <p class="project-card__description">30K+ item e-commerce store integrated with ERP using custom Wix Code
-                automation. Streamlined inventory management and order processing.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">Wix</span>
-                <span class="project-card__tech-item">E-commerce</span>
-                <span class="project-card__tech-item">ERP Integration</span>
-                <span class="project-card__tech-item">Automation</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="projects/wix-auto-parts.html" class="project-card__btn">View Project</a>
-                <div class="project-card__links">
-                  <a href="projects/wix-auto-parts.html" class="project-card__link" title="View Details">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-card scroll-reveal scroll-reveal--delay-2">
-            <img
-              src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-              alt="Digital Business Cards" class="project-card__image" loading="lazy">
-            <div class="project-card__content">
-              <h3 class="project-card__title">Business Cards</h3>
-              <p class="project-card__description">Responsive digital business cards designed for a variety of
-                industries. Modern, professional designs with interactive elements.</p>
-              <div class="project-card__tech">
-                <span class="project-card__tech-item">HTML5</span>
-                <span class="project-card__tech-item">CSS3</span>
-                <span class="project-card__tech-item">JavaScript</span>
-                <span class="project-card__tech-item">Responsive</span>
-              </div>
-              <div class="project-card__footer">
-                <a href="projects/business-card.html" class="project-card__btn">View Projects</a>
-                <div class="project-card__links">
-                  <a href="projects/business-card.html" class="project-card__link" title="View Details">
-                    <i class="fas fa-external-link-alt"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Contact Section -->
-  <section class="section" id="contact">
-    <div class="section__container">
-      <div class="section__header scroll-reveal">
-        <h2 class="section__title">Get In Touch</h2>
-        <p class="section__subtitle">
-          Open to Full Stack, AI Systems, and AI Agent engineering roles
-        </p>
-      </div>
-
-      <div class="grid" style="grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: start;">
-        <div class="scroll-reveal scroll-reveal--delay-1">
-          <div class="contact-availability">
-            <p><strong>Open to Full Stack, AI Systems, and AI Agent engineering roles.</strong> If you're hiring for
-              someone who ships production workflows and is growing into AI-native systems — let's talk.</p>
-          </div>
-          <div class="card">
-            <div class="card__header">
-              <div class="card__icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <h3 class="card__title">Contact & Links</h3>
-            </div>
-            <div class="card__content">
-              <ul class="contact-link-list">
-                <li>
-                  <strong>Email:</strong>
-                  <a href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
-                </li>
-                <li>
-                  <strong>LinkedIn:</strong>
-                  <a href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">linkedin.com/in/wesam-ghrayeb</a>
-                </li>
-                <li>
-                  <strong>GitHub:</strong>
-                  <a href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">github.com/wesamghrayeb</a>
-                </li>
-                <li>
-                  <strong>Portfolio:</strong>
-                  <a href="https://wesamghrayeb.com" target="_blank" rel="noopener">wesamghrayeb.com</a>
-                </li>
-                <li>
-                  <strong>CV:</strong>
-                  <a href="Wesam CV.pdf" download>Download Wesam CV.pdf</a>
-                </li>
+            </a>
+            <div class="showcase__body">
+              <p class="showcase__meta mono"><span class="idx">01</span><span>Multi-tenant SaaS</span><span>WJS Digital Innovations · 2024–2026</span></p>
+              <h3 class="h3 showcase__title">
+                <a href="projects/together-crm.html">Together CRM</a>
+                <span class="showcase__kicker serif">Multi-tenant SaaS platform</span>
+              </h3>
+              <p class="showcase__desc">
+                A production B2B CRM: an Express API gateway in front of roughly twelve domain services, a dedicated
+                MongoDB database per tenant, centralized auth, and real-time messaging.
+              </p>
+              <ul class="showcase__points" role="list">
+                <li>Database-per-tenant isolation with centralized authentication and authorization</li>
+                <li>Redis caching and coordination, RabbitMQ background jobs, Socket.IO notifications</li>
+                <li>Deployed and debugged on AWS with Docker; load-tested with k6</li>
               </ul>
-              <div class="footer__socials" style="justify-content: flex-start; margin-top: var(--space-xl);">
-                <a href="https://github.com/wesamghrayeb" target="_blank" rel="noopener" class="footer__social" title="GitHub">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener" class="footer__social" title="LinkedIn">
-                  <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="mailto:wesamghrayeeb1@gmail.com" class="footer__social" title="Email">
-                  <i class="fas fa-envelope"></i>
-                </a>
-                <a href="Wesam CV.pdf" download class="footer__social" title="Download CV">
-                  <i class="fas fa-file-pdf"></i>
-                </a>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">Node.js</li><li class="tag">TypeScript</li><li class="tag">Express</li><li class="tag">MongoDB</li><li class="tag">Redis</li><li class="tag">RabbitMQ</li><li class="tag">Socket.IO</li><li class="tag">AWS</li><li class="tag">Docker</li>
+              </ul>
+              <a class="link-arrow" href="projects/together-crm.html">View case study <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg></span></a>
+            </div>
+          </li>
+
+          <!-- 02 iTeach -->
+          <li class="showcase__item" data-reveal>
+            <a class="showcase__visual" href="projects/iteach.html" tabindex="-1" aria-hidden="true">
+              <div class="canvas">
+                <p class="canvas__label mono">fig. 02 — manager / engine / accessor</p>
+                <p class="canvas__label canvas__label--right mono"><span style="color:var(--accent)">■</span> my work</p>
+                <div class="canvas__art" data-anim>
+                  <!--@svg:iteach-->
+                  <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: iTeach's layered .NET services. Managers orchestrate engines and accessors behind Dapr sidecars, with PostgreSQL, Redis and Grafana. My contributions are highlighted: the onboarding todo manager, engine and accessor, plus the duration-estimation and progress engines." data-draw>
+                    <path id="it-c1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:300" d="M125 62V120"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:340" d="M316 62V120"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:380" d="M511 62V120"/>
+                    <path id="it-m1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:600" d="M125 154C125 174 105 172 105 192"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:640" d="M316 154C316 174 252 172 252 192"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:680" d="M316 154C316 174 404 172 404 192"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:720" d="M511 154C511 174 543 172 543 192"/>
+                    <path id="it-e1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:900" d="M105 226C105 245 115 245 115 264"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:940" d="M543 226C543 250 287 240 287 264"/>
+                    <path id="it-a1" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:1150" d="M115 298V344"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:1200" d="M287 298C287 320 257 322 257 344"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1250" d="M528 324V344"/>
+
+                    <g class="dg-node dg-node--ink dg-pop" style="--d:100"><rect x="24" y="28" width="592" height="34" rx="10"/><text class="dg-label" x="320" y="49" text-anchor="middle">clients → api · ai-powered learning</text></g>
+                    <g class="dg-pop" style="--d:200">
+                      <rect class="dg-frame" x="24" y="92" width="592" height="232" rx="16"/>
+                      <text class="dg-label dg-label--sm" x="340" y="316">dapr · invocation + pub/sub</text>
+                      <text class="dg-label dg-label--sm" x="40" y="114">managers</text>
+                      <text class="dg-label dg-label--sm" x="40" y="186">engines</text>
+                      <text class="dg-label dg-label--sm" x="40" y="258">accessors</text>
+                    </g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:400"><rect x="40" y="120" width="170" height="34" rx="9"/><text class="dg-label dg-label--accent" x="125" y="141" text-anchor="middle">todo.manager</text></g>
+                    <g class="dg-node dg-pop" style="--d:440"><rect x="226" y="120" width="180" height="34" rx="9"/><text class="dg-label" x="316" y="141" text-anchor="middle">platform.manager</text></g>
+                    <g class="dg-node dg-pop" style="--d:480"><rect x="422" y="120" width="178" height="34" rx="9"/><text class="dg-label" x="511" y="141" text-anchor="middle">platform.manager</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:700"><rect x="40" y="192" width="130" height="34" rx="9"/><text class="dg-label dg-label--accent" x="105" y="213" text-anchor="middle">todo.engine</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:740"><rect x="182" y="192" width="140" height="34" rx="9"/><text class="dg-label dg-label--accent" x="252" y="213" text-anchor="middle">duration.engine</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:780"><rect x="334" y="192" width="140" height="34" rx="9"/><text class="dg-label dg-label--accent" x="404" y="213" text-anchor="middle">progress.engine</text></g>
+                    <g class="dg-node dg-pop" style="--d:820"><rect x="486" y="192" width="114" height="34" rx="9"/><text class="dg-label" x="543" y="213" text-anchor="middle">platform…</text></g>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:1000"><rect x="40" y="264" width="150" height="34" rx="9"/><text class="dg-label dg-label--accent" x="115" y="285" text-anchor="middle">todo.accessor</text></g>
+                    <g class="dg-node dg-pop" style="--d:1040"><rect x="202" y="264" width="170" height="34" rx="9"/><text class="dg-label" x="287" y="285" text-anchor="middle">platform.accessor</text></g>
+                    <g class="dg-node dg-pop" style="--d:1300"><rect x="40" y="344" width="150" height="34" rx="17"/><text class="dg-label" x="115" y="365" text-anchor="middle">postgresql</text></g>
+                    <g class="dg-node dg-pop" style="--d:1340"><rect x="202" y="344" width="110" height="34" rx="17"/><text class="dg-label" x="257" y="365" text-anchor="middle">redis</text></g>
+                    <g class="dg-node dg-pop" style="--d:1380"><rect x="440" y="344" width="176" height="34" rx="17"/><circle class="dg-dot--ok anim-pulse" cx="460" cy="361" r="2.5"/><text class="dg-label" x="534" y="365" text-anchor="middle">grafana · observability</text></g>
+
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.4s" begin="1.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-c1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.4s" begin="1.8s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.2s" begin="2.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-m1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.2s" begin="2.4s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.2s" begin="2.9s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-e1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.2s" begin="2.9s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.3s" begin="3.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#it-a1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.3s" begin="3.4s" repeatCount="indefinite"/></circle>
+                  </svg>
+                  <!--@end-->
+                </div>
               </div>
+            </a>
+            <div class="showcase__body">
+              <p class="showcase__meta mono"><span class="idx">02</span><span>Cloud-native microservices</span><span>ZioNet · 2026</span></p>
+              <h3 class="h3 showcase__title">
+                <a href="projects/iteach.html">iTeach</a>
+                <span class="showcase__kicker serif">AI-powered learning platform</span>
+              </h3>
+              <p class="showcase__desc">
+                Backend contributions to a team-built, cloud-native .NET platform — features delivered inside an
+                established Manager / Engine / Accessor architecture.
+              </p>
+              <ul class="showcase__points" role="list">
+                <li>Exercise-duration estimation and learner progress calculations</li>
+                <li>An onboarding Todo system across Manager, Accessor and Engine services</li>
+                <li>Service contracts, API integration, testing, debugging and observability</li>
+              </ul>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">C#</li><li class="tag">.NET 10</li><li class="tag">PostgreSQL</li><li class="tag">Dapr</li><li class="tag">Azure</li><li class="tag">Redis</li><li class="tag">Grafana</li>
+              </ul>
+              <a class="link-arrow" href="projects/iteach.html">View case study <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg></span></a>
+            </div>
+          </li>
+
+          <!-- 03 ApproveFlow -->
+          <li class="showcase__item" data-reveal>
+            <a class="showcase__visual" href="projects/approveflow.html" tabindex="-1" aria-hidden="true">
+              <div class="canvas">
+                <p class="canvas__label mono">fig. 03 — rules first, ai second</p>
+                <div class="canvas__art" data-anim>
+                  <!--@svg:approveflow-->
+                  <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: an approval pipeline. A request passes a deterministic policy check, then an advisory AI assessment, then a router that either auto-approves or sends it to human review. Policy violations go straight to review, and every step is written to an event stream and audit log." data-draw>
+                    <path id="af-p1" fill="none" d="M128 150H460C482 150 478 83 500 83"/>
+                    <path id="af-p2" fill="none" d="M128 150H460C482 150 478 217 500 217"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:300" d="M128 150H152"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:500" d="M272 150H296"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:700" d="M416 150H444"/>
+                    <path class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:900" d="M476 150C490 150 486 83 500 83"/>
+                    <path class="dg-edge dg-draw" pathLength="1" style="--d:950" d="M476 150C490 150 486 217 500 217"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1000" d="M240 170C240 250 440 228 500 228"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1100" d="M76 196V290"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1140" d="M356 196V290"/>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:1160" d="M558 236V290"/>
+
+                    <circle class="dg-packet" r="3.5" opacity="0"><animateMotion dur="3.2s" begin="1.8s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .55 1"><mpath href="#af-p1"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="3.2s" begin="1.8s" repeatCount="indefinite"/></circle>
+                    <circle class="dg-packet" r="3.5" opacity="0"><animateMotion dur="3.6s" begin="3.4s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".45 0 .55 1"><mpath href="#af-p2"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="3.6s" begin="3.4s" repeatCount="indefinite"/></circle>
+
+                    <g class="dg-node dg-node--ink dg-pop" style="--d:100"><rect x="24" y="130" width="104" height="40" rx="10"/><text class="dg-label" x="76" y="154" text-anchor="middle">request</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:150" x="76" y="188" text-anchor="middle">expense · invoice</text>
+                    <g class="dg-node dg-pop" style="--d:350"><rect x="152" y="130" width="120" height="40" rx="10"/><text class="dg-label" x="212" y="154" text-anchor="middle">policy.check</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:400" x="212" y="188" text-anchor="middle">deterministic</text>
+                    <g class="dg-node dg-node--accent dg-pop" style="--d:550"><rect x="296" y="130" width="120" height="40" rx="10"/><circle class="dg-dot anim-pulse" cx="312" cy="150" r="2.5"/><text class="dg-label dg-label--accent" x="362" y="154" text-anchor="middle">ai.assess</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:600" x="356" y="188" text-anchor="middle">advisory only</text>
+                    <path class="dg-box dg-pop" style="--d:750" d="M460 134L476 150L460 166L444 150Z"/>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:900" x="486" y="62" text-anchor="end">rules pass · confident</text>
+                    <g class="dg-node dg-pop" style="--d:950"><rect x="500" y="64" width="116" height="38" rx="10"/><circle class="dg-dot--ok" cx="516" cy="83" r="3"/><text class="dg-label" x="564" y="87" text-anchor="middle">auto-approve</text></g>
+                    <g class="dg-node dg-pop" style="--d:1000"><rect x="500" y="198" width="116" height="38" rx="10"/><circle class="dg-dot--muted" cx="516" cy="217" r="3"/><text class="dg-label" x="564" y="221" text-anchor="middle">human.review</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1050" x="300" y="252">policy violation</text>
+                    <g class="dg-node dg-pop" style="--d:1200"><rect x="24" y="290" width="592" height="36" rx="10"/><text class="dg-label" x="40" y="312">event stream → audit log</text><text class="dg-label dg-label--sm" x="600" y="312" text-anchor="end">postgresql</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1300" x="24" y="356">submitted → evaluated → assessed → decided</text>
+                  </svg>
+                  <!--@end-->
+                </div>
+              </div>
+            </a>
+            <div class="showcase__body">
+              <p class="showcase__meta mono"><span class="idx">03</span><span>Event-driven decisions</span><span>.NET · Dapr</span></p>
+              <h3 class="h3 showcase__title">
+                <a href="projects/approveflow.html">ApproveFlow</a>
+                <span class="showcase__kicker serif">Intelligent approval engine</span>
+              </h3>
+              <p class="showcase__desc">
+                An approval engine for expenses and invoices that puts deterministic policy checks in front of AI
+                assistance — automatic approval where the rules allow it, human review where they don't, and an audit
+                trail for every decision.
+              </p>
+              <ul class="showcase__points" role="list">
+                <li>Deterministic policy validation before any AI step</li>
+                <li>Event-driven processing on Dapr with PostgreSQL persistence</li>
+                <li>Auditable outcomes: automatic approval or human review</li>
+              </ul>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">C#</li><li class="tag">.NET</li><li class="tag">Dapr</li><li class="tag">PostgreSQL</li><li class="tag">Event-driven</li>
+              </ul>
+              <a class="link-arrow" href="projects/approveflow.html">View case study <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg></span></a>
+            </div>
+          </li>
+
+          <!-- 04 Fly Package -->
+          <li class="showcase__item" data-reveal>
+            <a class="showcase__visual" href="projects/flying-packages.html" tabindex="-1" aria-hidden="true">
+              <div class="canvas">
+                <p class="canvas__label mono">fig. 04 — nearest available courier</p>
+                <div class="canvas__art" data-anim>
+                  <!--@svg:fly-->
+                  <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: a delivery map. A new order sits at the centre of expanding search rings; the nearest available courier is selected while busy couriers are skipped. A side panel tracks deliveries by state." data-draw>
+                    <defs><clipPath id="fp-clip"><rect x="20" y="24" width="430" height="352" rx="16"/></clipPath></defs>
+                    <rect class="dg-box dg-pop" style="--d:50" x="20" y="24" width="430" height="352" rx="16"/>
+                    <g clip-path="url(#fp-clip)" class="dg-pop" style="--d:150">
+                      <path class="dg-road" d="M10 120C140 104 220 166 460 136"/>
+                      <path class="dg-road" d="M118 14C134 140 96 262 144 390"/>
+                      <path class="dg-road" d="M10 296C160 270 300 326 460 282"/>
+                      <path class="dg-road" d="M336 14C300 120 366 244 318 390"/>
+                      <circle class="dg-ring" cx="232" cy="205" r="44"/>
+                      <circle class="dg-ring" cx="232" cy="205" r="88"/>
+                      <circle class="dg-ring" cx="232" cy="205" r="132"/>
+                      <circle class="dg-ring dg-ring--live anim-ring" cx="232" cy="205" r="120"/>
+                    </g>
+                    <path id="fp-route" class="dg-edge dg-edge--accent dg-draw" pathLength="1" style="--d:800; stroke-width:1.6" d="M300 168C276 170 252 186 238 200"/>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.8s" begin="1.6s" repeatCount="indefinite" calcMode="spline" keyPoints="0;1" keyTimes="0;1" keySplines=".6 0 .4 1"><mpath href="#fp-route"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.8s" begin="1.6s" repeatCount="indefinite"/></circle>
+
+                    <g class="dg-pop" style="--d:500">
+                      <circle class="dg-fill-accent" cx="232" cy="205" r="11"/>
+                      <rect class="dg-fill-surface" x="227.5" y="200.5" width="9" height="9" rx="1.5"/>
+                      <text class="dg-label dg-label--sm" x="250" y="232">new order · pickup</text>
+                    </g>
+                    <g class="dg-pop" style="--d:650"><circle class="dg-junction" cx="306" cy="166" r="8"/><circle class="dg-dot--ok" cx="306" cy="166" r="3.5"/><text class="dg-label dg-label--sm dg-label--accent" x="320" y="162">nearest available</text></g>
+                    <g class="dg-pop" style="--d:700"><circle class="dg-box" cx="130" cy="118" r="7"/><circle class="dg-dot--ok" cx="130" cy="118" r="3"/></g>
+                    <g class="dg-pop" style="--d:720"><circle class="dg-box" cx="92" cy="300" r="7"/><circle class="dg-dot--ok" cx="92" cy="300" r="3"/></g>
+                    <g class="dg-pop" style="--d:740"><circle class="dg-box" cx="380" cy="300" r="7"/><circle class="dg-dot--muted" cx="380" cy="300" r="3"/></g>
+                    <g class="dg-pop" style="--d:760"><circle class="dg-box" cx="372" cy="78" r="7"/><circle class="dg-dot--muted" cx="372" cy="78" r="3"/></g>
+                    <g class="dg-pop" style="--d:780"><circle class="dg-box" cx="190" cy="334" r="7"/><circle class="dg-dot--muted" cx="190" cy="334" r="3"/></g>
+                    <g class="dg-pop" style="--d:800"><circle class="dg-box" cx="220" cy="62" r="7"/><circle class="dg-dot--ok" cx="220" cy="62" r="3"/></g>
+                    <g class="dg-pop" style="--d:850">
+                      <circle class="dg-dot--ok" cx="40" cy="356" r="3"/><text class="dg-label dg-label--sm" x="50" y="359">available</text>
+                      <circle class="dg-dot--muted" cx="122" cy="356" r="3"/><text class="dg-label dg-label--sm" x="132" y="359">busy</text>
+                    </g>
+
+                    <g class="dg-pop" style="--d:400">
+                      <rect class="dg-box" x="470" y="24" width="150" height="352" rx="16"/>
+                      <text class="dg-label" x="486" y="54">deliveries</text>
+                      <text class="dg-label dg-label--sm" x="486" y="70">manager view</text>
+                      <text class="dg-label dg-label--sm" x="486" y="104">pending</text>
+                      <rect class="dg-fill-line" x="486" y="112" width="118" height="6" rx="3"/><rect class="dg-fill-strong" x="486" y="112" width="44" height="6" rx="3"/>
+                      <text class="dg-label dg-label--sm" x="486" y="146">assigned</text>
+                      <rect class="dg-fill-line" x="486" y="154" width="118" height="6" rx="3"/><rect class="dg-fill-accent" x="486" y="154" width="70" height="6" rx="3"/>
+                      <text class="dg-label dg-label--sm" x="486" y="188">in transit</text>
+                      <rect class="dg-fill-line" x="486" y="196" width="118" height="6" rx="3"/><rect class="dg-fill-accent anim-progress" x="486" y="196" width="96" height="6" rx="3"/>
+                      <text class="dg-label dg-label--sm" x="486" y="230">delivered</text>
+                      <rect class="dg-fill-line" x="486" y="238" width="118" height="6" rx="3"/><rect class="dg-fill-ink" x="486" y="238" width="104" height="6" rx="3"/>
+                      <line class="dg-edge" x1="486" y1="270" x2="604" y2="270"/>
+                      <text class="dg-label dg-label--sm" x="486" y="296">couriers</text>
+                      <circle class="dg-dot--ok" cx="490" cy="314" r="3.5"/><circle class="dg-dot--ok" cx="504" cy="314" r="3.5"/><circle class="dg-dot--muted" cx="518" cy="314" r="3.5"/><circle class="dg-dot--ok" cx="532" cy="314" r="3.5"/><circle class="dg-dot--muted" cx="546" cy="314" r="3.5"/>
+                      <text class="dg-label dg-label--sm" x="486" y="356">supplier · courier · mgr</text>
+                    </g>
+                  </svg>
+                  <!--@end-->
+                </div>
+              </div>
+            </a>
+            <div class="showcase__body">
+              <p class="showcase__meta mono"><span class="idx">04</span><span>Logistics</span><span>Academic · MERN</span></p>
+              <h3 class="h3 showcase__title">
+                <a href="projects/flying-packages.html">Fly Package</a>
+                <span class="showcase__kicker serif">Delivery management system</span>
+              </h3>
+              <p class="showcase__desc">
+                A delivery platform connecting suppliers, couriers and managers — from order intake and courier
+                assignment to delivery tracking and logistics dashboards.
+              </p>
+              <ul class="showcase__points" role="list">
+                <li>Role-based workflows for suppliers, couriers and managers</li>
+                <li>Nearest available courier selected with a geospatial query</li>
+                <li>Courier availability, delivery states and dashboards</li>
+              </ul>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">React</li><li class="tag">Node.js</li><li class="tag">Express</li><li class="tag">MongoDB</li><li class="tag">REST APIs</li>
+              </ul>
+              <a class="link-arrow" href="projects/flying-packages.html">View case study <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg></span></a>
+            </div>
+          </li>
+
+          <!-- 05 Moments -->
+          <li class="showcase__item" data-reveal>
+            <a class="showcase__visual" href="projects/moments.html" tabindex="-1" aria-hidden="true">
+              <div class="canvas">
+                <p class="canvas__label mono">fig. 05 — scan, upload, appear live</p>
+                <div class="canvas__art" data-anim>
+                  <!--@svg:moments-->
+                  <svg viewBox="0 0 640 400" role="img" aria-label="Illustration: a guest scans an event QR code, uploads a photo from their phone without an app, and the photo appears on a live gallery over a real-time channel after moderation." data-draw>
+                    <g class="dg-pop" style="--d:100">
+                      <rect class="dg-box" x="28" y="92" width="172" height="212" rx="16"/>
+                      <g transform="translate(51 114)">
+                        <path class="dg-qr" d="M54 0h6v6h-6zM72 0h6v6h-6zM48 6h6v6h-6zM60 6h6v6h-6zM66 6h6v6h-6zM72 6h6v6h-6zM48 12h6v6h-6zM54 12h6v6h-6zM60 12h6v6h-6zM48 18h6v6h-6zM54 18h6v6h-6zM66 18h6v6h-6zM48 24h6v6h-6zM54 24h6v6h-6zM72 24h6v6h-6zM48 30h6v6h-6zM54 30h6v6h-6zM60 30h6v6h-6zM66 30h6v6h-6zM72 30h6v6h-6zM60 36h6v6h-6zM66 42h6v6h-6zM72 42h6v6h-6zM0 48h6v6h-6zM6 48h6v6h-6zM24 48h6v6h-6zM48 48h6v6h-6zM72 48h6v6h-6zM78 48h6v6h-6zM0 54h6v6h-6zM6 54h6v6h-6zM18 54h6v6h-6zM30 54h6v6h-6zM36 54h6v6h-6zM42 54h6v6h-6zM60 54h6v6h-6zM66 54h6v6h-6zM78 54h6v6h-6zM90 54h6v6h-6zM114 54h6v6h-6zM120 54h6v6h-6zM6 60h6v6h-6zM36 60h6v6h-6zM48 60h6v6h-6zM66 60h6v6h-6zM78 60h6v6h-6zM84 60h6v6h-6zM90 60h6v6h-6zM96 60h6v6h-6zM102 60h6v6h-6zM108 60h6v6h-6zM18 66h6v6h-6zM30 66h6v6h-6zM42 66h6v6h-6zM54 66h6v6h-6zM72 66h6v6h-6zM96 66h6v6h-6zM102 66h6v6h-6zM108 66h6v6h-6zM120 66h6v6h-6zM6 72h6v6h-6zM12 72h6v6h-6zM18 72h6v6h-6zM42 72h6v6h-6zM54 72h6v6h-6zM60 72h6v6h-6zM66 72h6v6h-6zM90 72h6v6h-6zM102 72h6v6h-6zM108 72h6v6h-6zM120 72h6v6h-6zM48 78h6v6h-6zM54 78h6v6h-6zM60 78h6v6h-6zM66 78h6v6h-6zM84 78h6v6h-6zM90 78h6v6h-6zM114 78h6v6h-6zM120 78h6v6h-6zM54 84h6v6h-6zM60 84h6v6h-6zM72 84h6v6h-6zM96 84h6v6h-6zM102 84h6v6h-6zM108 84h6v6h-6zM114 84h6v6h-6zM120 84h6v6h-6zM54 90h6v6h-6zM72 90h6v6h-6zM78 90h6v6h-6zM84 90h6v6h-6zM114 90h6v6h-6zM120 90h6v6h-6zM48 96h6v6h-6zM60 96h6v6h-6zM72 96h6v6h-6zM90 96h6v6h-6zM102 96h6v6h-6zM120 96h6v6h-6zM60 102h6v6h-6zM66 102h6v6h-6zM72 102h6v6h-6zM78 102h6v6h-6zM84 102h6v6h-6zM90 102h6v6h-6zM102 102h6v6h-6zM108 102h6v6h-6zM114 102h6v6h-6zM120 102h6v6h-6zM84 108h6v6h-6zM90 108h6v6h-6zM114 108h6v6h-6zM54 114h6v6h-6zM66 114h6v6h-6zM72 114h6v6h-6zM102 114h6v6h-6zM108 114h6v6h-6zM120 114h6v6h-6zM66 120h6v6h-6zM90 120h6v6h-6zM96 120h6v6h-6zM108 120h6v6h-6z"/>
+                        <rect class="dg-qr-finder" x="3" y="3" width="36" height="36" rx="5"/><rect class="dg-qr" x="12" y="12" width="18" height="18" rx="2"/>
+                        <rect class="dg-qr-finder" x="87" y="3" width="36" height="36" rx="5"/><rect class="dg-qr" x="96" y="12" width="18" height="18" rx="2"/>
+                        <rect class="dg-qr-finder" x="3" y="87" width="36" height="36" rx="5"/><rect class="dg-qr" x="12" y="96" width="18" height="18" rx="2"/>
+                      </g>
+                      <text class="dg-label" x="114" y="278" text-anchor="middle">scan · no app</text>
+                    </g>
+                    <path class="dg-edge dg-edge--dash dg-draw" pathLength="1" style="--d:500" d="M200 198H236"/>
+
+                    <g class="dg-pop" style="--d:400">
+                      <rect class="dg-box" x="236" y="60" width="124" height="256" rx="20"/>
+                      <rect class="dg-fill-strong" x="280" y="70" width="36" height="6" rx="3"/>
+                      <rect class="dg-tile--a" x="248" y="90" width="100" height="124" rx="10"/>
+                      <circle class="dg-fill-strong" cx="326" cy="114" r="8"/>
+                      <path class="dg-fill-strong" d="M256 206l26-34 16 18 12-14 30 30z"/>
+                      <text class="dg-label dg-label--sm" x="248" y="236">uploading</text>
+                      <rect class="dg-fill-line" x="248" y="244" width="100" height="6" rx="3"/>
+                      <rect class="dg-fill-accent anim-progress" x="248" y="244" width="100" height="6" rx="3"/>
+                      <g class="dg-node dg-node--ink"><rect x="248" y="266" width="100" height="32" rx="16"/><text class="dg-label" x="298" y="286" text-anchor="middle">post</text></g>
+                    </g>
+
+                    <path id="mo-rt" class="dg-edge dg-edge--accent anim-dash dg-pop" style="--d:700" d="M360 183H414"/>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:700" x="387" y="172" text-anchor="middle">realtime</text>
+                    <circle class="dg-packet" r="3" opacity="0"><animateMotion dur="1.4s" begin="1.6s" repeatCount="indefinite"><mpath href="#mo-rt"/></animateMotion><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.15;.85;1" dur="1.4s" begin="1.6s" repeatCount="indefinite"/></circle>
+
+                    <g class="dg-pop" style="--d:800">
+                      <text class="dg-label" x="420" y="70">live gallery</text>
+                      <rect class="dg-tile--new anim-appear" x="420" y="84" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile" x="487" y="84" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--b" x="554" y="84" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--a" x="420" y="151" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--b" x="487" y="151" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile" x="554" y="151" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile" x="420" y="218" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--a" x="487" y="218" width="58" height="58" rx="8"/>
+                      <rect class="dg-tile--pending" x="554" y="218" width="58" height="58" rx="8"/>
+                      <text class="dg-label dg-label--xs" x="583" y="251" text-anchor="middle">review</text>
+                    </g>
+                    <g class="dg-node dg-pop" style="--d:950"><rect x="420" y="292" width="192" height="30" rx="15"/><circle class="dg-dot--ok" cx="438" cy="307" r="3"/><text class="dg-label" x="450" y="311">moderation · host</text></g>
+                    <text class="dg-label dg-label--sm dg-pop" style="--d:1000" x="28" y="346">host dashboard · analytics · per-event isolation</text>
+                  </svg>
+                  <!--@end-->
+                </div>
+              </div>
+            </a>
+            <div class="showcase__body">
+              <p class="showcase__meta mono"><span class="idx">05</span><span>Real-time product</span><span>Next.js · Supabase</span></p>
+              <h3 class="h3 showcase__title">
+                <a href="projects/moments.html">Moments</a>
+                <span class="showcase__kicker serif">Real-time event platform</span>
+              </h3>
+              <p class="showcase__desc">
+                Guests scan a QR code, upload photos without installing an app, and see them appear in a live event
+                gallery — while hosts moderate and manage everything from a dashboard.
+              </p>
+              <ul class="showcase__points" role="list">
+                <li>QR-based guest uploads and real-time galleries</li>
+                <li>Host dashboard with moderation workflows, analytics and media management</li>
+                <li>Authentication with data isolated per event</li>
+              </ul>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">PostgreSQL</li><li class="tag">Supabase</li><li class="tag">Realtime</li>
+              </ul>
+              <a class="link-arrow" href="projects/moments.html">View case study <span class="link-arrow__icon"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg></span></a>
+            </div>
+          </li>
+        </ol>
+
+        <!-- More projects -->
+        <div class="more" id="more-projects">
+          <div class="more__head">
+            <h3 class="h3" data-reveal>More projects</h3>
+            <p class="mono subtle" data-reveal>Smaller builds, experiments and client work</p>
+          </div>
+          <ul class="index-list" role="list" data-stagger>
+            <li class="index-row" data-reveal>
+              <div class="index-row__inner">
+                <span class="index-row__name">AI Tool-Calling Agent</span>
+                <span class="index-row__desc">LLM agent loop with a tool registry, sequential tool execution, structured JSON output, logging, and fallback results when provider APIs fail.</span>
+                <span class="index-row__stack mono">C# · LLM APIs · JSON schema</span>
+                <span class="index-row__go mono index-row__note">ZioNet course</span>
+              </div>
+            </li>
+            <li class="index-row" data-reveal>
+              <div class="index-row__inner">
+                <span class="index-row__name">Crypto Investor Dashboard</span>
+                <span class="index-row__desc">Full-stack dashboard with JWT auth, external market APIs, live and fallback data states, and AI-generated insights.</span>
+                <span class="index-row__stack mono">React · Node.js · MongoDB · OpenAI</span>
+                <span class="index-row__go mono index-row__note">Render · Vercel</span>
+              </div>
+            </li>
+            <li class="index-row" data-reveal>
+              <div class="index-row__inner">
+                <span class="index-row__name">Notification Service Reliability Assessment</span>
+                <span class="index-row__desc">Hardened a bulk-messaging service with typed validation, retry handling, SMS segment recalculation and safer state transitions.</span>
+                <span class="index-row__stack mono">TypeScript · Reliability</span>
+                <span class="index-row__go mono index-row__note">Technical assessment</span>
+              </div>
+            </li>
+            <li class="index-row" data-reveal>
+              <a class="index-row__inner" href="projects/crm.html">
+                <span class="index-row__name">CRM Panel</span>
+                <span class="index-row__desc">Appointment and client management with a slot-based calendar, dashboards, exports and WhatsApp notifications.</span>
+                <span class="index-row__stack mono">React · TypeScript · Node.js · MongoDB</span>
+                <span class="index-row__go mono">Details <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span>
+              </a>
+            </li>
+            <li class="index-row" data-reveal>
+              <a class="index-row__inner" href="https://chip-cart-emporium.vercel.app/" target="_blank" rel="noopener">
+                <span class="index-row__name">Gaming Store</span>
+                <span class="index-row__desc">E-commerce storefront with Stripe payments, product filters and an admin panel.</span>
+                <span class="index-row__stack mono">React · Stripe</span>
+                <span class="index-row__go mono">Live demo <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg><span class="sr-only">(opens in a new tab)</span></span>
+              </a>
+            </li>
+            <li class="index-row" data-reveal>
+              <a class="index-row__inner" href="projects/trading-bots.html">
+                <span class="index-row__name">Trading Bots</span>
+                <span class="index-row__desc">Python bots for algorithmic trading on MetaTrader, with LSTM-based models, risk settings and real-time logging.</span>
+                <span class="index-row__stack mono">Python · MetaTrader 5 · Pandas</span>
+                <span class="index-row__go mono">Details <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span>
+              </a>
+            </li>
+            <li class="index-row" data-reveal>
+              <a class="index-row__inner" href="projects/wix-auto-parts.html">
+                <span class="index-row__name">Wix Auto Parts</span>
+                <span class="index-row__desc">A 30,000+ item e-commerce store synced with an ERP for live stock and automated pricing.</span>
+                <span class="index-row__stack mono">Wix Velo · JavaScript · ERP sync</span>
+                <span class="index-row__go mono">Details <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span>
+              </a>
+            </li>
+            <li class="index-row" data-reveal>
+              <a class="index-row__inner" href="projects/android-apps.html">
+                <span class="index-row__name">Android Apps</span>
+                <span class="index-row__desc">Native apps: fitness reminders, a book library, a car finder and real-estate listings.</span>
+                <span class="index-row__stack mono">Java · Kotlin · SQLite · Firebase</span>
+                <span class="index-row__go mono">Details <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span>
+              </a>
+            </li>
+            <li class="index-row" data-reveal>
+              <a class="index-row__inner" href="projects/business-card.html">
+                <span class="index-row__name">Digital Business Cards</span>
+                <span class="index-row__desc">Responsive digital business cards for local businesses.</span>
+                <span class="index-row__stack mono">HTML · CSS · JavaScript</span>
+                <span class="index-row__go mono">Details <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx">03</span> Experience</p>
+          <div class="section-head__row">
+            <h2 class="h2" id="experience-title" data-split>Ownership, from first commit <em class="serif">to production.</em></h2>
+            <p class="lead" data-reveal>
+              Product teams, platform teams and independent work — each role about owning outcomes, not just tickets.
+            </p>
+          </div>
+        </header>
+
+        <ol class="timeline" role="list">
+          <li class="timeline__rail" aria-hidden="true"><span class="timeline__progress"></span></li>
+
+          <li class="tl-item" data-reveal>
+            <p class="tl-item__when mono"><strong>2026</strong>Current</p>
+            <div class="tl-item__body">
+              <h3 class="h3 tl-item__role">.NET Software Engineering Intern</h3>
+              <p class="tl-item__org"><span class="serif">ZioNet</span><span class="mono subtle">iTeach platform · C# / .NET</span></p>
+              <p class="tl-item__summary">
+                Backend engineering on iTeach, an AI-powered learning platform built as cloud-native .NET microservices —
+                working inside a larger team and an established architecture.
+              </p>
+              <ul class="tl-item__points" role="list">
+                <li>Implemented <strong>exercise-duration estimation</strong> and <strong>learner progress calculations</strong>.</li>
+                <li>Built an <strong>onboarding Todo system</strong> spanning Manager, Accessor and Engine services.</li>
+                <li>Worked across service contracts, API integration, testing, debugging and Grafana observability.</li>
+                <li>Collaborated with the platform team through shared contracts and code review.</li>
+              </ul>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">C#</li><li class="tag">.NET 10</li><li class="tag">PostgreSQL</li><li class="tag">Dapr</li><li class="tag">Azure</li><li class="tag">Redis</li><li class="tag">Grafana</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item" data-reveal>
+            <p class="tl-item__when mono"><strong>2024 — 2026</strong>2 years</p>
+            <div class="tl-item__body">
+              <h3 class="h3 tl-item__role">Full Stack Engineer &amp; Agile Lead</h3>
+              <p class="tl-item__org"><span class="serif">WJS Digital Innovations</span><span class="mono subtle">Together CRM · B2B SaaS</span></p>
+              <p class="tl-item__summary">
+                Owned end-to-end features on a multi-tenant B2B SaaS CRM used by multiple business clients — from
+                requirements and API design to UI, deployment and validation.
+              </p>
+              <ul class="tl-item__points" role="list">
+                <li>Designed service boundaries, REST APIs and RPC communication across <strong>~12 domain services</strong> behind an Express gateway.</li>
+                <li>Implemented authentication, <strong>RBAC/ABAC</strong> authorization and strict <strong>database-per-tenant</strong> isolation.</li>
+                <li>Built real-time and asynchronous flows with Socket.IO, Redis and RabbitMQ.</li>
+                <li>Operated production on AWS with Docker, Nginx and PM2 — investigating live issues and load-testing with k6.</li>
+                <li><strong>Led CRM testing and quality validation with 50+ Google developers</strong> through a Technion QA partnership, working daily with product and stakeholders.</li>
+              </ul>
+              <ul class="tags" role="list" aria-label="Technologies">
+                <li class="tag">Node.js</li><li class="tag">TypeScript</li><li class="tag">Express</li><li class="tag">MongoDB</li><li class="tag">Redis</li><li class="tag">RabbitMQ</li><li class="tag">Socket.IO</li><li class="tag">AWS</li><li class="tag">Docker</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item" data-reveal>
+            <p class="tl-item__when mono"><strong>2021 — Present</strong>Independent</p>
+            <div class="tl-item__body">
+              <h3 class="h3 tl-item__role">Freelance Developer &amp; Technical Instructor</h3>
+              <p class="tl-item__org"><span class="serif">Independent</span><span class="mono subtle">Client work · Teaching</span></p>
+              <p class="tl-item__summary">
+                Delivered dashboards, automation tools and client websites — often from loose requirements on tight
+                timelines — while teaching programming, data structures, math and physics to school and university students.
+              </p>
+              <ul class="tl-item__points" role="list">
+                <li>Shipped client work such as an ERP-synced, 30,000+ item e-commerce store and digital business cards.</li>
+                <li>Teaching sharpened how I explain technical decisions and mentor teammates —
+                  <a class="link link--static" href="exams.html" hreflang="ar">Exam Success tutoring</a>.</li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="tl-item tl-item--compact" data-reveal>
+            <p class="tl-item__when mono"><strong>2024</strong>Program</p>
+            <div class="tl-item__body">
+              <h3 class="h4 tl-item__role">AWS re/Start</h3>
+              <p class="tl-item__summary">Hands-on cloud and DevOps training: EC2, S3, IAM, VPC, Linux, GitHub Actions and CI/CD pipelines.</p>
+            </div>
+          </li>
+
+          <li class="tl-item tl-item--compact" data-reveal>
+            <p class="tl-item__when mono"><strong>2019 — 2023</strong>Education</p>
+            <div class="tl-item__body">
+              <h3 class="h4 tl-item__role">B.Sc. Software Engineering · Ort Braude College</h3>
+              <p class="tl-item__summary">Graduated with three Dean's List distinctions.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CAPABILITIES ============ -->
+    <section class="section section--alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-reveal><span class="idx">04</span> Capabilities</p>
+          <div class="section-head__row">
+            <h2 class="h2" id="skills-title" data-split>A toolkit grounded <em class="serif">in production.</em></h2>
+            <div data-reveal>
+              <p class="lead" style="margin-bottom:20px">Grouped by the problems they solve — no percentages, no logo wall.</p>
+              <p class="caps-legend mono">
+                <span><i class="cap-chip-sample" aria-hidden="true"></i> Production &amp; project experience</span>
+                <span><i class="cap-chip-sample cap-chip-sample--learning" aria-hidden="true"></i> Growing / working knowledge</span>
+              </p>
             </div>
           </div>
+        </header>
+
+        <div class="caps" data-stagger>
+          <article class="cap" data-reveal>
+            <div class="cap__head mono"><span class="cap__idx">01</span><span>Backend</span></div>
+            <h3 class="cap__title">Backend &amp; APIs</h3>
+            <p class="cap__desc">Service design, API contracts, authentication and authorization.</p>
+            <ul class="cap__list" role="list">
+              <li class="chip">C#</li><li class="chip">.NET</li><li class="chip">Node.js</li><li class="chip">TypeScript</li><li class="chip">Express</li><li class="chip">REST APIs</li><li class="chip">JWT &amp; auth</li><li class="chip">RBAC / ABAC</li><li class="chip">Python</li>
+            </ul>
+          </article>
+          <article class="cap" data-reveal>
+            <div class="cap__head mono"><span class="cap__idx">02</span><span>Data</span></div>
+            <h3 class="cap__title">Databases &amp; Caching</h3>
+            <p class="cap__desc">Modeling, isolation and performance for persistent data.</p>
+            <ul class="cap__list" role="list">
+              <li class="chip">PostgreSQL</li><li class="chip">MongoDB</li><li class="chip">Redis</li><li class="chip">MySQL</li><li class="chip chip--learning">Supabase</li>
+            </ul>
+          </article>
+          <article class="cap" data-reveal>
+            <div class="cap__head mono"><span class="cap__idx">03</span><span>Systems</span></div>
+            <h3 class="cap__title">Messaging &amp; Distributed Systems</h3>
+            <p class="cap__desc">Asynchronous workflows, events and real-time delivery.</p>
+            <ul class="cap__list" role="list">
+              <li class="chip">RabbitMQ</li><li class="chip">Socket.IO / WebSockets</li><li class="chip">Dapr</li><li class="chip">Microservices</li><li class="chip">Multi-tenancy</li><li class="chip">Event-driven design</li>
+            </ul>
+          </article>
+          <article class="cap" data-reveal>
+            <div class="cap__head mono"><span class="cap__idx">04</span><span>Operations</span></div>
+            <h3 class="cap__title">Cloud, DevOps &amp; Observability</h3>
+            <p class="cap__desc">Shipping, operating and understanding running systems.</p>
+            <ul class="cap__list" role="list">
+              <li class="chip">AWS</li><li class="chip">Docker</li><li class="chip">Linux</li><li class="chip">Nginx</li><li class="chip">PM2</li><li class="chip">k6</li><li class="chip">GitHub Actions</li><li class="chip">Grafana</li><li class="chip chip--learning">Azure</li>
+            </ul>
+          </article>
+          <article class="cap" data-reveal>
+            <div class="cap__head mono"><span class="cap__idx">05</span><span>Interface</span></div>
+            <h3 class="cap__title">Frontend</h3>
+            <p class="cap__desc">Product interfaces that stay fast, clear and usable.</p>
+            <ul class="cap__list" role="list">
+              <li class="chip">React</li><li class="chip">TypeScript</li><li class="chip">JavaScript</li><li class="chip">HTML &amp; CSS</li><li class="chip chip--learning">Next.js</li>
+            </ul>
+          </article>
+          <article class="cap" data-reveal>
+            <div class="cap__head mono"><span class="cap__idx">06</span><span>AI</span></div>
+            <h3 class="cap__title">AI Systems &amp; Engineering Tools</h3>
+            <p class="cap__desc">LLM features built with the same discipline as any production system.</p>
+            <ul class="cap__list" role="list">
+              <li class="chip">LLM tool calling</li><li class="chip">Structured outputs</li><li class="chip">Fallback &amp; retry design</li><li class="chip">Human-in-the-loop review</li><li class="chip">AI-assisted development</li><li class="chip chip--learning">OpenAI API</li>
+            </ul>
+          </article>
         </div>
+      </div>
+    </section>
 
-        <div class="scroll-reveal scroll-reveal--delay-2">
-          <form name="contact" method="POST" data-netlify="true" class="form">
-            <input type="hidden" name="form-name" value="contact">
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--dark contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow" data-reveal><span class="idx">05</span> Contact</p>
+        <h2 class="contact__title" id="contact-title" data-split>Let's build something <em class="serif">meaningful.</em></h2>
 
-            <div class="form__group">
-              <label for="name" class="form__label">Name</label>
-              <input type="text" id="name" name="name" class="form__input" placeholder="Your full name" required>
+        <div class="contact__grid">
+          <div data-reveal>
+            <p class="lead">
+              I'm open to challenging engineering roles and collaborations — backend platforms, distributed systems,
+              cloud infrastructure and AI-powered products. Email is the fastest way to reach me.
+            </p>
+            <div class="contact__email-row">
+              <a class="contact__email link link--static" href="mailto:wesamghrayeeb1@gmail.com">wesamghrayeeb1@gmail.com</a>
+              <button class="icon-btn" type="button" data-copy="wesamghrayeeb1@gmail.com" aria-label="Copy email address">
+                <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-copy"/></svg>
+              </button>
             </div>
+            <ul class="contact__links" role="list">
+              <li><a href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener"><span class="label"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-linkedin"/></svg>LinkedIn</span><span class="value"><span>in/wesam-ghrayeb</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span></a></li>
+              <li><a href="https://github.com/wesamghrayeb" target="_blank" rel="noopener"><span class="label"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-github"/></svg>GitHub</span><span class="value"><span>@wesamghrayeb</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span></a></li>
+              <li><a href="Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf"><span class="label"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-download"/></svg>Curriculum vitae</span><span class="value"><span>PDF</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-down"/></svg></span></a></li>
+              <li><a href="tel:+972585291291"><span class="label"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-phone"/></svg>Phone</span><span class="value"><span>+972 58-529-1291</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-up-right"/></svg></span></a></li>
+            </ul>
+          </div>
 
-            <div class="form__group">
-              <label for="email" class="form__label">Email</label>
-              <input type="email" id="email" name="email" class="form__input" placeholder="your.email@example.com"
-                required>
+          <form class="form" id="contact-form" data-to="wesamghrayeeb1@gmail.com" data-reveal style="--delay:120ms">
+            <p class="form__title">Send a message</p>
+            <div class="form__row">
+              <div class="field">
+                <label class="field__label mono" for="cf-name">Name</label>
+                <input class="field__input" id="cf-name" name="name" type="text" autocomplete="name" required placeholder="Your name">
+              </div>
+              <div class="field">
+                <label class="field__label mono" for="cf-email">Email</label>
+                <input class="field__input" id="cf-email" name="email" type="email" autocomplete="email" required placeholder="you@company.com">
+              </div>
             </div>
-
-            <div class="form__group">
-              <label for="message" class="form__label">Message</label>
-              <textarea id="message" name="message" class="form__textarea"
-                placeholder="Tell me about your project or just say hello..." required></textarea>
+            <div class="field">
+              <label class="field__label mono" for="cf-message">Message</label>
+              <textarea class="field__input" id="cf-message" name="message" required placeholder="A role, a project, or a problem worth solving…"></textarea>
             </div>
-
-            <button type="submit" class="btn btn--primary" style="width: 100%;">
-              <i class="fas fa-paper-plane"></i>
-              Send Message
-            </button>
+            <div class="form__foot">
+              <p class="form__note">Opens your email app with the message ready to send. Nothing is stored on this site.</p>
+              <button class="btn" type="submit" data-magnetic>Compose email <svg class="icon icon--e" aria-hidden="true"><use href="assets/img/icons.svg#i-arrow-right"/></svg></button>
+            </div>
           </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer__container">
-      <div class="footer__content">
-        <div class="footer__section">
-          <h3>Wesam Ghrayeb</h3>
-          <p>Full Stack Engineer focused on production SaaS platforms, APIs, real-time workflows, and AI-native
-            systems — with end-to-end ownership from architecture to deployment.</p>
+  <footer class="footer section--dark">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__col">
+          <a class="brand" href="#top"><span class="brand__mark" aria-hidden="true">W</span><span>Wesam Ghrayeb</span></a>
+          <p class="footer__tagline">Software engineer building reliable backend systems, cloud infrastructure and AI-powered products.</p>
+          <p class="mono subtle">Israel · <span data-local-time>--:--</span> local time</p>
         </div>
-
-        <div class="footer__section">
-          <h3>Quick Links</h3>
-          <p><a href="#about" style="color: var(--text-muted);">About</a></p>
-          <p><a href="#ai-systems" style="color: var(--text-muted);">AI Systems</a></p>
-          <p><a href="#skills" style="color: var(--text-muted);">Skills</a></p>
-          <p><a href="#projects" style="color: var(--text-muted);">Projects</a></p>
-          <p><a href="#contact" style="color: var(--text-muted);">Contact</a></p>
+        <nav class="footer__col" aria-label="Footer">
+          <h2 class="mono">Navigate</h2>
+          <a class="link" href="#about">About</a>
+          <a class="link" href="#work">Work</a>
+          <a class="link" href="#experience">Experience</a>
+          <a class="link" href="#skills">Capabilities</a>
+          <a class="link" href="#contact">Contact</a>
+        </nav>
+        <div class="footer__col">
+          <h2 class="mono">Case studies</h2>
+          <a class="link" href="projects/together-crm.html">Together CRM</a>
+          <a class="link" href="projects/iteach.html">iTeach</a>
+          <a class="link" href="projects/approveflow.html">ApproveFlow</a>
+          <a class="link" href="projects/flying-packages.html">Fly Package</a>
+          <a class="link" href="projects/moments.html">Moments</a>
         </div>
-
-        <div class="footer__section">
-          <h3>Focus Areas</h3>
-          <p>Full Stack · AI Systems · LLM Workflows · Multi-Tenant SaaS · APIs · Real-time · Docker · AWS ·
-            Microservices · Tool Calling · Structured Outputs</p>
+        <div class="footer__col">
+          <h2 class="mono">Elsewhere</h2>
+          <a class="link" href="https://github.com/wesamghrayeb" target="_blank" rel="noopener">GitHub</a>
+          <a class="link" href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="link" href="mailto:wesamghrayeeb1@gmail.com">Email</a>
+          <a class="link" href="Wesam%20CV.pdf" download="Wesam-Ghrayeb-CV.pdf">CV (PDF)</a>
         </div>
       </div>
 
-      <div class="footer__socials">
-        <a href="https://github.com/wesamghrayeb" target="_blank" class="footer__social" title="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com/in/wesam-ghrayeb" target="_blank" class="footer__social" title="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="mailto:wesamghrayeeb1@gmail.com" class="footer__social" title="Email">
-          <i class="fas fa-envelope"></i>
-        </a>
-        <a href="tel:+972585291291" class="footer__social" title="Phone">
-          <i class="fas fa-phone"></i>
-        </a>
-      </div>
+      <p class="footer__wordmark" aria-hidden="true" data-reveal="fade">Wesam <span class="serif">Ghrayeb</span></p>
 
-      <div class="footer__bottom">
-        <p>&copy; 2026 Wesam Ghrayeb. Full Stack Engineer & AI Systems.</p>
+      <div class="footer__bottom mono">
+        <span>© <span data-year>2026</span> Wesam Ghrayeb</span>
+        <span>Hand-built — HTML, CSS &amp; a little JavaScript</span>
+        <a class="to-top" href="#top" data-scroll-top>Back to top <span class="icon-btn" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#i-arrow-up"/></svg></span></a>
       </div>
     </div>
   </footer>
-  <!-- JavaScript -->
+
+  <!-- Accessibility widget (EqualWeb), loaded after the page is interactive -->
   <script>
-    // === Modern Portfolio JavaScript ===
-
-    // DOM Elements
-    const particlesContainer = document.getElementById('particles');
-
-    // === Floating Navigation ===
-    const floatingNav = document.getElementById('floating-nav');
-    const floatingNavLinks = document.querySelectorAll('.floating-nav__link');
-
-    // Smooth scrolling for floating nav links
-    floatingNavLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-
-        if (targetSection) {
-          targetSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Active link highlighting
-    const sections = document.querySelectorAll('section[id]');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      const scrollPosition = window.scrollY + 200;
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-
-        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      floatingNavLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    const scrollRevealElements = document.querySelectorAll('.scroll-reveal');
-
-    const scrollRevealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          scrollRevealObserver.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    scrollRevealElements.forEach(el => scrollRevealObserver.observe(el));
-
-
-
-    // === Particle Background ===
-    function createParticles() {
-      if (!particlesContainer) return;
-      const particleCount = 50;
-
-      for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-
-        const size = Math.random() * 4 + 1;
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * window.innerHeight;
-        const duration = Math.random() * 20 + 10;
-        const delay = Math.random() * 5;
-
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${x}px`;
-        particle.style.top = `${y}px`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-
-        particlesContainer.appendChild(particle);
-      }
-    }
-
-    createParticles();
-
-    // === Form Handling ===
-    const contactForm = document.querySelector('form[name="contact"]');
-    if (contactForm) {
-      contactForm.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const submitBtn = this.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-        submitBtn.disabled = true;
-
-        // Simulate form submission (replace with actual form handling)
-        setTimeout(() => {
-          submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-          submitBtn.style.background = 'var(--accent)';
-
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            submitBtn.style.background = '';
-            this.reset();
-          }, 3000);
-        }, 2000);
-      });
-    }
-
-    // === Tech Icon Interactions ===
-    document.querySelectorAll('.tech-icon').forEach(icon => {
-      icon.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-4px) scale(1.05)';
-      });
-
-      icon.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0) scale(1)';
-      });
-    });
-
-    // === Project Card Interactions ===
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mouseenter', function () {
-        this.style.transform = 'translateY(-8px)';
-      });
-
-      card.addEventListener('mouseleave', function () {
-        this.style.transform = 'translateY(0)';
-      });
-    });
-
-    // === Loading Animation ===
-    window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
-
-      // Animate hero elements
-      const heroElements = document.querySelectorAll('.hero__eyebrow, .hero__headline, .hero__description, .hero__cta, .hero__status');
-      heroElements.forEach((el, index) => {
-        setTimeout(() => {
-          el.style.opacity = '1';
-          el.style.transform = 'translateY(0)';
-        }, index * 200);
-      });
-    });
-
-    // === Performance Optimization ===
-    // Lazy load images
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.dataset.src;
-          img.classList.remove('loading');
-          imageObserver.unobserve(img);
-        }
-      });
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-
-    // === Accessibility Improvements ===
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav__menu');
-
-    if (mobileMenuToggle && navMenu) {
-      mobileMenuToggle.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          mobileMenuToggle.click();
-        }
-      });
-
-      navMenu.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          mobileMenuToggle.classList.remove('active');
-          navMenu.classList.remove('active');
-          document.body.style.overflow = '';
-          mobileMenuToggle.focus();
-        }
-      });
-    }
-
-    console.log('🚀 Portfolio loaded successfully!');
-  </script>
-  <!-- Accessibility Code for "wesamghrayeb.com" -->
-  <script>
-    /*
-    Want to customize your button? visit our documentation page:
-    https://login.equalweb.com/custom-button
-    */
     window.interdeal = {
-      get sitekey() { return "018b6fb5624648ac5d7a986babde9297" },
-      get domains() {
-        return {
-          "js": "https://cdn.equalweb.com/",
-          "acc": "https://access.equalweb.com/"
-        }
-      },
-      "Position": "left",
-      "Menulang": "AUTO",
-      "draggable": true,
-      "btnStyle": {
-        "vPosition": [
-          "80%",
-          "80%"
-        ],
-        "margin": [
-          "0",
-          "0"
-        ],
-        "scale": [
-          "0.6",
-          "0.5"
-        ],
-        "color": {
-          "main": "#1c4bb6",
-          "second": "#ffffff"
-        },
-        "icon": {
-          "outline": false,
-          "outlineColor": "#ffffff",
-          "type": 1,
-          "shape": "semicircle"
-        }
-      },
-
+      get sitekey() { return "018b6fb5624648ac5d7a986babde9297"; },
+      get domains() { return { js: "https://cdn.equalweb.com/", acc: "https://access.equalweb.com/" }; },
+      Position: "left",
+      Menulang: "AUTO",
+      draggable: true,
+      btnStyle: {
+        vPosition: ["80%", "80%"],
+        margin: ["0", "0"],
+        scale: ["0.6", "0.5"],
+        color: { main: "#17191d", second: "#ffffff" },
+        icon: { outline: false, outlineColor: "#ffffff", type: 1, shape: "semicircle" }
+      }
     };
-
-    (function (doc, head, body) {
-      var coreCall = doc.createElement('script');
-      coreCall.src = interdeal.domains.js + 'core/5.1.13/accessibility.js';
-      coreCall.defer = true;
-      coreCall.integrity = 'sha512-70/AbMe6C9H3r5hjsQleJEY4y5l9ykt4WYSgyZj/WjpY/ord/26LWfva163b9W+GwWkfwbP0iLT+h6KRl+LoXA==';
-      coreCall.crossOrigin = 'anonymous';
-      coreCall.setAttribute('data-cfasync', true);
-      body ? body.appendChild(coreCall) : head.appendChild(coreCall);
-    })(document, document.head, document.body);
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        var s = document.createElement("script");
+        s.src = window.interdeal.domains.js + "core/5.1.13/accessibility.js";
+        s.defer = true;
+        s.integrity = "sha512-70/AbMe6C9H3r5hjsQleJEY4y5l9ykt4WYSgyZj/WjpY/ord/26LWfva163b9W+GwWkfwbP0iLT+h6KRl+LoXA==";
+        s.crossOrigin = "anonymous";
+        s.setAttribute("data-cfasync", "true");
+        document.body.appendChild(s);
+      }, 1200);
+    });
   </script>
 </body>
-
 </html>
